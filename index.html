@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Band & Music School - Excellence in Music Education</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="antialiased">
+
+    <!-- Header & Navigation -->
+    <header class="bg-brand-dark bg-opacity-80 backdrop-blur-md sticky top-0 z-50 shadow-lg shadow-black/20">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#home" class="text-2xl font-bold text-brand-tan tracking-wider">B&M School</a>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#home" class="nav-link text-lg active">Home</a>
+                <a href="#about" class="nav-link text-lg">About Us</a>
+                <a href="#team" class="nav-link text-lg">Our Team</a>
+                <a href="#lessons" class="nav-link text-lg">Lessons & Pricing</a>
+                <a href="#events" class="nav-link text-lg">Events</a>
+                <a href="#gallery" class="nav-link text-lg">Gallery</a>
+                <a href="#contact" class="nav-link text-lg">Contact</a>
+            </div>
+            <div class="hidden md:flex">
+                <a href="#book-trial" class="bg-brand-tan text-gray-900 font-bold py-2 px-5 rounded-md hover:bg-opacity-90 transition duration-300">Book a Trial</a>
+            </div>
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-white focus:outline-none">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-4 6h10"></path></svg>
+                </button>
+            </div>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2">
+            <a href="#home" class="block text-center py-2 nav-link mobile-nav-link active">Home</a>
+            <a href="#about" class="block text-center py-2 nav-link mobile-nav-link">About Us</a>
+            <a href="#team" class="block text-center py-2 nav-link mobile-nav-link">Our Team</a>
+            <a href="#lessons" class="block text-center py-2 nav-link mobile-nav-link">Lessons & Pricing</a>
+            <a href="#events" class="block text-center py-2 nav-link mobile-nav-link">Events</a>
+            <a href="#gallery" class="block text-center py-2 nav-link mobile-nav-link">Gallery</a>
+            <a href="#contact" class="block text-center py-2 nav-link mobile-nav-link">Contact</a>
+            <a href="#book-trial" class="block text-center bg-brand-tan text-gray-900 font-bold mt-2 py-2 px-5 rounded-md hover:bg-opacity-90 transition duration-300">Book a Trial</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Home Section -->
+        <section id="home" class="section active">
+            <!-- Hero -->
+            <div class="relative h-[80vh] min-h-[600px] flex items-center justify-center text-center">
+                <div class="absolute inset-0 bg-black opacity-50"></div>
+                <img src="https://placehold.co/1920x1080/2a2a2a/f5f5f5?text=Orchestra+Performance" alt="Music lesson" class="absolute inset-0 w-full h-full object-cover">
+                <div class="relative z-10 p-6">
+                    <h1 class="text-5xl md:text-7xl font-extrabold text-white drop-shadow-lg">Tailored Learning, Designed for Success</h1>
+                    <p class="text-xl md:text-2xl mt-4 text-gray-200 max-w-3xl mx-auto drop-shadow-md">Nurturing the next generation of musicians with world-class faculty in a welcoming environment.</p>
+                    <a href="#lessons" class="mt-8 inline-block bg-brand-tan text-gray-900 font-bold py-3 px-8 rounded-md text-lg hover:bg-opacity-90 transition duration-300 transform hover:scale-105">Discover Our Programs</a>
+                </div>
+            </div>
+            <!-- Stats Section -->
+            <div class="bg-brand-tan py-16 text-brand-dark">
+                <div class="container mx-auto px-6">
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                        <div>
+                            <p class="text-5xl font-extrabold">400+</p>
+                            <p class="mt-2 text-xl">Active Students</p>
+                        </div>
+                        <div>
+                            <p class="text-5xl font-extrabold">100%</p>
+                            <p class="mt-2 text-xl">Pass Rates for Exams</p>
+                        </div>
+                        <div>
+                            <p class="text-5xl font-extrabold">200+</p>
+                            <p class="mt-2 text-xl">Public Performances</p>
+                        </div>
+                        <div>
+                            <p class="text-5xl font-extrabold">8+</p>
+                            <p class="mt-2 text-xl">Years of Experience</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section id="about" class="section py-20">
+            <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+                <div class="text-left">
+                    <h2 class="text-4xl font-bold text-brand-tan">Our Mission</h2>
+                    <p class="mt-6 text-lg leading-relaxed">
+                        Here you can write the mission statement of the school. This section is dedicated to your philosophy, your history, and what makes Band & Music School a unique place to learn. We believe in fostering a deep love for music through personalized instruction and a supportive community. Our goal is to train not just skilled musicians, but well-rounded individuals.
+                    </p>
+                </div>
+                <div>
+                    <img src="https://placehold.co/600x400/333/f5f5f5?text=Music+School+Interior" alt="Inside the music school" class="rounded-md shadow-lg">
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Team Section -->
+        <section id="team" class="section py-20 bg-brand-dark">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-bold text-brand-tan text-center mb-12">Meet Our World-Class Faculty</h2>
+                
+                <div class="space-y-12">
+                    <!-- Strings Section -->
+                    <div>
+                        <h3 class="text-3xl font-bold border-b-2 border-brand-tan pb-2 mb-8">Strings</h3>
+                        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                            <div class="faculty-card bg-[#222] rounded-md overflow-hidden shadow-lg" 
+                                data-name="Travis Pota-Birkhoff" 
+                                data-instrument="Violin" 
+                                data-bio='<p class="mb-4">Travis Pota-Birkhoff is a dedicated violinist and educator with a strong foundation in both performance and pedagogy. He holds a Bachelor of Music in Violin Performance with Honors and a Minor in Mathematics from the University of North Texas, where he graduated with a perfect 4.0 GPA. As a Terry Scholar and recipient of the UNT President&apos;s List distinction, he has demonstrated both academic excellence and a commitment to ethical leadership, having also been named a Ricco Ethics Scholar for his work on ethical case study analysis.</p><p class="mb-4">During his time at UNT, Mr. Pota-Birkhoff performed extensively with the UNT Concert Orchestra, engaging with major orchestral repertoire from Brahms, Tchaikovsky, Mozart, and contemporary composers. He also participated in a wide range of chamber music ensembles, receiving coaching from UNT faculty and performing in recitals, outreach events, and volunteer community engagements. His solo repertoire includes works by Bach, Bruch, Mendelssohn, Lalo, and Mozart, with experience in both studio classes and TMEA Solo & Ensemble contests at the state level.</p><p class="mb-4">In addition to his collegiate performance background, Mr. Pota-Birkhoff brings a passion for teaching and mentorship. As a volunteer violin and chamber music coach across Creekwood, Riverwood, and Kingwood Middle Schools in Kingwood, Texas, he led sectionals and coached student ensembles in preparation for UIL competitions and concerts. He provided technical instruction and interpretive insight while fostering confidence and ensemble communication among middle school students of varying skill levels.</p><p class="mb-4">He also maintains experience as a private violin instructor, working with beginner and intermediate students. His teaching emphasizes solid technical foundations—including tone production, posture, shifting, vibrato, and expressive playing—while tailoring lesson plans to meet each student’s individual needs and goals.</p><p>Known for his organizational skills, thoughtful communication, and supportive teaching style, Mr. Pota-Birkhoff is committed to helping students grow as musicians and individuals. Whether in private lessons or ensemble settings, he strives to inspire a lifelong love of music through high standards, empathy, and artistic engagement.</p>'
+                                data-achievements='[{"date": "2024", "event": "Graduated Summa Cum Laude, University of North Texas"},{"date": "2023", "event": "Ricco Ethics Scholar"},{"date": "2022-2024", "event": "UNT Concert Orchestra, Performance of Major Repertoire"},{"date": "2021-2023", "event": "Chamber Music Coach, Kingwood Middle Schools"},{"date": "2020-2024", "event": "Terry Scholar, University of North Texas"},{"date": "2020-2024", "event": "UNT President&apos;s List (All Semesters)"}]'>
+                                <img src="images/travis-pota-birkhoff.jpg" alt="Travis Pota-Birkhoff" class="w-full h-auto object-cover">
+                                <div class="p-4 text-center">
+                                    <h4 class="font-bold text-xl">Travis Pota-Birkhoff</h4>
+                                    <p class="text-brand-tan">Violin</p>
+                                </div>
+                            </div>
+                             <div class="faculty-card bg-[#222] rounded-md overflow-hidden shadow-lg" 
+                                data-name="Mengmeng Huang" 
+                                data-instrument="Cello, Founder" 
+                                data-bio="[Add bio here]"
+                                data-achievements='[]'>
+                                <img src="https://placehold.co/400x400/333/f5f5f5?text=Mengmeng" alt="Mengmeng Huang" class="w-full h-auto object-cover">
+                                <div class="p-4 text-center">
+                                    <h4 class="font-bold text-xl">Mengmeng Huang</h4>
+                                    <p class="text-brand-tan">Cello, Founder</p>
+                                </div>
+                            </div>
+                            <div class="faculty-card bg-[#222] rounded-md overflow-hidden shadow-lg" 
+                                data-name="Xiachu Song" 
+                                data-instrument="Violin" 
+                                data-bio="[Add bio here]"
+                                data-achievements='[]'>
+                                <img src="https://placehold.co/400x400/333/f5f5f5?text=Xiachu" alt="Xiachu Song" class="w-full h-auto object-cover">
+                                <div class="p-4 text-center">
+                                    <h4 class="font-bold text-xl">Xiachu Song</h4>
+                                    <p class="text-brand-tan">Violin</p>
+                                </div>
+                            </div>
+                             <div class="faculty-card bg-[#222] rounded-md overflow-hidden shadow-lg" 
+                                data-name="Qianqian Fu" 
+                                data-instrument="Violin, Viola" 
+                                data-bio="[Add bio here]"
+                                data-achievements='[]'>
+                                <img src="https://placehold.co/400x400/333/f5f5f5?text=Qianqian" alt="Qianqian Fu" class="w-full h-auto object-cover">
+                                <div class="p-4 text-center">
+                                    <h4 class="font-bold text-xl">Qianqian Fu</h4>
+                                    <p class="text-brand-tan">Violin, Viola</p>
+                                </div>
+                            </div>
+                            <div class="faculty-card bg-[#222] rounded-md overflow-hidden shadow-lg" 
+                                data-name="Eunice Lin" 
+                                data-instrument="Cello" 
+                                data-bio="[Add bio here]"
+                                data-achievements='[]'>
+                                <img src="https://placehold.co/400x400/333/f5f5f5?text=Eunice" alt="Eunice Lin" class="w-full h-auto object-cover">
+                                <div class="p-4 text-center">
+                                    <h4 class="font-bold text-xl">Eunice Lin</h4>
+                                    <p class="text-brand-tan">Cello</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Piano Section -->
+                    <div>
+                        <h3 class="text-3xl font-bold border-b-2 border-brand-tan pb-2 mb-8">Piano</h3>
+                        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                             <div class="faculty-card bg-[#222] rounded-md overflow-hidden shadow-lg" 
+                                data-name="Yibing Zhang" 
+                                data-instrument="Piano, Founder" 
+                                data-bio="[Add bio here]"
+                                data-achievements='[]'>
+                                <img src="https://placehold.co/400x400/333/f5f5f5?text=Yibing" alt="Yibing Zhang" class="w-full h-auto object-cover">
+                                <div class="p-4 text-center">
+                                    <h4 class="font-bold text-xl">Yibing Zhang</h4>
+                                    <p class="text-brand-tan">Piano, Founder</p>
+                                </div>
+                            </div>
+                            <div class="faculty-card bg-[#222] rounded-md overflow-hidden shadow-lg" 
+                                data-name="Xuan(Xinwei) Chen" 
+                                data-instrument="Piano, Music Theory" 
+                                data-bio="[Add bio here]"
+                                data-achievements='[]'>
+                                <img src="https://placehold.co/400x400/333/f5f5f5?text=Xuan" alt="Xuan(Xinwei) Chen" class="w-full h-auto object-cover">
+                                <div class="p-4 text-center">
+                                    <h4 class="font-bold text-xl">Xuan(Xinwei) Chen</h4>
+                                    <p class="text-brand-tan">Piano, Music Theory</p>
+                                </div>
+                            </div>
+                            <div class="faculty-card bg-[#222] rounded-md overflow-hidden shadow-lg" 
+                                data-name="Xinzhuo Li" 
+                                data-instrument="Piano" 
+                                data-bio="[Add bio here]"
+                                data-achievements='[]'>
+                                <img src="https://placehold.co/400x400/333/f5f5f5?text=Xinzhuo" alt="Xinzhuo Li" class="w-full h-auto object-cover">
+                                <div class="p-4 text-center">
+                                    <h4 class="font-bold text-xl">Xinzhuo Li</h4>
+                                    <p class="text-brand-tan">Piano</p>
+                                </div>
+                            </div>
+                             <div class="faculty-card bg-[#222] rounded-md overflow-hidden shadow-lg" 
+                                data-name="Yuchen Liu" 
+                                data-instrument="Piano, Music Engineering" 
+                                data-bio="[Add bio here]"
+                                data-achievements='[]'>
+                                <img src="https://placehold.co/400x400/333/f5f5f5?text=Yuchen" alt="Yuchen Liu" class="w-full h-auto object-cover">
+                                <div class="p-4 text-center">
+                                    <h4 class="font-bold text-xl">Yuchen Liu</h4>
+                                    <p class="text-brand-tan">Piano, Music Engineering</p>
+                                </div>
+                            </div>
+                             <div class="faculty-card bg-[#222] rounded-md overflow-hidden shadow-lg" 
+                                data-name="Sunny (Ting) Gan" 
+                                data-instrument="Piano, Music Theory" 
+                                data-bio="[Add bio here]"
+                                data-achievements='[]'>
+                                <img src="https://placehold.co/400x400/333/f5f5f5?text=Sunny" alt="Sunny (Ting) Gan" class="w-full h-auto object-cover">
+                                <div class="p-4 text-center">
+                                    <h4 class="font-bold text-xl">Sunny (Ting) Gan</h4>
+                                    <p class="text-brand-tan">Piano, Music Theory</p>
+                                </div>
+                            </div>
+                            <div class="faculty-card bg-[#222] rounded-md overflow-hidden shadow-lg" 
+                                data-name="Yaqi Cao" 
+                                data-instrument="Piano" 
+                                data-bio="[Add bio here]"
+                                data-achievements='[]'>
+                                <img src="https://placehold.co/400x400/333/f5f5f5?text=Yaqi" alt="Yaqi Cao" class="w-full h-auto object-cover">
+                                <div class="p-4 text-center">
+                                    <h4 class="font-bold text-xl">Yaqi Cao</h4>
+                                    <p class="text-brand-tan">Piano</p>
+                                </div>
+                            </div>
+                            <div class="faculty-card bg-[#222] rounded-md overflow-hidden shadow-lg" 
+                                data-name="Chun-Syuan Wei" 
+                                data-instrument="Piano" 
+                                data-bio="[Add bio here]"
+                                data-achievements='[]'>
+                                <img src="https://placehold.co/400x400/333/f5f5f5?text=Chun-Syuan" alt="Chun-Syuan Wei" class="w-full h-auto object-cover">
+                                <div class="p-4 text-center">
+                                    <h4 class="font-bold text-xl">Chun-Syuan Wei</h4>
+                                    <p class="text-brand-tan">Piano</p>
+                                </div>
+                            </div>
+                             <div class="faculty-card bg-[#222] rounded-md overflow-hidden shadow-lg" 
+                                data-name="Hart Lu" 
+                                data-instrument="Piano, Music Arts" 
+                                data-bio="[Add bio here]"
+                                data-achievements='[]'>
+                                <img src="https://placehold.co/400x400/333/f5f5f5?text=Hart" alt="Hart Lu" class="w-full h-auto object-cover">
+                                <div class="p-4 text-center">
+                                    <h4 class="font-bold text-xl">Hart Lu</h4>
+                                    <p class="text-brand-tan">Piano, Music Arts</p>
+                                </div>
+                            </div>
+                             <div class="faculty-card bg-[#222] rounded-md overflow-hidden shadow-lg" 
+                                data-name="Prof. Samuel Reed" 
+                                data-instrument="Classical & Jazz Piano" 
+                                data-bio="[Add bio here]"
+                                data-achievements='[{"date": "October 2023", "event": "Album Release, Top Jazz Charts"}]'>
+                                <img src="https://placehold.co/400x400/333/f5f5f5?text=Headshot" alt="Prof. Samuel Reed" class="w-full h-auto object-cover">
+                                <div class="p-4 text-center">
+                                    <h4 class="font-bold text-xl">Prof. Samuel Reed</h4>
+                                    <p class="text-brand-tan">Classical & Jazz Piano</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                     <!-- Woodwinds Section -->
+                    <div>
+                        <h3 class="text-3xl font-bold border-b-2 border-brand-tan pb-2 mb-8">Woodwinds</h3>
+                        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                             <div class="faculty-card bg-[#222] rounded-md overflow-hidden shadow-lg" 
+                                data-name="Jiaqi Li" 
+                                data-instrument="Flute" 
+                                data-bio="[Add bio here]"
+                                data-achievements='[]'>
+                                <img src="https://placehold.co/400x400/333/f5f5f5?text=Jiaqi" alt="Jiaqi Li" class="w-full h-auto object-cover">
+                                <div class="p-4 text-center">
+                                    <h4 class="font-bold text-xl">Jiaqi Li</h4>
+                                    <p class="text-brand-tan">Flute</p>
+                                </div>
+                            </div>
+                            <div class="faculty-card bg-[#222] rounded-md overflow-hidden shadow-lg" 
+                                data-name="Quan Guo" 
+                                data-instrument="Saxophone" 
+                                data-bio="[Add bio here]"
+                                data-achievements='[]'>
+                                <img src="https://placehold.co/400x400/333/f5f5f5?text=Quan" alt="Quan Guo" class="w-full h-auto object-cover">
+                                <div class="p-4 text-center">
+                                    <h4 class="font-bold text-xl">Quan Guo</h4>
+                                    <p class="text-brand-tan">Saxophone</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Percussion Section -->
+                    <div>
+                        <h3 class="text-3xl font-bold border-b-2 border-brand-tan pb-2 mb-8">Percussion</h3>
+                        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                             <div class="faculty-card bg-[#222] rounded-md overflow-hidden shadow-lg" 
+                                data-name="Bobby Plizak" 
+                                data-instrument="Drums, Percussion" 
+                                data-bio="[Add bio here]"
+                                data-achievements='[]'>
+                                <img src="https://placehold.co/400x400/333/f5f5f5?text=Bobby" alt="Bobby Plizak" class="w-full h-auto object-cover">
+                                <div class="p-4 text-center">
+                                    <h4 class="font-bold text-xl">Bobby Plizak</h4>
+                                    <p class="text-brand-tan">Drums, Percussion</p>
+                                </div>
+                            </div>
+                            <div class="faculty-card bg-[#222] rounded-md overflow-hidden shadow-lg" 
+                                data-name="Johnathan Whitehorn" 
+                                data-instrument="Drums" 
+                                data-bio="[Add bio here]"
+                                data-achievements='[]'>
+                                <img src="https://placehold.co/400x400/333/f5f5f5?text=Johnathan" alt="Johnathan Whitehorn" class="w-full h-auto object-cover">
+                                <div class="p-4 text-center">
+                                    <h4 class="font-bold text-xl">Johnathan Whitehorn</h4>
+                                    <p class="text-brand-tan">Drums</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Voice Section -->
+                    <div>
+                        <h3 class="text-3xl font-bold border-b-2 border-brand-tan pb-2 mb-8">Voice</h3>
+                        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                            <div class="faculty-card bg-[#222] rounded-md overflow-hidden shadow-lg" 
+                                data-name="Xiaojing Luo" 
+                                data-instrument="Soprano" 
+                                data-bio="[Add bio here]"
+                                data-achievements='[]'>
+                                <img src="https://placehold.co/400x400/333/f5f5f5?text=Xiaojing" alt="Xiaojing Luo" class="w-full h-auto object-cover">
+                                <div class="p-4 text-center">
+                                    <h4 class="font-bold text-xl">Xiaojing Luo</h4>
+                                    <p class="text-brand-tan">Soprano</p>
+                                </div>
+                            </div>
+                            <div class="faculty-card bg-[#222] rounded-md overflow-hidden shadow-lg" 
+                                data-name="Yuqin Xie" 
+                                data-instrument="Vocal" 
+                                data-bio="[Add bio here]"
+                                data-achievements='[]'>
+                                <img src="https://placehold.co/400x400/333/f5f5f5?text=Yuqin" alt="Yuqin Xie" class="w-full h-auto object-cover">
+                                <div class="p-4 text-center">
+                                    <h4 class="font-bold text-xl">Yuqin Xie</h4>
+                                    <p class="text-brand-tan">Vocal</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                     <!-- Guitar Section -->
+                    <div>
+                        <h3 class="text-3xl font-bold border-b-2 border-brand-tan pb-2 mb-8">Guitar</h3>
+                        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                             <div class="faculty-card bg-[#222] rounded-md overflow-hidden shadow-lg" 
+                                data-name="Milos Socanin" 
+                                data-instrument="Guitar" 
+                                data-bio="[Add bio here]"
+                                data-achievements='[]'>
+                                <img src="https://placehold.co/400x400/333/f5f5f5?text=Milos" alt="Milos Socanin" class="w-full h-auto object-cover">
+                                <div class="p-4 text-center">
+                                    <h4 class="font-bold text-xl">Milos Socanin</h4>
+                                    <p class="text-brand-tan">Guitar</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lessons & Pricing Section -->
+        <section id="lessons" class="section py-20 bg-brand-tan text-brand-dark">
+            <div class="container mx-auto px-6">
+                 <h2 class="text-4xl font-bold text-center mb-12">Lessons & Programs</h2>
+                 <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto text-center">
+                    <div class="bg-[#f3e9dd] p-8 rounded-md shadow-lg">
+                        <h3 class="text-2xl font-bold">Private Lessons</h3>
+                        <p class="mt-4">One-on-one instruction with our expert faculty, tailored to each student's unique goals.</p>
+                    </div>
+                     <div class="bg-[#f3e9dd] p-8 rounded-md shadow-lg">
+                        <h3 class="text-2xl font-bold">Group Classes</h3>
+                        <p class="mt-4">Learn in a collaborative environment with peers in our theory, composition, and ensemble classes.</p>
+                    </div>
+                     <div class="bg-[#f3e9dd] p-8 rounded-md shadow-lg">
+                        <h3 class="text-2xl font-bold">Competition Prep</h3>
+                        <p class="mt-4">Intensive coaching for students preparing for auditions, competitions, and college applications.</p>
+                    </div>
+                 </div>
+
+                 <!-- Price Calculator -->
+                 <div class="max-w-4xl mx-auto mt-20 bg-[#f3e9dd] p-8 rounded-md shadow-lg">
+                    <h3 class="text-3xl font-bold text-center mb-8">Estimate Your Tuition</h3>
+                    <div id="price-calculator" class="grid md:grid-cols-2 gap-8 items-center">
+                        <div class="space-y-6">
+                            <div>
+                                <h4 class="text-lg font-semibold mb-2">Lesson Duration</h4>
+                                <div class="flex gap-2" id="duration-group">
+                                    <label class="switch-label flex-1 text-center"><input type="radio" name="duration" value="30" class="sr-only" checked> 30 min</label>
+                                    <label class="switch-label flex-1 text-center"><input type="radio" name="duration" value="45" class="sr-only"> 45 min</label>
+                                    <label class="switch-label flex-1 text-center"><input type="radio" name="duration" value="60" class="sr-only"> 1 hour</label>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-semibold mb-2">Payment Plan</h4>
+                                 <div class="flex flex-wrap gap-2" id="payment-group">
+                                    <label class="switch-label flex-auto text-center"><input type="radio" name="payment" value="lesson" class="sr-only" checked> Per Lesson</label>
+                                    <label class="switch-label flex-auto text-center"><input type="radio" name="payment" value="weekly" class="sr-only"> Weekly</label>
+                                    <label class="switch-label flex-auto text-center"><input type="radio" name="payment" value="monthly" class="sr-only"> Monthly</label>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-semibold mb-2">Number of Students</h4>
+                                <input type="number" id="students" value="1" min="1" class="w-full bg-white border border-gray-400 rounded-md p-2 text-center">
+                            </div>
+                        </div>
+                        <div class="text-center bg-white p-8 rounded-md">
+                            <p class="text-lg">Estimated Price</p>
+                            <p id="price-result" class="text-5xl font-extrabold text-brand-dark mt-2">$40</p>
+                            <p id="price-per" class="text-gray-600 mt-1">Per Lesson</p>
+                            <a href="#book-trial" class="mt-6 inline-block bg-brand-dark text-white font-bold py-3 px-8 rounded-md text-lg hover:bg-opacity-90 transition duration-300">Sign Up Now</a>
+                        </div>
+                    </div>
+                 </div>
+            </div>
+        </section>
+        
+        <!-- Book a Trial Section -->
+        <section id="book-trial" class="section py-20 bg-brand-dark">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-bold text-brand-tan text-center mb-12">Schedule Your Trial Lesson</h2>
+                <form class="max-w-3xl mx-auto space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="student-first-name" class="block mb-2 font-semibold">Student First Name*</label>
+                            <input type="text" id="student-first-name" required class="w-full bg-[#222] border border-gray-600 rounded-md p-3">
+                        </div>
+                        <div>
+                            <label for="student-last-name" class="block mb-2 font-semibold">Student Last Name*</label>
+                            <input type="text" id="student-last-name" required class="w-full bg-[#222] border border-gray-600 rounded-md p-3">
+                        </div>
+                    </div>
+                     <div>
+                        <label for="student-age" class="block mb-2 font-semibold">Student Age*</label>
+                        <input type="number" id="student-age" required class="w-full bg-[#222] border border-gray-600 rounded-md p-3">
+                    </div>
+                     <div>
+                        <label for="parent-name" class="block mb-2 font-semibold">Parent/Guardian Name*</label>
+                        <input type="text" id="parent-name" required class="w-full bg-[#222] border border-gray-600 rounded-md p-3">
+                    </div>
+                     <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="trial-instrument" class="block mb-2 font-semibold">Trial Instrument(s)</label>
+                            <input type="text" id="trial-instrument" class="w-full bg-[#222] border border-gray-600 rounded-md p-3">
+                        </div>
+                         <div>
+                            <label for="preferred-teacher" class="block mb-2 font-semibold">Preferred Teacher</label>
+                            <input type="text" id="preferred-teacher" class="w-full bg-[#222] border border-gray-600 rounded-md p-3">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="hear-about-us" class="block mb-2 font-semibold">How did you hear about us?</label>
+                        <select id="hear-about-us" class="w-full bg-[#222] border border-gray-600 rounded-md p-3">
+                            <option>Google Search</option>
+                            <option>Social Media</option>
+                            <option>Advertisement</option>
+                            <option>Friend or Family</option>
+                            <option>Local Event</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                    <div class="text-center pt-4">
+                        <button type="submit" class="bg-brand-tan text-gray-900 font-bold py-3 px-12 rounded-md text-lg hover:bg-opacity-90 transition duration-300">Submit Request</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- Events Section -->
+        <section id="events" class="section py-20 bg-brand-tan text-brand-dark">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-bold text-center mb-12">Upcoming Events</h2>
+                <div class="space-y-8 max-w-3xl mx-auto">
+                    <div class="bg-white p-6 rounded-md flex items-center space-x-6 shadow-md transition-transform hover:scale-105 duration-300">
+                        <div class="text-center">
+                            <p class="text-xl font-bold">OCT</p>
+                            <p class="text-4xl font-extrabold">28</p>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold">Annual Student Showcase Recital</h3>
+                            <p class="mt-2 text-gray-700">Join us for a wonderful evening of performances by our talented students. Open to the public.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-md flex items-center space-x-6 shadow-md transition-transform hover:scale-105 duration-300">
+                        <div class="text-center">
+                            <p class="text-xl font-bold">NOV</p>
+                            <p class="text-4xl font-extrabold">15</p>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold">Masterclass with Guest Artist</h3>
+                            <p class="mt-2 text-gray-700">A special masterclass opportunity for advanced students. Details to be announced.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="section py-20 bg-brand-dark">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-bold text-brand-tan text-center mb-12">Gallery</h2>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <div class="overflow-hidden rounded-md"><img src="https://placehold.co/600x400/2a2a2a/f5f5f5?text=Student+Recital" alt="Gallery image" class="w-full h-full object-cover hover:scale-110 transition-transform duration-300"></div>
+                    <div class="overflow-hidden rounded-md"><img src="https://placehold.co/600x400/333/f5f5f5?text=Group+Lesson" alt="Gallery image" class="w-full h-full object-cover hover:scale-110 transition-transform duration-300"></div>
+                    <div class="overflow-hidden rounded-md"><img src="https://placehold.co/600x400/444/f5f5f5?text=Concert" alt="Gallery image" class="w-full h-full object-cover hover:scale-110 transition-transform duration-300"></div>
+                    <div class="overflow-hidden rounded-md"><img src="https://placehold.co/600x400/555/f5f5f5?text=Violin+Student" alt="Gallery image" class="w-full h-full object-cover hover:scale-110 transition-transform duration-300"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-bold text-brand-tan text-center mb-12">Contact Us</h2>
+                <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+                    <div class="text-lg">
+                        <h3 class="text-2xl font-bold mb-4">Get In Touch</h3>
+                        <p class="mb-6">We'd love to hear from you. Reach out to schedule a trial lesson or to ask any questions.</p>
+                        <div class="space-y-4">
+                            <p><strong>Phone:</strong> <a href="tel:123-456-7890" class="hover:text-brand-tan transition"> (123) 456-7890</a></p>
+                            <p><strong>Email:</strong> <a href="mailto:contact@bandmmusicschool.com" class="hover:text-brand-tan transition">contact@bandmmusicschool.com</a></p>
+                            <p><strong>Address:</strong> 123 Music Lane, Harmony City, TX 12345</p>
+                        </div>
+                        <a href="#book-trial" class="mt-8 inline-block bg-brand-tan text-gray-900 font-bold py-3 px-8 rounded-md text-lg hover:bg-opacity-90 transition duration-300">Schedule Trial Lesson</a>
+                    </div>
+                    <div>
+                        <div class="bg-gray-700 w-full h-96 rounded-md overflow-hidden">
+                           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3330.34232145341!2d-97.13328242490518!3d33.20579126284649!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864d8573b1e3d33f%3A0x2424484a0342685!2sUniversity%20of%20North%20Texas!5e0!3m2!1sen!2sus!4v1716918802951!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black py-8">
+        <div class="container mx-auto px-6 text-center text-gray-400">
+            <p>&copy; 2024 Band & Music School. All Rights Reserved.</p>
+            <div class="mt-4 flex justify-center space-x-4">
+                 <a href="#" class="hover:text-brand-tan transition">MyMusicStaff Portal</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Faculty Modal -->
+    <div id="faculty-modal" class="modal-overlay fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center p-4 z-50">
+        <div class="modal-content bg-[#222] rounded-md shadow-xl max-w-3xl w-full max-h-[90vh] overflow-y-auto relative">
+            <button id="modal-close-button" class="absolute top-4 right-4 text-gray-400 hover:text-white text-4xl leading-none">&times;</button>
+            <div class="p-8">
+                <img id="modal-img" src="" alt="Faculty Headshot" class="w-48 h-48 rounded-full mx-auto object-cover mb-6 border-4 border-brand-tan">
+                <h2 id="modal-name" class="text-3xl font-bold text-brand-tan text-center"></h2>
+                <h3 id="modal-instrument" class="text-xl text-center text-gray-300 mb-6"></h3>
+                <div id="modal-bio" class="text-gray-400 leading-relaxed mb-8"></div>
+                
+                <h4 class="text-2xl font-bold text-brand-tan mb-4">Achievements</h4>
+                <div id="modal-achievements" class="timeline"></div>
+
+                <div class="text-center mt-10">
+                    <a id="modal-schedule-button" href="#book-trial" class="bg-brand-tan text-gray-900 font-bold py-3 px-8 rounded-md text-lg hover:bg-opacity-90 transition duration-300">Schedule a Trial</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
+
