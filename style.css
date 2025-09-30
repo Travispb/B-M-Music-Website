@@ -1,18 +1,33 @@
+/* ================================================
+COLOR CONTROL PANEL
+================================================
+--brand-tan:   The primary warm brown color for backgrounds, buttons, and highlights.
+--brand-dark:  The main background and text color (black/charcoal).
+--brand-light: The main text color for dark backgrounds (off-white).
+================================================
+*/
+:root {
+    --brand-tan: #E0BE9A;   /* R:224 G:190 B:154 */
+    --brand-dark: #1a1a1a;
+    --brand-light: #f5f5f5;
+}
+
 /* Custom Styles */
 body {
-    background-color: #1a1a1a;
-    color: #f5f5f5;
+    background-color: var(--brand-dark);
+    color: var(--brand-light);
     font-family: 'Inter', sans-serif;
 }
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Montserrat', sans-serif;
     letter-spacing: -0.02em;
 }
-.bg-brand-dark { background-color: #1a1a1a; }
-.text-brand-dark { color: #1a1a1a; }
-.bg-brand-tan { background-color: #E0BE9A; }
-.text-brand-tan { color: #E0BE9A; }
-.border-brand-tan { border-color: #E0BE9A; }
+.bg-brand-dark { background-color: var(--brand-dark); }
+.text-brand-dark { color: var(--brand-dark); }
+.bg-brand-tan { background-color: var(--brand-tan); }
+.text-brand-tan { color: var(--brand-tan); }
+.border-brand-tan { border-color: var(--brand-tan); }
+
 .nav-link {
     position: relative;
     transition: color 0.3s ease;
@@ -24,7 +39,7 @@ h1, h2, h3, h4, h5, h6 {
     height: 2px;
     bottom: -4px;
     left: 50%;
-    background-color: #E0BE9A;
+    background-color: var(--brand-tan);
     transition: all 0.3s ease-out;
     transform: translateX(-50%);
 }
@@ -72,9 +87,9 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 0.25rem; /* Reduced rounding */
 }
 .switch-label:has(input:checked) {
-    background-color: #E0BE9A;
-    color: #1a1a1a;
-    border-color: #E0BE9A;
+    background-color: var(--brand-tan);
+    color: var(--brand-dark);
+    border-color: var(--brand-tan);
 }
 /* Achievement Timeline */
 .timeline {
@@ -95,7 +110,8 @@ h1, h2, h3, h4, h5, h6 {
     top: 0.25rem;
     height: 1rem;
     width: 1rem;
-    background-color: #E0BE9A;
+    background-color: var(--brand-tan);
     border-radius: 50%;
     border: 2px solid #222;
 }
+
