@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B&M Music School | Lessons & Pricing</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="antialiased">
+
+    <!-- Header & Navigation -->
+    <header class="bg-brand-dark bg-opacity-80 backdrop-blur-md sticky top-0 z-50 shadow-lg shadow-black/20">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-brand-tan tracking-wider">B&M School</a>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="nav-link text-lg">Home</a>
+                <a href="about.html" class="nav-link text-lg">About Us</a>
+                <a href="team.html" class="nav-link text-lg">Our Team</a>
+                <a href="lessons.html" class="nav-link text-lg">Lessons & Pricing</a>
+                <a href="events.html" class="nav-link text-lg">Events</a>
+                <a href="gallery.html" class="nav-link text-lg">Gallery</a>
+                <a href="contact.html" class="nav-link text-lg">Contact</a>
+            </div>
+            <div class="hidden md:flex">
+                <a href="contact.html#book-trial" class="bg-brand-tan text-gray-900 font-bold py-2 px-5 rounded-md hover:bg-opacity-90 transition duration-300">Book a Trial</a>
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-white focus:outline-none">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-4 6h10"></path></svg>
+                </button>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2">
+            <a href="index.html" class="block text-center py-2 nav-link mobile-nav-link">Home</a>
+            <a href="about.html" class="block text-center py-2 nav-link mobile-nav-link">About Us</a>
+            <a href="team.html" class="block text-center py-2 nav-link mobile-nav-link">Our Team</a>
+            <a href="lessons.html" class="block text-center py-2 nav-link mobile-nav-link">Lessons & Pricing</a>
+            <a href="events.html" class="block text-center py-2 nav-link mobile-nav-link">Events</a>
+            <a href="gallery.html" class="block text-center py-2 nav-link mobile-nav-link">Gallery</a>
+            <a href="contact.html" class="block text-center py-2 nav-link mobile-nav-link">Contact</a>
+            <a href="contact.html#book-trial" class="block text-center bg-brand-tan text-gray-900 font-bold mt-2 py-2 px-5 rounded-md hover:bg-opacity-90 transition duration-300">Book a Trial</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="py-20 bg-[#222]">
+            <div class="container mx-auto px-6">
+                 <h1 class="text-4xl font-bold text-brand-tan text-center mb-12">Lessons & Programs</h1>
+                 <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto text-center">
+                    <div class="bg-brand-dark p-8 rounded-md shadow-lg">
+                        <h3 class="text-2xl font-bold text-brand-tan">Private Lessons</h3>
+                        <p class="mt-4">One-on-one instruction with our expert faculty, tailored to each student's unique goals.</p>
+                    </div>
+                     <div class="bg-brand-dark p-8 rounded-md shadow-lg">
+                        <h3 class="text-2xl font-bold text-brand-tan">Group Classes</h3>
+                        <p class="mt-4">Learn in a collaborative environment with peers in our theory, composition, and ensemble classes.</p>
+                    </div>
+                     <div class="bg-brand-dark p-8 rounded-md shadow-lg">
+                        <h3 class="text-2xl font-bold text-brand-tan">Competition Prep</h3>
+                        <p class="mt-4">Intensive coaching for students preparing for auditions, competitions, and college applications.</p>
+                    </div>
+                 </div>
+
+                 <!-- Price Calculator -->
+                 <div class="max-w-4xl mx-auto mt-20 bg-brand-dark p-8 rounded-md shadow-lg">
+                    <h3 class="text-3xl font-bold text-center text-brand-tan mb-8">Estimate Your Tuition</h3>
+                    <div id="price-calculator" class="grid md:grid-cols-2 gap-8 items-center">
+                        <div class="space-y-6">
+                            <div>
+                                <h4 class="text-lg font-semibold mb-2">Lesson Duration</h4>
+                                <div class="flex gap-2" id="duration-group">
+                                    <label class="switch-label flex-1 text-center"><input type="radio" name="duration" value="30" class="sr-only" checked> 30 min</label>
+                                    <label class="switch-label flex-1 text-center"><input type="radio" name="duration" value="45" class="sr-only"> 45 min</label>
+                                    <label class="switch-label flex-1 text-center"><input type="radio" name="duration" value="60" class="sr-only"> 1 hour</label>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-semibold mb-2">Payment Plan</h4>
+                                 <div class="flex flex-wrap gap-2" id="payment-group">
+                                    <label class="switch-label flex-auto text-center"><input type="radio" name="payment" value="lesson" class="sr-only" checked> Per Lesson</label>
+                                    <label class="switch-label flex-auto text-center"><input type="radio" name="payment" value="weekly" class="sr-only"> Weekly</label>
+                                    <label class="switch-label flex-auto text-center"><input type="radio" name="payment" value="monthly" class="sr-only"> Monthly</label>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-semibold mb-2">Number of Students</h4>
+                                <input type="number" id="students" value="1" min="1" class="w-full bg-brand-dark border border-gray-600 rounded-md p-2 text-center">
+                            </div>
+                        </div>
+                        <div class="text-center bg-[#111] p-8 rounded-md">
+                            <p class="text-lg text-gray-400">Estimated Price</p>
+                            <p id="price-result" class="text-5xl font-extrabold text-brand-tan mt-2">$40</p>
+                            <p id="price-per" class="text-gray-400 mt-1">Per Lesson</p>
+                            <a href="contact.html#book-trial" class="mt-6 inline-block bg-brand-tan text-gray-900 font-bold py-3 px-8 rounded-md text-lg hover:bg-opacity-90 transition duration-300">Sign Up Now</a>
+                        </div>
+                    </div>
+                 </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="bg-black py-8">
+        <div class="container mx-auto px-6 text-center text-gray-400">
+            <p>&copy; 2024 Band & Music School. All Rights Reserved.</p>
+            <div class="mt-4 flex justify-center space-x-4">
+                 <a href="#" class="hover:text-brand-tan transition">MyMusicStaff Portal</a>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>
+

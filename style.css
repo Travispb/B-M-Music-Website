@@ -1,9 +1,15 @@
+/* ================================================
+COLOR CONTROL PANEL
+================================================ */
 :root {
     --color-dark: #1a1a1a;
     --color-tan: #E0BE9A;
     --color-light-text: #f5f5f5;
 }
 
+/* ================================================
+GENERAL STYLES
+================================================ */
 body {
     background-color: var(--color-dark);
     color: var(--color-light-text);
@@ -19,6 +25,9 @@ h1, h2, h3, h4, h5, h6 {
 .text-brand-tan { color: var(--color-tan); }
 .border-brand-tan { border-color: var(--color-tan); }
 
+/* ================================================
+NAVIGATION & SECTIONS
+================================================ */
 .nav-link {
     position: relative;
     transition: color 0.3s ease;
@@ -44,41 +53,32 @@ h1, h2, h3, h4, h5, h6 {
     display: block;
 }
 
+/* ================================================
+FACULTY CARDS
+================================================ */
 .faculty-card {
-    background-color: #222;
-    border-radius: 0.375rem;
-    overflow: hidden;
-    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
-    display: flex;
-    flex-direction: column;
 }
 .faculty-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 10px 20px rgba(0,0,0,0.4);
 }
-.faculty-card-img-container {
-    width: 100%;
-    aspect-ratio: 1 / 1.25;
+.faculty-image-container {
+    aspect-ratio: 1 / 1;
     overflow: hidden;
 }
-.faculty-card-img {
+.faculty-image {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-}
-.faculty-card-info {
-    padding: 1rem;
-    text-align: center;
-    min-height: 110px; 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    object-fit: cover; /* This zooms and crops */
+    /* object-position is set dynamically by JavaScript */
 }
 
 
-/* Modal Styles */
+/* ================================================
+MODAL (POP-UP)
+================================================ */
 .modal-overlay {
     opacity: 0;
     visibility: hidden;
@@ -96,18 +96,21 @@ h1, h2, h3, h4, h5, h6 {
 .modal-overlay.active .modal-content {
     transform: scale(1);
 }
-
-.modal-profile-photo {
+.modal-image {
     width: 100%;
-    max-height: 300px;
+    height: 100%;
     object-fit: cover;
-    object-position: center; /* Adjust if headshots are off-center */
-    border-radius: 0.375rem; /* rounded-md */
-    margin-bottom: 1.5rem;
+    /* object-position is set by JavaScript */
+}
+#modal-video-container {
+    width: 100%;
+    aspect-ratio: 16 / 9;
 }
 
 
-/* Calculator Styles */
+/* ================================================
+PRICE CALCULATOR
+================================================ */
 .switch-label {
     border: 1px solid #555;
     padding: 0.5rem 1rem;
@@ -122,7 +125,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
-/* Achievement Timeline */
+/* ================================================
+ACHIEVEMENT TIMELINE
+================================================ */
 .timeline {
     position: relative;
     padding-left: 2rem;

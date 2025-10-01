@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B&M Music School | Contact</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="antialiased">
+
+    <!-- Header & Navigation -->
+    <header class="bg-brand-dark bg-opacity-80 backdrop-blur-md sticky top-0 z-50 shadow-lg shadow-black/20">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-brand-tan tracking-wider">B&M School</a>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="nav-link text-lg">Home</a>
+                <a href="about.html" class="nav-link text-lg">About Us</a>
+                <a href="team.html" class="nav-link text-lg">Our Team</a>
+                <a href="lessons.html" class="nav-link text-lg">Lessons & Pricing</a>
+                <a href="events.html" class="nav-link text-lg">Events</a>
+                <a href="gallery.html" class="nav-link text-lg">Gallery</a>
+                <a href="contact.html" class="nav-link text-lg">Contact</a>
+            </div>
+            <div class="hidden md:flex">
+                <a href="#book-trial" class="bg-brand-tan text-gray-900 font-bold py-2 px-5 rounded-md hover:bg-opacity-90 transition duration-300">Book a Trial</a>
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-white focus:outline-none">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-4 6h10"></path></svg>
+                </button>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2">
+            <a href="index.html" class="block text-center py-2 nav-link mobile-nav-link">Home</a>
+            <a href="about.html" class="block text-center py-2 nav-link mobile-nav-link">About Us</a>
+            <a href="team.html" class="block text-center py-2 nav-link mobile-nav-link">Our Team</a>
+            <a href="lessons.html" class="block text-center py-2 nav-link mobile-nav-link">Lessons & Pricing</a>
+            <a href="events.html" class="block text-center py-2 nav-link mobile-nav-link">Events</a>
+            <a href="gallery.html" class="block text-center py-2 nav-link mobile-nav-link">Gallery</a>
+            <a href="contact.html" class="block text-center py-2 nav-link mobile-nav-link">Contact</a>
+            <a href="#book-trial" class="block text-center bg-brand-tan text-gray-900 font-bold mt-2 py-2 px-5 rounded-md hover:bg-opacity-90 transition duration-300">Book a Trial</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="py-20">
+            <div class="container mx-auto px-6">
+                <h1 class="text-4xl font-bold text-brand-tan text-center mb-12">Contact Us</h1>
+                <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+                    <div class="text-lg">
+                        <h3 class="text-2xl font-bold mb-4">Get In Touch</h3>
+                        <p class="mb-6">We'd love to hear from you. Reach out to schedule a trial lesson or to ask any questions.</p>
+                        <div class="space-y-4">
+                            <p><strong>Phone:</strong> <a href="tel:123-456-7890" class="hover:text-brand-tan transition"> (123) 456-7890</a></p>
+                            <p><strong>Email:</strong> <a href="mailto:contact@bandmmusicschool.com" class="hover:text-brand-tan transition">contact@bandmmusicschool.com</a></p>
+                            <p><strong>Address:</strong> 123 Music Lane, Harmony City, TX 12345</p>
+                        </div>
+                        <a href="#book-trial" class="mt-8 inline-block bg-brand-tan text-gray-900 font-bold py-3 px-8 rounded-md text-lg hover:bg-opacity-90 transition duration-300">Schedule Trial Lesson</a>
+                    </div>
+                    <div>
+                        <div class="bg-gray-700 w-full h-96 rounded-md overflow-hidden">
+                           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3330.34232145341!2d-97.13328242490518!3d33.20579126284649!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864d8573b1e3d33f%3A0x2424484a0342685!2sUniversity%20of%20North%20Texas!5e0!3m2!1sen!2sus!4v1716918802951!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="book-trial" class="py-20 bg-brand-dark">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-bold text-brand-tan text-center mb-12">Schedule Your Trial Lesson</h2>
+                <form class="max-w-3xl mx-auto space-y-6">
+                     <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="student-first-name" class="block mb-2 font-semibold">Student First Name*</label>
+                            <input type="text" id="student-first-name" required class="w-full bg-[#222] border border-gray-600 rounded-md p-3">
+                        </div>
+                        <div>
+                            <label for="student-last-name" class="block mb-2 font-semibold">Student Last Name*</label>
+                            <input type="text" id="student-last-name" required class="w-full bg-[#222] border border-gray-600 rounded-md p-3">
+                        </div>
+                    </div>
+                     <div>
+                        <label for="student-age" class="block mb-2 font-semibold">Student Age*</label>
+                        <input type="number" id="student-age" required class="w-full bg-[#222] border border-gray-600 rounded-md p-3">
+                    </div>
+                     <div>
+                        <label for="parent-name" class="block mb-2 font-semibold">Parent/Guardian Name*</label>
+                        <input type="text" id="parent-name" required class="w-full bg-[#222] border border-gray-600 rounded-md p-3">
+                    </div>
+                     <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="trial-instrument" class="block mb-2 font-semibold">Trial Instrument(s)</label>
+                            <input type="text" id="trial-instrument" class="w-full bg-[#222] border border-gray-600 rounded-md p-3">
+                        </div>
+                         <div>
+                            <label for="preferred-teacher" class="block mb-2 font-semibold">Preferred Teacher</label>
+                            <input type="text" id="preferred-teacher" class="w-full bg-[#222] border border-gray-600 rounded-md p-3">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="hear-about-us" class="block mb-2 font-semibold">How did you hear about us?</label>
+                        <select id="hear-about-us" class="w-full bg-[#222] border border-gray-600 rounded-md p-3">
+                            <option>Google Search</option>
+                            <option>Social Media</option>
+                            <option>Advertisement</option>
+                            <option>Friend or Family</option>
+                            <option>Local Event</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                    <div class="text-center pt-4">
+                        <button type="submit" class="bg-brand-tan text-gray-900 font-bold py-3 px-12 rounded-md text-lg hover:bg-opacity-90 transition duration-300">Submit Request</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black py-8">
+        <div class="container mx-auto px-6 text-center text-gray-400">
+            <p>&copy; 2024 Band & Music School. All Rights Reserved.</p>
+            <div class="mt-4 flex justify-center space-x-4">
+                 <a href="#" class="hover:text-brand-tan transition">MyMusicStaff Portal</a>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>
+

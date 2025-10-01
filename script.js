@@ -12,9 +12,10 @@ document.addEventListener('DOMContentLoaded', function() {
         sections.forEach(section => section.classList.toggle('active', '#' + section.id === targetHash));
         allNavLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === targetHash));
         
+        // Only scroll into view if a specific hash is present, otherwise stay at the top
         if (hash && document.querySelector(targetHash)) {
-            // Let the browser handle scrolling for direct hash links
-        } else {
+            document.querySelector(targetHash).scrollIntoView({ behavior: 'smooth' });
+        } else if (!hash) {
             window.scrollTo(0, 0);
         }
     }
@@ -23,6 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
         link.addEventListener('click', function(e) {
             e.preventDefault();
             const targetHash = this.getAttribute('href');
+            // Using history.pushState allows changing the URL without a page refresh
             history.pushState(null, null, targetHash);
             showSection(targetHash);
 
@@ -32,27 +34,52 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // Handle back/forward browser buttons
     window.addEventListener('popstate', () => showSection(window.location.hash));
     
     mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
     
+    // Show initial section on page load
     showSection(window.location.hash);
 
     // --- Faculty Modal Logic ---
     const facultyModal = document.getElementById('faculty-modal');
-    const modalImg = document.getElementById('modal-img'); 
     const modalCloseButton = document.getElementById('modal-close-button');
     const modalScheduleButton = document.getElementById('modal-schedule-button');
     const achievementsContainer = document.getElementById('modal-achievements');
 
+    const modalImg = document.getElementById('modal-img');
+    const modalVideoContainer = document.getElementById('modal-video-container');
+    const modalVideoIframe = document.getElementById('modal-video-iframe');
+
     document.querySelectorAll('.faculty-card').forEach(card => {
         card.addEventListener('click', function() {
             const name = this.dataset.name;
-            const highQualitySrc = this.dataset.imgSrc;
+            const videoUrl = this.dataset.video;
+            const imagePosition = this.dataset.imgPos || 'center'; // Default to center if not specified
+            const cardImage = this.querySelector('.faculty-image');
 
-            // This is now the only line needed. Simple and direct.
-            modalImg.src = highQualitySrc;
-            
+            // Apply the custom image position to the card's image for immediate visual feedback
+            if (cardImage) {
+               cardImage.style.objectPosition = imagePosition;
+            }
+
+            // --- Media Logic for Modal ---
+            if (videoUrl) {
+                modalImg.style.display = 'none';
+                modalVideoContainer.style.display = 'block';
+                modalVideoIframe.src = videoUrl;
+            } else {
+                modalImg.style.display = 'block';
+                modalVideoContainer.style.display = 'none';
+                modalVideoIframe.src = ''; // Clear video source
+                if(cardImage) {
+                    modalImg.src = cardImage.src;
+                }
+                // Apply the custom image position to the modal's image
+                modalImg.style.objectPosition = imagePosition;
+            }
+
             document.getElementById('modal-name').textContent = name;
             document.getElementById('modal-instrument').textContent = this.dataset.instrument;
             document.getElementById('modal-bio').innerHTML = this.dataset.bio;
@@ -82,10 +109,18 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    const closeModal = () => facultyModal.classList.remove('active');
-    modalCloseButton.addEventListener('click', closeModal);
-    facultyModal.addEventListener('click', e => { if (e.target === facultyModal) closeModal(); });
+    const closeModal = () => {
+        facultyModal.classList.remove('active');
+        // IMPORTANT: Stop video from playing in the background when modal is closed
+        modalVideoIframe.src = ''; 
+    };
 
+    modalCloseButton.addEventListener('click', closeModal);
+    facultyModal.addEventListener('click', e => { 
+        if (e.target === facultyModal) closeModal(); 
+    });
+
+    // Handle clicking the schedule button inside the modal
     document.querySelectorAll('a[href="#book-trial"]').forEach(link => {
          link.addEventListener('click', function(e) {
             const teacherName = this.dataset.teacherName;
