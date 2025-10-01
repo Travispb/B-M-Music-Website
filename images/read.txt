@@ -1,0 +1,3 @@
+This is where all images used in the website will be stored
+
+facultyProfilePictures/ contians all pictures of faculty, used in the Our Team page.

@@ -13,8 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
         allNavLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === targetHash));
         
         if (hash && document.querySelector(targetHash)) {
-            // Smooth scroll for modern browsers
-            document.querySelector(targetHash).scrollIntoView({ behavior: 'smooth' });
+            // Let the browser handle scrolling for direct hash links
         } else {
             window.scrollTo(0, 0);
         }
@@ -24,9 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
         link.addEventListener('click', function(e) {
             e.preventDefault();
             const targetHash = this.getAttribute('href');
-            // Update URL hash without jumping
             history.pushState(null, null, targetHash);
-            // Manually trigger our showSection function
             showSection(targetHash);
 
             if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
@@ -35,16 +32,15 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Handle back/forward browser buttons
     window.addEventListener('popstate', () => showSection(window.location.hash));
     
     mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
     
-    // Initial load
     showSection(window.location.hash);
 
     // --- Faculty Modal Logic ---
     const facultyModal = document.getElementById('faculty-modal');
+    const modalImg = document.getElementById('modal-img'); 
     const modalCloseButton = document.getElementById('modal-close-button');
     const modalScheduleButton = document.getElementById('modal-schedule-button');
     const achievementsContainer = document.getElementById('modal-achievements');
@@ -52,7 +48,11 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.faculty-card').forEach(card => {
         card.addEventListener('click', function() {
             const name = this.dataset.name;
-            document.getElementById('modal-img').src = this.querySelector('img').src;
+            const highQualitySrc = this.dataset.imgSrc;
+
+            // This is now the only line needed. Simple and direct.
+            modalImg.src = highQualitySrc;
+            
             document.getElementById('modal-name').textContent = name;
             document.getElementById('modal-instrument').textContent = this.dataset.instrument;
             document.getElementById('modal-bio').innerHTML = this.dataset.bio;
@@ -139,3 +139,4 @@ document.addEventListener('DOMContentLoaded', function() {
         calculatePrice();
     }
 });
+
