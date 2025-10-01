@@ -10,14 +10,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="antialiased">
+<body id="team-page" class="antialiased">
 
     <!-- Header & Navigation -->
     <header class="bg-brand-dark bg-opacity-80 backdrop-blur-md sticky top-0 z-50 shadow-lg shadow-black/20">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-bold text-brand-tan tracking-wider">B&M School</a>
+            <a href="home.html" class="text-2xl font-bold text-brand-tan tracking-wider">B&M School</a>
             <div class="hidden md:flex items-center space-x-8">
-                <a href="index.html" class="nav-link text-lg">Home</a>
+                <a href="home.html" class="nav-link text-lg">Home</a>
                 <a href="about.html" class="nav-link text-lg">About Us</a>
                 <a href="team.html" class="nav-link text-lg">Our Team</a>
                 <a href="lessons.html" class="nav-link text-lg">Lessons & Pricing</a>
@@ -35,7 +35,7 @@
             </div>
         </nav>
         <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2">
-            <a href="index.html" class="block text-center py-2 nav-link mobile-nav-link">Home</a>
+            <a href="home.html" class="block text-center py-2 nav-link mobile-nav-link">Home</a>
             <a href="about.html" class="block text-center py-2 nav-link mobile-nav-link">About Us</a>
             <a href="team.html" class="block text-center py-2 nav-link mobile-nav-link">Our Team</a>
             <a href="lessons.html" class="block text-center py-2 nav-link mobile-nav-link">Lessons & Pricing</a>
@@ -47,7 +47,7 @@
     </header>
 
     <main>
-        <section id="team" class="py-20 bg-brand-dark">
+        <section class="py-20 bg-brand-dark">
             <div class="container mx-auto px-6">
                 <h1 class="text-4xl font-bold text-brand-tan text-center mb-12">Meet Our World-Class Faculty</h1>
                 
@@ -56,61 +56,21 @@
                     <div>
                         <h3 class="text-3xl font-bold border-b-2 border-brand-tan pb-2 mb-8">Strings</h3>
                         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-                            <div class="faculty-card" 
-                                data-name="Travis Pota-Birkhoff" 
-                                data-instrument="Violin" 
-                                data-img-src="images/facultyProfilePictures/travis2.jpg"
-                                data-bio='<p class="mb-4">Travis Pota-Birkhoff is a dedicated violinist and educator with a strong foundation in both performance and pedagogy. He holds a Bachelor of Music in Violin Performance with Honors and a Minor in Mathematics from the University of North Texas, where he graduated with a perfect 4.0 GPA. As a Terry Scholar and recipient of the UNT President&apos;s List distinction, he has demonstrated both academic excellence and a commitment to ethical leadership, having also been named a Ricco Ethics Scholar for his work on ethical case study analysis.</p><p class="mb-4">During his time at UNT, Mr. Pota-Birkhoff performed extensively with the UNT Concert Orchestra, engaging with major orchestral repertoire from Brahms, Tchaikovsky, Mozart, and contemporary composers. He also participated in a wide range of chamber music ensembles, receiving coaching from UNT faculty and performing in recitals, outreach events, and volunteer community engagements. His solo repertoire includes works by Bach, Bruch, Mendelssohn, Lalo, and Mozart, with experience in both studio classes and TMEA Solo & Ensemble contests at the state level.</p><p class="mb-4">In addition to his collegiate performance background, Mr. Pota-Birkhoff brings a passion for teaching and mentorship. As a volunteer violin and chamber music coach across Creekwood, Riverwood, and Kingwood Middle Schools in Kingwood, Texas, he led sectionals and coached student ensembles in preparation for UIL competitions and concerts. He provided technical instruction and interpretive insight while fostering confidence and ensemble communication among middle school students of varying skill levels.</p><p class="mb-4">He also maintains experience as a private violin instructor, working with beginner and intermediate students. His teaching emphasizes solid technical foundations—including tone production, posture, shifting, vibrato, and expressive playing—while tailoring lesson plans to meet each student’s individual needs and goals.</p><p>Known for his organizational skills, thoughtful communication, and supportive teaching style, Mr. Pota-Birkhoff is committed to helping students grow as musicians and individuals. Whether in private lessons or ensemble settings, he strives to inspire a lifelong love of music through high standards, empathy, and artistic engagement.</p>'
-                                data-achievements='[{"date": "2024", "event": "Graduated Summa Cum Laude, University of North Texas"},{"date": "2023", "event": "Ricco Ethics Scholar"},{"date": "2022-2024", "event": "UNT Concert Orchestra, Performance of Major Repertoire"},{"date": "2021-2023", "event": "Chamber Music Coach, Kingwood Middle Schools"},{"date": "2020-2024", "event": "Terry Scholar, University of North Texas"},{"date": "2020-2024", "event": "UNT President&apos;s List (All Semesters)"}]'>
-                                <div class="faculty-card-img-container">
-                                    <img src="images/facultyProfilePictures/travis2.jpg" alt="Travis Pota-Birkhoff" class="faculty-card-img">
-                                </div>
-                                <div class="faculty-card-info">
-                                    <h4 class="font-bold text-xl">Travis Pota-Birkhoff</h4>
-                                    <p class="text-brand-tan">Violin</p>
-                                </div>
+                            <div class="faculty-card" data-name="Mengmeng Huang" data-instrument="Cello, Founder" data-img-src="images/facultyProfilePictures/MengMeng.jpg" data-video="" data-img-pos="50% 30%" data-bio="[Add bio here]" data-achievements='[]'>
+                                <div class="faculty-card-img-container"><img src="images/facultyProfilePictures/MengMeng.jpg" alt="Mengmeng Huang" class="faculty-card-img" style="object-position: 50% 30%;"></div>
+                                <div class="faculty-card-info"><h4 class="font-bold text-xl">Mengmeng Huang</h4><p class="text-brand-tan">Cello, Founder</p></div>
                             </div>
-                             <div class="faculty-card" 
-                                data-name="Mengmeng Huang" 
-                                data-instrument="Cello, Founder" 
-                                data-img-src="images/facultyProfilePictures/MengMeng.jpg"
-                                data-bio="[Add bio here]"
-                                data-achievements='[]'>
-                                <div class="faculty-card-img-container">
-                                    <img src="images/facultyProfilePictures/MengMeng.jpg" alt="Mengmeng Huang" class="faculty-card-img">
-                                </div>
-                                <div class="faculty-card-info">
-                                    <h4 class="font-bold text-xl">Mengmeng Huang</h4>
-                                    <p class="text-brand-tan">Cello, Founder</p>
-                                </div>
+                            <div class="faculty-card" data-name="Travis Pota-Birkhoff" data-instrument="Violin, Viola" data-img-src="images/facultyProfilePictures/travis2.jpg" data-video="" data-img-pos="50% 20%" data-bio='<p class="mb-4">Travis Pota-Birkhoff is a dedicated violinist and educator with a strong foundation in both performance and pedagogy. He holds a Bachelor of Music in Violin Performance with Honors and a Minor in Mathematics from the University of North Texas, where he graduated with a perfect 4.0 GPA. As a Terry Scholar and recipient of the UNT President&apos;s List distinction, he has demonstrated both academic excellence and a commitment to ethical leadership, having also been named a Ricco Ethics Scholar for his work on ethical case study analysis.</p><p class="mb-4">During his time at UNT, Mr. Pota-Birkhoff performed extensively with the UNT Concert Orchestra, engaging with major orchestral repertoire from Brahms, Tchaikovsky, Mozart, and contemporary composers. He also participated in a wide range of chamber music ensembles, receiving coaching from UNT faculty and performing in recitals, outreach events, and volunteer community engagements. His solo repertoire includes works by Bach, Bruch, Mendelssohn, Lalo, and Mozart, with experience in both studio classes and TMEA Solo & Ensemble contests at the state level.</p><p class="mb-4">In addition to his collegiate performance background, Mr. Pota-Birkhoff brings a passion for teaching and mentorship. As a volunteer violin and chamber music coach across Creekwood, Riverwood, and Kingwood Middle Schools in Kingwood, Texas, he led sectionals and coached student ensembles in preparation for UIL competitions and concerts. He provided technical instruction and interpretive insight while fostering confidence and ensemble communication among middle school students of varying skill levels.</p><p class="mb-4">He also maintains experience as a private violin instructor, working with beginner and intermediate students. His teaching emphasizes solid technical foundations—including tone production, posture, shifting, vibrato, and expressive playing—while tailoring lesson plans to meet each student’s individual needs and goals.</p><p>Known for his organizational skills, thoughtful communication, and supportive teaching style, Mr. Pota-Birkhoff is committed to helping students grow as musicians and individuals. Whether in private lessons or ensemble settings, he strives to inspire a lifelong love of music through high standards, empathy, and artistic engagement.</p>' data-achievements='[{"date": "2024", "event": "Graduated Summa Cum Laude, University of North Texas"},{"date": "2023", "event": "Ricco Ethics Scholar"},{"date": "2022-2024", "event": "UNT Concert Orchestra, Performance of Major Repertoire"},{"date": "2021-2023", "event": "Chamber Music Coach, Kingwood Middle Schools"},{"date": "2020-2024", "event": "Terry Scholar, University of North Texas"},{"date": "2020-2024", "event": "UNT President&apos;s List (All Semesters)"}]'>
+                                <div class="faculty-card-img-container"><img src="images/facultyProfilePictures/travis2.jpg" alt="Travis Pota-Birkhoff" class="faculty-card-img" style="object-position: 50% 20%;"></div>
+                                <div class="faculty-card-info"><h4 class="font-bold text-xl">Travis Pota-Birkhoff</h4><p class="text-brand-tan">Violin</p></div>
                             </div>
-                            <div class="faculty-card" 
-                                data-name="Xiachu Song" 
-                                data-instrument="Violin" 
-                                data-img-src="images/facultyProfilePictures/Xiachu.jpg"
-                                data-bio="[Add bio here]"
-                                data-achievements='[]'>
-                                <div class="faculty-card-img-container">
-                                    <img src="images/facultyProfilePictures/Xiachu.jpg" alt="Xiachu Song" class="faculty-card-img">
-                                </div>
-                                <div class="faculty-card-info">
-                                    <h4 class="font-bold text-xl">Xiachu Song</h4>
-                                    <p class="text-brand-tan">Violin</p>
-                                </div>
+                            <div class="faculty-card" data-name="Xiachu Song" data-instrument="Violin" data-img-src="images/facultyProfilePictures/Xiachu.jpg" data-video="" data-img-pos="50% 15%" data-bio="[Add bio here]" data-achievements='[]'>
+                                <div class="faculty-card-img-container"><img src="images/facultyProfilePictures/Xiachu.jpg" alt="Xiachu Song" class="faculty-card-img" style="object-position: 50% 15%;"></div>
+                                <div class="faculty-card-info"><h4 class="font-bold text-xl">Xiachu Song</h4><p class="text-brand-tan">Violin</p></div>
                             </div>
-                             <div class="faculty-card" 
-                                data-name="Qianqian Fu" 
-                                data-instrument="Violin, Viola" 
-                                data-img-src="images/facultyProfilePictures/QianQianFu.jpg"
-                                data-bio="[Add bio here]"
-                                data-achievements='[]'>
-                                <div class="faculty-card-img-container">
-                                    <img src="images/facultyProfilePictures/QianQianFu.jpg" alt="Qianqian Fu" class="faculty-card-img">
-                                </div>
-                                <div class="faculty-card-info">
-                                    <h4 class="font-bold text-xl">Qianqian Fu</h4>
-                                    <p class="text-brand-tan">Violin, Viola</p>
-                                </div>
+                            <div class="faculty-card" data-name="Qianqian Fu" data-instrument="Viola, Violin" data-img-src="images/facultyProfilePictures/QianQianFu.jpg" data-video="" data-img-pos="50% 40%" data-bio="[Add bio here]" data-achievements='[]'>
+                                <div class="faculty-card-img-container"><img src="images/facultyProfilePictures/QianQianFu.jpg" alt="Qianqian Fu" class="faculty-card-img" style="object-position: 50% 40%;"></div>
+                                <div class="faculty-card-info"><h4 class="font-bold text-xl">Qianqian Fu</h4><p class="text-brand-tan">Violin, Viola</p></div>
                             </div>
                         </div>
                     </div>
@@ -118,151 +78,51 @@
                     <div>
                         <h3 class="text-3xl font-bold border-b-2 border-brand-tan pb-2 mb-8">Piano</h3>
                         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-                             <div class="faculty-card" 
-                                data-name="Yibing Zhang" 
-                                data-instrument="Piano, Founder" 
-                                data-img-src="images/facultyProfilePictures/yibing.jpg"
-                                data-bio="[Add bio here]"
-                                data-achievements='[]'>
-                                <div class="faculty-card-img-container">
-                                    <img src="images/facultyProfilePictures/yibing.jpg" alt="Yibing Zhang" class="faculty-card-img">
-                                </div>
-                                <div class="faculty-card-info">
-                                    <h4 class="font-bold text-xl">Yibing Zhang</h4>
-                                    <p class="text-brand-tan">Piano, Founder</p>
-                                </div>
+                            <div class="faculty-card" data-name="Yibing Zhang" data-instrument="Piano, Founder" data-img-src="images/facultyProfilePictures/yibing.jpg" data-video="" data-img-pos="50% 25%" data-bio="[Add bio here]" data-achievements='[]'>
+                                <div class="faculty-card-img-container"><img src="images/facultyProfilePictures/yibing.jpg" alt="Yibing Zhang" class="faculty-card-img" style="object-position: 50% 25%;"></div>
+                                <div class="faculty-card-info"><h4 class="font-bold text-xl">Yibing Zhang</h4><p class="text-brand-tan">Piano, Founder</p></div>
                             </div>
-                            <div class="faculty-card" 
-                                data-name="Xuan(Xinwei) Chen" 
-                                data-instrument="Piano, Music Theory" 
-                                data-img-src="images/facultyProfilePictures/Xuan.jpg"
-                                data-bio="[Add bio here]"
-                                data-achievements='[]'>
-                                <div class="faculty-card-img-container">
-                                    <img src="images/facultyProfilePictures/Xuan.jpg" alt="Xuan(Xinwei) Chen" class="faculty-card-img">
-                                </div>
-                                <div class="faculty-card-info">
-                                    <h4 class="font-bold text-xl">Xuan(Xinwei) Chen</h4>
-                                    <p class="text-brand-tan">Piano, Music Theory</p>
-                                </div>
+                            <div class="faculty-card" data-name="Xuan(Xinwei) Chen" data-instrument="Piano, Music Theory" data-img-src="images/facultyProfilePictures/Xuan.jpg" data-video="" data-img-pos="50% 30%" data-bio="[Add bio here]" data-achievements='[]'>
+                                <div class="faculty-card-img-container"><img src="images/facultyProfilePictures/Xuan.jpg" alt="Xuan(Xinwei) Chen" class="faculty-card-img" style="object-position: 50% 30%;"></div>
+                                <div class="faculty-card-info"><h4 class="font-bold text-xl">Xuan(Xinwei) Chen</h4><p class="text-brand-tan">Piano, Music Theory</p></div>
                             </div>
-                            <div class="faculty-card" 
-                                data-name="Xinzhuo Li" 
-                                data-instrument="Piano" 
-                                data-img-src="images/facultyProfilePictures/PianoTeacherLi.jpg"
-                                data-bio="[Add bio here]"
-                                data-achievements='[]'>
-                                <div class="faculty-card-img-container">
-                                    <img src="images/facultyProfilePictures/PianoTeacherLi.jpg" alt="Xinzhuo Li" class="faculty-card-img">
-                                </div>
-                                <div class="faculty-card-info">
-                                    <h4 class="font-bold text-xl">Xinzhuo Li</h4>
-                                    <p class="text-brand-tan">Piano</p>
-                                </div>
+                            <div class="faculty-card" data-name="Xinzhuo Li" data-instrument="Piano" data-img-src="images/facultyProfilePictures/PianoTeacherLi.jpg" data-video="" data-img-pos="50% 20%" data-bio="[Add bio here]" data-achievements='[]'>
+                                <div class="faculty-card-img-container"><img src="images/facultyProfilePictures/PianoTeacherLi.jpg" alt="Xinzhuo Li" class="faculty-card-img" style="object-position: 50% 20%;"></div>
+                                <div class="faculty-card-info"><h4 class="font-bold text-xl">Xinzhuo Li</h4><p class="text-brand-tan">Piano</p></div>
                             </div>
-                             <div class="faculty-card" 
-                                data-name="Yuchen Liu" 
-                                data-instrument="Piano, Music Engineering" 
-                                data-img-src="images/facultyProfilePictures/musicProductionTeacher.jpg"
-                                data-bio="[Add bio here]"
-                                data-achievements='[]'>
-                                <div class="faculty-card-img-container">
-                                    <img src="images/facultyProfilePictures/musicProductionTeacher.jpg" alt="Yuchen Liu" class="faculty-card-img">
-                                </div>
-                                <div class="faculty-card-info">
-                                    <h4 class="font-bold text-xl">Yuchen Liu</h4>
-                                    <p class="text-brand-tan">Piano, Music Engineering</p>
-                                </div>
+                            <div class="faculty-card" data-name="Yuchen Liu" data-instrument="Piano, Music Engineering" data-img-src="images/facultyProfilePictures/musicProductionTeacher.jpg" data-video="https://www.youtube.com/embed/dQw4w9WgXcQ" data-img-pos="50% 40%" data-bio="[Add bio here]" data-achievements='[]'>
+                                <div class="faculty-card-img-container"><img src="images/facultyProfilePictures/musicProductionTeacher.jpg" alt="Yuchen Liu" class="faculty-card-img" style="object-position: 50% 40%;"></div>
+                                <div class="faculty-card-info"><h4 class="font-bold text-xl">Yuchen Liu</h4><p class="text-brand-tan">Piano, Music Engineering</p></div>
                             </div>
-                             <div class="faculty-card" 
-                                data-name="Sunny (Ting) Gan" 
-                                data-instrument="Piano, Music Theory, Composition" 
-                                data-img-src="images/facultyProfilePictures/Sunny.jpg"
-                                data-bio="[Add bio here]"
-                                data-achievements='[]'>
-                                <div class="faculty-card-img-container">
-                                    <img src="images/facultyProfilePictures/Sunny.jpg" alt="Sunny (Ting) Gan" class="faculty-card-img">
-                                </div>
-                                <div class="faculty-card-info">
-                                    <h4 class="font-bold text-xl">Sunny (Ting) Gan</h4>
-                                    <p class="text-brand-tan">Piano, Music Theory, Composition</p>
-                                </div>
+                            <div class="faculty-card" data-name="Sunny (Ting) Gan" data-instrument="Piano, Music Theory, Composition" data-img-src="images/facultyProfilePictures/Sunny.jpg" data-video="" data-img-pos="50% 25%" data-bio="[Add bio here]" data-achievements='[]'>
+                                <div class="faculty-card-img-container"><img src="images/facultyProfilePictures/Sunny.jpg" alt="Sunny (Ting) Gan" class="faculty-card-img" style="object-position: 50% 25%;"></div>
+                                <div class="faculty-card-info"><h4 class="font-bold text-xl">Sunny (Ting) Gan</h4><p class="text-brand-tan">Piano, Music Theory, Composition</p></div>
                             </div>
-                            <div class="faculty-card" 
-                                data-name="Yaqi Cao" 
-                                data-instrument="Piano" 
-                                data-img-src="images/facultyProfilePictures/Yaqi Cao.jpg"
-                                data-bio="[Add bio here]"
-                                data-achievements='[]'>
-                                <div class="faculty-card-img-container">
-                                    <img src="images/facultyProfilePictures/Yaqi Cao.jpg" alt="Yaqi Cao" class="faculty-card-img">
-                                </div>
-                                <div class="faculty-card-info">
-                                    <h4 class="font-bold text-xl">Yaqi Cao</h4>
-                                    <p class="text-brand-tan">Piano</p>
-                                </div>
+                            <div class="faculty-card" data-name="Yaqi Cao" data-instrument="Piano" data-img-src="images/facultyProfilePictures/Yaqi Cao.jpg" data-video="" data-img-pos="50% 35%" data-bio="[Add bio here]" data-achievements='[]'>
+                                <div class="faculty-card-img-container"><img src="images/facultyProfilePictures/Yaqi Cao.jpg" alt="Yaqi Cao" class="faculty-card-img" style="object-position: 50% 35%;"></div>
+                                <div class="faculty-card-info"><h4 class="font-bold text-xl">Yaqi Cao</h4><p class="text-brand-tan">Piano</p></div>
                             </div>
-                            <div class="faculty-card" 
-                                data-name="Chun-Syuan Wei" 
-                                data-instrument="Piano" 
-                                data-img-src="images/facultyProfilePictures/Chun.jpg"
-                                data-bio="[Add bio here]"
-                                data-achievements='[]'>
-                                <div class="faculty-card-img-container">
-                                    <img src="images/facultyProfilePictures/Chun.jpg" alt="Chun-Syuan Wei" class="faculty-card-img">
-                                </div>
-                                <div class="faculty-card-info">
-                                    <h4 class="font-bold text-xl">Chun-Syuan Wei</h4>
-                                    <p class="text-brand-tan">Piano</p>
-                                </div>
+                            <div class="faculty-card" data-name="Chun-Syuan Wei" data-instrument="Piano" data-img-src="images/facultyProfilePictures/Chun.jpg" data-video="" data-img-pos="50% 30%" data-bio="[Add bio here]" data-achievements='[]'>
+                                <div class="faculty-card-img-container"><img src="images/facultyProfilePictures/Chun.jpg" alt="Chun-Syuan Wei" class="faculty-card-img" style="object-position: 50% 30%;"></div>
+                                <div class="faculty-card-info"><h4 class="font-bold text-xl">Chun-Syuan Wei</h4><p class="text-brand-tan">Piano</p></div>
                             </div>
-                             <div class="faculty-card" 
-                                data-name="Hart Lu" 
-                                data-instrument="Piano, Music Arts" 
-                                data-img-src="https://placehold.co/400x400/333/f5f5f5?text=Hart"
-                                data-bio="[Add bio here]"
-                                data-achievements='[]'>
-                                <div class="faculty-card-img-container">
-                                    <img src="https://placehold.co/400x400/333/f5f5f5?text=Hart" alt="Hart Lu" class="faculty-card-img">
-                                </div>
-                                <div class="faculty-card-info">
-                                    <h4 class="font-bold text-xl">Hart Lu</h4>
-                                    <p class="text-brand-tan">Piano, Music Arts</p>
-                                </div>
+                            <div class="faculty-card" data-name="Hart Lu" data-instrument="Piano, Music Arts" data-img-src="https://placehold.co/400x400/333/f5f5f5?text=Hart" data-video="" data-img-pos="50% 50%" data-bio="[Add bio here]" data-achievements='[]'>
+                                <div class="faculty-card-img-container"><img src="https://placehold.co/400x400/333/f5f5f5?text=Hart" alt="Hart Lu" class="faculty-card-img" style="object-position: 50% 50%;"></div>
+                                <div class="faculty-card-info"><h4 class="font-bold text-xl">Hart Lu</h4><p class="text-brand-tan">Piano, Music Arts</p></div>
                             </div>
                         </div>
                     </div>
-                     <!-- Woodwinds Section -->
+                      <!-- Woodwinds Section -->
                     <div>
                         <h3 class="text-3xl font-bold border-b-2 border-brand-tan pb-2 mb-8">Woodwinds</h3>
                         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-                             <div class="faculty-card" 
-                                data-name="Jiaqi Li" 
-                                data-instrument="Flute" 
-                                data-img-src="images/facultyProfilePictures/Jaqi Yi.jpg"
-                                data-bio="[Add bio here]"
-                                data-achievements='[]'>
-                                <div class="faculty-card-img-container">
-                                    <img src="images/facultyProfilePictures/Jaqi Yi.jpg" alt="Jiaqi Li" class="faculty-card-img">
-                                </div>
-                                <div class="faculty-card-info">
-                                    <h4 class="font-bold text-xl">Jiaqi Li</h4>
-                                    <p class="text-brand-tan">Flute</p>
-                                </div>
+                            <div class="faculty-card" data-name="Jiaqi Li" data-instrument="Flute" data-img-src="images/facultyProfilePictures/Jaqi Yi.jpg" data-video="" data-img-pos="50% 40%" data-bio="[Add bio here]" data-achievements='[]'>
+                                <div class="faculty-card-img-container"><img src="images/facultyProfilePictures/Jaqi Yi.jpg" alt="Jiaqi Li" class="faculty-card-img" style="object-position: 50% 40%;"></div>
+                                <div class="faculty-card-info"><h4 class="font-bold text-xl">Jiaqi Li</h4><p class="text-brand-tan">Flute</p></div>
                             </div>
-                            <div class="faculty-card" 
-                                data-name="Quan Guo" 
-                                data-instrument="Saxophone" 
-                                data-img-src="images/facultyProfilePictures/SaxophoneTeacher.jpg"
-                                data-bio="[Add bio here]"
-                                data-achievements='[]'>
-                                <div class="faculty-card-img-container">
-                                    <img src="images/facultyProfilePictures/SaxophoneTeacher.jpg" alt="Quan Guo" class="faculty-card-img">
-                                </div>
-                                <div class="faculty-card-info">
-                                    <h4 class="font-bold text-xl">Quan Guo</h4>
-                                    <p class="text-brand-tan">Saxophone</p>
-                                </div>
+                            <div class="faculty-card" data-name="Quan Guo" data-instrument="Saxophone" data-img-src="images/facultyProfilePictures/SaxophoneTeacher.jpg" data-video="" data-img-pos="50% 30%" data-bio="[Add bio here]" data-achievements='[]'>
+                                <div class="faculty-card-img-container"><img src="images/facultyProfilePictures/SaxophoneTeacher.jpg" alt="Quan Guo" class="faculty-card-img" style="object-position: 50% 30%;"></div>
+                                <div class="faculty-card-info"><h4 class="font-bold text-xl">Quan Guo</h4><p class="text-brand-tan">Saxophone</p></div>
                             </div>
                         </div>
                     </div>
@@ -270,33 +130,13 @@
                     <div>
                         <h3 class="text-3xl font-bold border-b-2 border-brand-tan pb-2 mb-8">Percussion</h3>
                         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-                             <div class="faculty-card" 
-                                data-name="Bobby Plizak" 
-                                data-instrument="Drums, Percussion" 
-                                data-img-src="images/facultyProfilePictures/Bobby.jpg"
-                                data-bio="[Add bio here]"
-                                data-achievements='[]'>
-                                <div class="faculty-card-img-container">
-                                    <img src="images/facultyProfilePictures/Bobby.jpg" alt="Bobby Plizak" class="faculty-card-img">
-                                </div>
-                                <div class="faculty-card-info">
-                                    <h4 class="font-bold text-xl">Bobby Plizak</h4>
-                                    <p class="text-brand-tan">Drums, Percussion</p>
-                                </div>
+                            <div class="faculty-card" data-name="Bobby Plizak" data-instrument="Drums, Percussion" data-img-src="images/facultyProfilePictures/bobby2.jpg" data-video="" data-img-pos="50% 35%" data-bio="[Add bio here]" data-achievements='[]'>
+                                <div class="faculty-card-img-container"><img src="images/facultyProfilePictures/bobby2.jpg" alt="Bobby Plizak" class="faculty-card-img" style="object-position: 50% 35%;"></div>
+                                <div class="faculty-card-info"><h4 class="font-bold text-xl">Bobby Plizak</h4><p class="text-brand-tan">Drums, Percussion</p></div>
                             </div>
-                            <div class="faculty-card" 
-                                data-name="Johnathan Whitehorn" 
-                                data-instrument="Drums" 
-                                data-img-src="images/facultyProfilePictures/Johnathan.jpg"
-                                data-bio="[Add bio here]"
-                                data-achievements='[]'>
-                                <div class="faculty-card-img-container">
-                                    <img src="images/facultyProfilePictures/Johnathan.jpg" alt="Johnathan Whitehorn" class="faculty-card-img">
-                                </div>
-                                <div class="faculty-card-info">
-                                    <h4 class="font-bold text-xl">Johnathan Whitehorn</h4>
-                                    <p class="text-brand-tan">Drums</p>
-                                </div>
+                            <div class="faculty-card" data-name="Johnathan Whitehorn" data-instrument="Drums" data-img-src="images/facultyProfilePictures/Johnathan.jpg" data-video="" data-img-pos="50% 25%" data-bio="[Add bio here]" data-achievements='[]'>
+                                <div class="faculty-card-img-container"><img src="images/facultyProfilePictures/Johnathan.jpg" alt="Johnathan Whitehorn" class="faculty-card-img" style="object-position: 50% 25%;"></div>
+                                <div class="faculty-card-info"><h4 class="font-bold text-xl">Johnathan Whitehorn</h4><p class="text-brand-tan">Drums</p></div>
                             </div>
                         </div>
                     </div>
@@ -304,53 +144,23 @@
                     <div>
                         <h3 class="text-3xl font-bold border-b-2 border-brand-tan pb-2 mb-8">Voice</h3>
                         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-                            <div class="faculty-card" 
-                                data-name="Xiaojing Luo" 
-                                data-instrument="Soprano" 
-                                data-img-src="https://placehold.co/400x400/333/f5f5f5?text=Xiaojing"
-                                data-bio="[Add bio here]"
-                                data-achievements='[]'>
-                                <div class="faculty-card-img-container">
-                                    <img src="https://placehold.co/400x400/333/f5f5f5?text=Xiaojing" alt="Xiaojing Luo" class="faculty-card-img">
-                                </div>
-                                <div class="faculty-card-info">
-                                    <h4 class="font-bold text-xl">Xiaojing Luo</h4>
-                                    <p class="text-brand-tan">Soprano</p>
-                                </div>
+                            <div class="faculty-card" data-name="Xiaojing Luo" data-instrument="Soprano" data-img-src="https://placehold.co/400x400/333/f5f5f5?text=Xiaojing" data-video="" data-img-pos="50% 50%" data-bio="[Add bio here]" data-achievements='[]'>
+                                <div class="faculty-card-img-container"><img src="https://placehold.co/400x400/333/f5f5f5?text=Xiaojing" alt="Xiaojing Luo" class="faculty-card-img" style="object-position: 50% 50%;"></div>
+                                <div class="faculty-card-info"><h4 class="font-bold text-xl">Xiaojing Luo</h4><p class="text-brand-tan">Soprano</p></div>
                             </div>
-                            <div class="faculty-card" 
-                                data-name="Yuqin Xie" 
-                                data-instrument="Vocal" 
-                                data-img-src="images/facultyProfilePictures/vocalTeacher.jpg"
-                                data-bio="[Add bio here]"
-                                data-achievements='[]'>
-                                <div class="faculty-card-img-container">
-                                    <img src="images/facultyProfilePictures/vocalTeacher.jpg" alt="Yuqin Xie" class="faculty-card-img">
-                                </div>
-                                <div class="faculty-card-info">
-                                    <h4 class="font-bold text-xl">Yuqin Xie</h4>
-                                    <p class="text-brand-tan">Vocal</p>
-                                </div>
+                            <div class="faculty-card" data-name="Yuqin Xie" data-instrument="Vocal" data-img-src="images/facultyProfilePictures/vocalTeacher.jpg" data-video="" data-img-pos="50% 40%" data-bio="[Add bio here]" data-achievements='[]'>
+                                <div class="faculty-card-img-container"><img src="images/facultyProfilePictures/vocalTeacher.jpg" alt="Yuqin Xie" class="faculty-card-img" style="object-position: 50% 40%;"></div>
+                                <div class="faculty-card-info"><h4 class="font-bold text-xl">Yuqin Xie</h4><p class="text-brand-tan">Vocal</p></div>
                             </div>
                         </div>
                     </div>
-                     <!-- Guitar Section -->
+                      <!-- Guitar Section -->
                     <div>
                         <h3 class="text-3xl font-bold border-b-2 border-brand-tan pb-2 mb-8">Guitar</h3>
                         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-                             <div class="faculty-card" 
-                                data-name="Milos Socanin" 
-                                data-instrument="Guitar" 
-                                data-img-src="images/facultyProfilePictures/milos.jpg"
-                                data-bio="[Add bio here]"
-                                data-achievements='[]'>
-                                <div class="faculty-card-img-container">
-                                    <img src="images/facultyProfilePictures/milos.jpg" alt="Milos Socanin" class="faculty-card-img">
-                                </div>
-                                <div class="faculty-card-info">
-                                    <h4 class="font-bold text-xl">Milos Socanin</h4>
-                                    <p class="text-brand-tan">Guitar</p>
-                                </div>
+                            <div class="faculty-card" data-name="Milos Socanin" data-instrument="Guitar" data-img-src="images/facultyProfilePictures/milos.jpg" data-video="" data-img-pos="50% 30%" data-bio="[Add bio here]" data-achievements='[]'>
+                                <div class="faculty-card-img-container"><img src="images/facultyProfilePictures/milos.jpg" alt="Milos Socanin" class="faculty-card-img" style="object-position: 50% 30%;"></div>
+                                <div class="faculty-card-info"><h4 class="font-bold text-xl">Milos Socanin</h4><p class="text-brand-tan">Guitar</p></div>
                             </div>
                         </div>
                     </div>
@@ -374,17 +184,21 @@
         <div class="modal-content bg-[#222] rounded-md shadow-xl max-w-3xl w-full max-h-[90vh] overflow-y-auto relative">
             <button id="modal-close-button" class="absolute top-4 right-4 text-gray-400 hover:text-white text-4xl leading-none">&times;</button>
             <div class="p-8">
+                <!-- This container sets the 16:9 shape for both video and image -->
                 <div class="modal-media-container">
-                    <img id="modal-img" src="" alt="Faculty Headshot" class="modal-profile-photo">
+                    <img id="modal-img" src="" alt="Faculty Headshot" class="hidden">
                     <div id="modal-video-container" class="hidden">
-                        <iframe id="modal-video-iframe" width="100%" height="100%" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe id="modal-video-iframe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                 </div>
+                
                 <h2 id="modal-name" class="text-3xl font-bold text-brand-tan text-center mt-6"></h2>
                 <h3 id="modal-instrument" class="text-xl text-center text-gray-300 mb-6"></h3>
                 <div id="modal-bio" class="text-gray-400 leading-relaxed mb-8"></div>
+                
                 <h4 class="text-2xl font-bold text-brand-tan mb-4">Achievements</h4>
                 <div id="modal-achievements" class="timeline"></div>
+
                 <div class="text-center mt-10">
                     <a id="modal-schedule-button" href="contact.html#book-trial" class="bg-brand-tan text-gray-900 font-bold py-3 px-8 rounded-md text-lg hover:bg-opacity-90 transition duration-300">Schedule a Trial</a>
                 </div>
@@ -395,4 +209,3 @@
     <script src="script.js"></script>
 </body>
 </html>
-

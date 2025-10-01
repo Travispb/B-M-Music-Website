@@ -1,177 +1,157 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // --- Page Navigation Logic ---
-    const sections = document.querySelectorAll('.section');
-    const navLinks = document.querySelectorAll('.nav-link');
-    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+    // --- Mobile Menu Logic ---
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
-    const allNavLinks = [...navLinks, ...mobileNavLinks];
-
-    function showSection(hash) {
-        const targetHash = hash || '#home';
-        sections.forEach(section => section.classList.toggle('active', '#' + section.id === targetHash));
-        allNavLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === targetHash));
-        
-        // Only scroll into view if a specific hash is present, otherwise stay at the top
-        if (hash && document.querySelector(targetHash)) {
-            document.querySelector(targetHash).scrollIntoView({ behavior: 'smooth' });
-        } else if (!hash) {
-            window.scrollTo(0, 0);
-        }
+    if (mobileMenuButton) {
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
     }
 
-    allNavLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetHash = this.getAttribute('href');
-            // Using history.pushState allows changing the URL without a page refresh
-            history.pushState(null, null, targetHash);
-            showSection(targetHash);
-
-            if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
-                mobileMenu.classList.add('hidden');
-            }
-        });
-    });
-
-    // Handle back/forward browser buttons
-    window.addEventListener('popstate', () => showSection(window.location.hash));
+    // --- Active Navigation Link Logic ---
+    const navLinks = document.querySelectorAll('.nav-link');
+    const currentPath = window.location.pathname.split('/').pop();
     
-    mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
-    
-    // Show initial section on page load
-    showSection(window.location.hash);
+    navLinks.forEach(link => {
+        const linkPath = link.getAttribute('href').split('/').pop();
+        if (linkPath === currentPath || (currentPath === 'home.html' && linkPath === 'index.html') || (currentPath === '' && (linkPath === 'index.html' || linkPath === 'home.html'))) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
+        }
+    });
 
-    // --- Faculty Modal Logic ---
-    const facultyModal = document.getElementById('faculty-modal');
-    const modalCloseButton = document.getElementById('modal-close-button');
-    const modalScheduleButton = document.getElementById('modal-schedule-button');
-    const achievementsContainer = document.getElementById('modal-achievements');
+    // --- Page-Specific Logic ---
+    const bodyId = document.body.id;
 
-    const modalImg = document.getElementById('modal-img');
-    const modalVideoContainer = document.getElementById('modal-video-container');
-    const modalVideoIframe = document.getElementById('modal-video-iframe');
+    // --- Logic for Team Page ---
+    if (bodyId === 'team-page') {
+        const facultyModal = document.getElementById('faculty-modal');
+        const modalCloseButton = document.getElementById('modal-close-button');
+        
+        const modalImg = document.getElementById('modal-img');
+        const modalVideoContainer = document.getElementById('modal-video-container');
+        const modalVideoIframe = document.getElementById('modal-video-iframe');
+        
+        const achievementsContainer = document.getElementById('modal-achievements');
 
-    document.querySelectorAll('.faculty-card').forEach(card => {
-        card.addEventListener('click', function() {
-            const name = this.dataset.name;
-            const videoUrl = this.dataset.video;
-            const imagePosition = this.dataset.imgPos || 'center'; // Default to center if not specified
-            const cardImage = this.querySelector('.faculty-image');
+        document.querySelectorAll('.faculty-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const name = this.dataset.name;
+                const videoUrl = this.dataset.video;
+                const imgSrc = this.dataset.imgSrc;
+                const imgPos = this.dataset.imgPos || '50% 50%'; // Default to center-center
 
-            // Apply the custom image position to the card's image for immediate visual feedback
-            if (cardImage) {
-               cardImage.style.objectPosition = imagePosition;
-            }
-
-            // --- Media Logic for Modal ---
-            if (videoUrl) {
-                modalImg.style.display = 'none';
-                modalVideoContainer.style.display = 'block';
-                modalVideoIframe.src = videoUrl;
-            } else {
-                modalImg.style.display = 'block';
-                modalVideoContainer.style.display = 'none';
-                modalVideoIframe.src = ''; // Clear video source
-                if(cardImage) {
-                    modalImg.src = cardImage.src;
+                // --- Media Logic ---
+                if (videoUrl) {
+                    modalImg.classList.add('hidden');
+                    modalVideoContainer.classList.remove('hidden');
+                    modalVideoIframe.src = videoUrl;
+                } else {
+                    modalVideoContainer.classList.add('hidden');
+                    modalImg.classList.remove('hidden');
+                    modalImg.src = imgSrc;
+                    modalImg.style.objectPosition = imgPos; // This is the magic line!
                 }
-                // Apply the custom image position to the modal's image
-                modalImg.style.objectPosition = imagePosition;
-            }
 
-            document.getElementById('modal-name').textContent = name;
-            document.getElementById('modal-instrument').textContent = this.dataset.instrument;
-            document.getElementById('modal-bio').innerHTML = this.dataset.bio;
-            
-            achievementsContainer.innerHTML = '';
-            if (this.dataset.achievements) {
-                try {
-                    const achievements = JSON.parse(this.dataset.achievements);
-                    achievements.forEach(item => {
-                        const itemEl = document.createElement('div');
-                        itemEl.className = 'timeline-item';
-                        itemEl.innerHTML = `
-                            <div class="timeline-dot"></div>
-                            <div class="text-sm text-gray-400">${item.date}</div>
-                            <div class="font-semibold">${item.event}</div>
-                        `;
-                        achievementsContainer.appendChild(itemEl);
-                    });
-                } catch (e) {
-                    console.error("Could not parse achievements JSON:", e);
+                document.getElementById('modal-name').textContent = name;
+                document.getElementById('modal-instrument').textContent = this.dataset.instrument;
+                document.getElementById('modal-bio').innerHTML = this.dataset.bio;
+                
+                achievementsContainer.innerHTML = '';
+                if(this.dataset.achievements) {
+                    try {
+                        const achievements = JSON.parse(this.dataset.achievements);
+                        achievements.forEach(item => {
+                            const itemEl = document.createElement('div');
+                            itemEl.className = 'timeline-item';
+                            itemEl.innerHTML = `<div class="timeline-dot"></div><div class="text-sm text-gray-400">${item.date}</div><div class="font-semibold">${item.event}</div>`;
+                            achievementsContainer.appendChild(itemEl);
+                        });
+                    } catch (e) { /* Fails gracefully if JSON is empty/invalid */ }
                 }
-            }
 
-            modalScheduleButton.textContent = `Schedule a Trial with ${name.split(' ')[0]}`;
-            modalScheduleButton.dataset.teacherName = name;
-            facultyModal.classList.add('active');
+                document.getElementById('modal-schedule-button').dataset.teacherName = name;
+                facultyModal.classList.add('active');
+            });
         });
-    });
 
-    const closeModal = () => {
-        facultyModal.classList.remove('active');
-        // IMPORTANT: Stop video from playing in the background when modal is closed
-        modalVideoIframe.src = ''; 
-    };
+        const closeModal = () => {
+            facultyModal.classList.remove('active');
+            // Stop video from playing in background
+            modalVideoIframe.src = ''; 
+        };
 
-    modalCloseButton.addEventListener('click', closeModal);
-    facultyModal.addEventListener('click', e => { 
-        if (e.target === facultyModal) closeModal(); 
-    });
+        modalCloseButton.addEventListener('click', closeModal);
+        facultyModal.addEventListener('click', e => { 
+            if (e.target === facultyModal) closeModal(); 
+        });
 
-    // Handle clicking the schedule button inside the modal
-    document.querySelectorAll('a[href="#book-trial"]').forEach(link => {
-         link.addEventListener('click', function(e) {
+        // Pre-fill teacher name on contact form
+        document.getElementById('modal-schedule-button').addEventListener('click', function(e) {
             const teacherName = this.dataset.teacherName;
             if (teacherName) {
-                document.getElementById('preferred-teacher').value = teacherName;
-            }
-            if (facultyModal.classList.contains('active')) {
-                closeModal();
+                localStorage.setItem('preferredTeacher', teacherName);
             }
         });
-    });
+    }
 
-    // --- Price Calculator Logic ---
-    const calculator = document.getElementById('price-calculator');
-    if (calculator) {
-        const PRICE_CONFIG = {
-            basePrices: { 30: 40, 45: 55, 60: 70 },
-            monthlyDiscount: 0.95,
-            multiStudentDiscount: 0.95 
-        };
-        
-        const inputs = calculator.querySelectorAll('input, select');
-        const priceResultEl = document.getElementById('price-result');
-        const pricePerEl = document.getElementById('price-per');
-
-        function calculatePrice() {
-            const duration = document.querySelector('input[name="duration"]:checked').value;
-            const payment = document.querySelector('input[name="payment"]:checked').value;
-            const students = parseInt(document.getElementById('students').value) || 1;
-
-            let price = PRICE_CONFIG.basePrices[duration];
-            let perText = "Per Lesson";
-
-            if (payment === 'weekly') {
-                perText = "Per Week";
-            } else if (payment === 'monthly') {
-                price = price * 4 * PRICE_CONFIG.monthlyDiscount;
-                perText = "Per Month";
-            }
+    // --- Logic for Lessons Page ---
+    if (bodyId === 'lessons-page') {
+        const calculator = document.getElementById('price-calculator');
+        if (calculator) {
+            const PRICE_CONFIG = {
+                basePrices: { 30: 40, 45: 55, 60: 70 },
+                monthlyDiscount: 0.95,
+                multiStudentDiscount: 0.95 
+            };
             
-            price *= students;
-            if (students > 1) {
-                 price *= PRICE_CONFIG.multiStudentDiscount;
-            }
+            const inputs = calculator.querySelectorAll('input, select');
+            const priceResultEl = document.getElementById('price-result');
+            const pricePerEl = document.getElementById('price-per');
 
-            priceResultEl.textContent = `$${Math.round(price)}`;
-            pricePerEl.textContent = perText;
+            function calculatePrice() {
+                const duration = document.querySelector('input[name="duration"]:checked').value;
+                const payment = document.querySelector('input[name="payment"]:checked').value;
+                const students = parseInt(document.getElementById('students').value) || 1;
+
+                let price = PRICE_CONFIG.basePrices[duration];
+                let perText = "Per Lesson";
+
+                if (payment === 'weekly') {
+                    perText = "Per Week";
+                } else if (payment === 'monthly') {
+                    price = price * 4 * PRICE_CONFIG.monthlyDiscount;
+                    perText = "Per Month";
+                }
+                
+                price *= students;
+                if (students > 1) {
+                        price *= PRICE_CONFIG.multiStudentDiscount;
+                }
+
+                priceResultEl.textContent = `$${Math.round(price)}`;
+                pricePerEl.textContent = perText;
+            }
+            inputs.forEach(input => {
+                input.addEventListener('input', calculatePrice)
+                input.addEventListener('change', calculatePrice)
+            });
+            calculatePrice();
         }
-        inputs.forEach(input => input.addEventListener('input', calculatePrice));
-        inputs.forEach(input => input.addEventListener('change', calculatePrice));
-        calculatePrice();
+    }
+
+    // --- Logic for Contact Page ---
+    if (bodyId === 'contact-page') {
+        // Check if a preferred teacher was passed from the team page
+        const preferredTeacher = localStorage.getItem('preferredTeacher');
+        if (preferredTeacher) {
+            const teacherInput = document.getElementById('preferred-teacher');
+            if (teacherInput) {
+                teacherInput.value = preferredTeacher;
+            }
+            // Clear the stored item so it doesn't persist
+            localStorage.removeItem('preferredTeacher');
+        }
     }
 });
-
