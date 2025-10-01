@@ -47,18 +47,135 @@
     </header>
 
     <main>
-        <section class="py-20 bg-brand-dark">
+        <!-- Page Header -->
+        <section class="py-16 bg-gradient-to-b from-black to-brand-dark">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="text-5xl md:text-6xl font-extrabold text-brand-tan mb-4">Our Gallery</h1>
+                <p class="text-xl text-gray-300 max-w-2xl mx-auto">Moments of musical excellence, captured through student performances, recitals, and memorable events</p>
+            </div>
+        </section>
+
+        <!-- Filter Navigation -->
+        <section class="py-8 bg-[#222] border-b border-gray-800 sticky top-[72px] z-40">
             <div class="container mx-auto px-6">
-                <h1 class="text-4xl font-bold text-brand-tan text-center mb-12">Gallery</h1>
-                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                    <div class="overflow-hidden rounded-md"><img src="https://placehold.co/600x400/2a2a2a/f5f5f5?text=Student+Recital" alt="Gallery image" class="w-full h-full object-cover hover:scale-110 transition-transform duration-300"></div>
-                    <div class="overflow-hidden rounded-md"><img src="https://placehold.co/600x400/333/f5f5f5?text=Group+Lesson" alt="Gallery image" class="w-full h-full object-cover hover:scale-110 transition-transform duration-300"></div>
-                    <div class="overflow-hidden rounded-md"><img src="https://placehold.co/600x400/444/f5f5f5?text=Concert" alt="Gallery image" class="w-full h-full object-cover hover:scale-110 transition-transform duration-300"></div>
-                    <div class="overflow-hidden rounded-md"><img src="https://placehold.co/600x400/555/f5f5f5?text=Violin+Student" alt="Gallery image" class="w-full h-full object-cover hover:scale-110 transition-transform duration-300"></div>
+                <div class="flex flex-wrap justify-center gap-3">
+                    <button class="gallery-filter active" data-filter="all">All Photos</button>
+                    <button class="gallery-filter" data-filter="recitals">Recitals</button>
+                    <button class="gallery-filter" data-filter="lessons">Lessons</button>
+                    <button class="gallery-filter" data-filter="concerts">Concerts</button>
+                    <button class="gallery-filter" data-filter="events">Events</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Grid -->
+        <section class="py-16 bg-brand-dark">
+            <div class="container mx-auto px-6">
+                <div id="gallery-grid" class="gallery-grid">
+                    <!-- Placeholder images - replace with real photos -->
+                    <div class="gallery-item" data-category="recitals">
+                        <img src="https://images.pexels.com/photos/7520986/pexels-photo-7520986.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Student Recital" loading="lazy">
+                        <div class="gallery-overlay">
+                            <p class="text-sm font-semibold">Student Recital</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-category="lessons">
+                        <img src="https://images.pexels.com/photos/7521008/pexels-photo-7521008.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Piano Lesson" loading="lazy">
+                        <div class="gallery-overlay">
+                            <p class="text-sm font-semibold">Piano Lesson</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-category="concerts">
+                        <img src="https://images.pexels.com/photos/7520964/pexels-photo-7520964.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Concert Performance" loading="lazy">
+                        <div class="gallery-overlay">
+                            <p class="text-sm font-semibold">Concert Performance</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-category="lessons">
+                        <img src="https://images.pexels.com/photos/8087862/pexels-photo-8087862.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Violin Lesson" loading="lazy">
+                        <div class="gallery-overlay">
+                            <p class="text-sm font-semibold">Violin Lesson</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-category="events">
+                        <img src="https://images.pexels.com/photos/7520984/pexels-photo-7520984.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Music Event" loading="lazy">
+                        <div class="gallery-overlay">
+                            <p class="text-sm font-semibold">Music Event</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-category="recitals">
+                        <img src="https://images.pexels.com/photos/7521038/pexels-photo-7521038.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Student Performance" loading="lazy">
+                        <div class="gallery-overlay">
+                            <p class="text-sm font-semibold">Student Performance</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-category="concerts">
+                        <img src="https://images.pexels.com/photos/7521035/pexels-photo-7521035.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Orchestra Concert" loading="lazy">
+                        <div class="gallery-overlay">
+                            <p class="text-sm font-semibold">Orchestra Concert</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-category="lessons">
+                        <img src="https://images.pexels.com/photos/7521047/pexels-photo-7521047.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Guitar Lesson" loading="lazy">
+                        <div class="gallery-overlay">
+                            <p class="text-sm font-semibold">Guitar Lesson</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-category="events">
+                        <img src="https://images.pexels.com/photos/7520983/pexels-photo-7520983.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Workshop Event" loading="lazy">
+                        <div class="gallery-overlay">
+                            <p class="text-sm font-semibold">Workshop Event</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-category="recitals">
+                        <img src="https://images.pexels.com/photos/8087860/pexels-photo-8087860.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Spring Recital" loading="lazy">
+                        <div class="gallery-overlay">
+                            <p class="text-sm font-semibold">Spring Recital</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-category="concerts">
+                        <img src="https://images.pexels.com/photos/7520992/pexels-photo-7520992.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Chamber Concert" loading="lazy">
+                        <div class="gallery-overlay">
+                            <p class="text-sm font-semibold">Chamber Concert</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-category="events">
+                        <img src="https://images.pexels.com/photos/7521056/pexels-photo-7521056.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Holiday Event" loading="lazy">
+                        <div class="gallery-overlay">
+                            <p class="text-sm font-semibold">Holiday Event</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="no-results" class="hidden text-center py-16">
+                    <p class="text-2xl text-gray-400">No photos found in this category</p>
                 </div>
             </div>
         </section>
     </main>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox-modal" class="modal-overlay fixed inset-0 bg-black bg-opacity-95 flex items-center justify-center z-50 p-4">
+        <button id="lightbox-close" class="absolute top-6 right-6 text-white text-4xl font-light hover:text-brand-tan transition-colors z-10">&times;</button>
+        <button id="lightbox-prev" class="absolute left-6 top-1/2 transform -translate-y-1/2 text-white text-5xl font-light hover:text-brand-tan transition-colors z-10">&lsaquo;</button>
+        <button id="lightbox-next" class="absolute right-6 top-1/2 transform -translate-y-1/2 text-white text-5xl font-light hover:text-brand-tan transition-colors z-10">&rsaquo;</button>
+
+        <div class="modal-content max-w-6xl w-full">
+            <img id="lightbox-img" src="" alt="Gallery image" class="w-full h-auto rounded-lg shadow-2xl">
+            <p id="lightbox-caption" class="text-center text-white text-lg mt-4"></p>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="bg-black py-8">
