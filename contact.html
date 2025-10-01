@@ -15,7 +15,9 @@
     <!-- Header & Navigation -->
     <header class="bg-brand-dark bg-opacity-80 backdrop-blur-md sticky top-0 z-50 shadow-lg shadow-black/20">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="home.html" class="text-2xl font-bold text-brand-tan tracking-wider">B&M School</a>
+            <a href="home.html">
+                <img src="B&M_Logo.png" alt="B&M Music School Logo" class="h-14">
+            </a>
             <div class="hidden md:flex items-center space-x-8">
                 <a href="home.html" class="nav-link text-lg">Home</a>
                 <a href="about.html" class="nav-link text-lg">About Us</a>
@@ -76,28 +78,48 @@
             <div class="container mx-auto px-6">
                 <h2 class="text-4xl font-bold text-brand-tan text-center mb-12">Schedule Your Trial Lesson</h2>
                 <form class="max-w-3xl mx-auto space-y-6">
-                     <div class="grid md:grid-cols-2 gap-6">
+                    <div class="grid md:grid-cols-2 gap-6">
                         <div>
-                            <label for="student-first-name" class="block mb-2 font-semibold">Student First Name*</label>
-                            <input type="text" id="student-first-name" required class="w-full bg-[#222] border border-gray-600 rounded-md p-3">
+                            <label for="first-name" class="block mb-2 font-semibold">First Name*</label>
+                            <input type="text" id="first-name" required class="w-full bg-[#222] border border-gray-600 rounded-md p-3">
                         </div>
                         <div>
-                            <label for="student-last-name" class="block mb-2 font-semibold">Student Last Name*</label>
-                            <input type="text" id="student-last-name" required class="w-full bg-[#222] border border-gray-600 rounded-md p-3">
+                            <label for="last-name" class="block mb-2 font-semibold">Last Name*</label>
+                            <input type="text" id="last-name" required class="w-full bg-[#222] border border-gray-600 rounded-md p-3">
                         </div>
-                    </div>
-                     <div>
-                        <label for="student-age" class="block mb-2 font-semibold">Student Age*</label>
-                        <input type="number" id="student-age" required class="w-full bg-[#222] border border-gray-600 rounded-md p-3">
-                    </div>
-                     <div>
-                        <label for="parent-name" class="block mb-2 font-semibold">Parent/Guardian Name*</label>
-                        <input type="text" id="parent-name" required class="w-full bg-[#222] border border-gray-600 rounded-md p-3">
                     </div>
                      <div class="grid md:grid-cols-2 gap-6">
                         <div>
-                            <label for="trial-instrument" class="block mb-2 font-semibold">Trial Instrument(s)</label>
-                            <input type="text" id="trial-instrument" class="w-full bg-[#222] border border-gray-600 rounded-md p-3">
+                            <label for="phone" class="block mb-2 font-semibold">Phone*</label>
+                            <input type="tel" id="phone" required class="w-full bg-[#222] border border-gray-600 rounded-md p-3">
+                        </div>
+                        <div>
+                            <label for="email" class="block mb-2 font-semibold">Email*</label>
+                            <input type="email" id="email" required class="w-full bg-[#222] border border-gray-600 rounded-md p-3">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="instrument" class="block mb-2 font-semibold">Instrument</label>
+                        <select id="instrument" class="w-full bg-[#222] border border-gray-600 rounded-md p-3">
+                            <option selected disabled>Choose an option</option>
+                            <option>Piano</option>
+                            <option>Violin</option>
+                            <option>Cello</option>
+                            <option>Flute</option>
+                            <option>Drum</option>
+                            <option>Saxophone</option>
+                            <option>Guitar</option>
+                            <option>Vocal</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="experience" class="block mb-2 font-semibold">Musical Background/Learning Experience</label>
+                        <textarea id="experience" rows="4" class="w-full bg-[#222] border border-gray-600 rounded-md p-3" placeholder="e.g., Beginner, 2 years of piano, etc."></textarea>
+                    </div>
+                     <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="preferred-day" class="block mb-2 font-semibold">Preferred Lesson Day</label>
+                            <input type="text" id="preferred-day" class="w-full bg-[#222] border border-gray-600 rounded-md p-3" placeholder="e.g., Weekday afternoons">
                         </div>
                          <div>
                             <label for="preferred-teacher" class="block mb-2 font-semibold">Preferred Teacher</label>
@@ -105,15 +127,26 @@
                         </div>
                     </div>
                     <div>
-                        <label for="hear-about-us" class="block mb-2 font-semibold">How did you hear about us?</label>
+                        <label for="location" class="block mb-2 font-semibold">Location</label>
+                        <select id="location" class="w-full bg-[#222] border border-gray-600 rounded-md p-3">
+                            <option selected disabled>Choose an option</option>
+                            <option>McKinney Location</option>
+                            <option>Virtual</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="hear-about-us" class="block mb-2 font-semibold">How Did You Hear About Us</label>
                         <select id="hear-about-us" class="w-full bg-[#222] border border-gray-600 rounded-md p-3">
+                            <option selected disabled>Choose an option</option>
                             <option>Google Search</option>
                             <option>Social Media</option>
-                            <option>Advertisement</option>
-                            <option>Friend or Family</option>
-                            <option>Local Event</option>
+                            <option>Friend Recommendation</option>
                             <option>Other</option>
                         </select>
+                    </div>
+                    <div>
+                        <label for="message" class="block mb-2 font-semibold">Leave us a message...</label>
+                        <textarea id="message" rows="4" class="w-full bg-[#222] border border-gray-600 rounded-md p-3"></textarea>
                     </div>
                     <div class="text-center pt-4">
                         <button type="submit" class="bg-brand-tan text-gray-900 font-bold py-3 px-12 rounded-md text-lg hover:bg-opacity-90 transition duration-300">Submit Request</button>
