@@ -10,14 +10,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="antialiased">
+<body id="gallery-page" class="antialiased">
 
     <!-- Header & Navigation -->
     <header class="bg-brand-dark bg-opacity-80 backdrop-blur-md sticky top-0 z-50 shadow-lg shadow-black/20">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-bold text-brand-tan tracking-wider">B&M School</a>
+            <a href="home.html" class="text-2xl font-bold text-brand-tan tracking-wider">B&M School</a>
             <div class="hidden md:flex items-center space-x-8">
-                <a href="index.html" class="nav-link text-lg">Home</a>
+                <a href="home.html" class="nav-link text-lg">Home</a>
                 <a href="about.html" class="nav-link text-lg">About Us</a>
                 <a href="team.html" class="nav-link text-lg">Our Team</a>
                 <a href="lessons.html" class="nav-link text-lg">Lessons & Pricing</a>
@@ -25,7 +25,8 @@
                 <a href="gallery.html" class="nav-link text-lg">Gallery</a>
                 <a href="contact.html" class="nav-link text-lg">Contact</a>
             </div>
-            <div class="hidden md:flex">
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="https://bandm.mymusicstaff.com/Login" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-brand-tan font-medium transition duration-300 text-lg">Student Portal</a>
                 <a href="contact.html#book-trial" class="bg-brand-tan text-gray-900 font-bold py-2 px-5 rounded-md hover:bg-opacity-90 transition duration-300">Book a Trial</a>
             </div>
             <div class="md:hidden">
@@ -35,13 +36,14 @@
             </div>
         </nav>
         <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2">
-            <a href="index.html" class="block text-center py-2 nav-link mobile-nav-link">Home</a>
+            <a href="home.html" class="block text-center py-2 nav-link mobile-nav-link">Home</a>
             <a href="about.html" class="block text-center py-2 nav-link mobile-nav-link">About Us</a>
             <a href="team.html" class="block text-center py-2 nav-link mobile-nav-link">Our Team</a>
             <a href="lessons.html" class="block text-center py-2 nav-link mobile-nav-link">Lessons & Pricing</a>
             <a href="events.html" class="block text-center py-2 nav-link mobile-nav-link">Events</a>
             <a href="gallery.html" class="block text-center py-2 nav-link mobile-nav-link">Gallery</a>
             <a href="contact.html" class="block text-center py-2 nav-link mobile-nav-link">Contact</a>
+            <a href="https://bandm.mymusicstaff.com/Login" target="_blank" rel="noopener noreferrer" class="block text-center py-2 nav-link mobile-nav-link">Student Portal</a>
             <a href="contact.html#book-trial" class="block text-center bg-brand-tan text-gray-900 font-bold mt-2 py-2 px-5 rounded-md hover:bg-opacity-90 transition duration-300">Book a Trial</a>
         </div>
     </header>
@@ -72,94 +74,22 @@
         <section class="py-16 bg-brand-dark">
             <div class="container mx-auto px-6">
                 <div id="gallery-grid" class="gallery-grid">
-                    <!-- Placeholder images - replace with real photos -->
+                    <!-- Images -->
                     <div class="gallery-item" data-category="recitals">
                         <img src="https://images.pexels.com/photos/7520986/pexels-photo-7520986.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Student Recital" loading="lazy">
-                        <div class="gallery-overlay">
-                            <p class="text-sm font-semibold">Student Recital</p>
-                        </div>
+                        <div class="gallery-overlay"><p>Student Recital</p></div>
                     </div>
-
                     <div class="gallery-item" data-category="lessons">
                         <img src="https://images.pexels.com/photos/7521008/pexels-photo-7521008.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Piano Lesson" loading="lazy">
-                        <div class="gallery-overlay">
-                            <p class="text-sm font-semibold">Piano Lesson</p>
-                        </div>
+                        <div class="gallery-overlay"><p>Piano Lesson</p></div>
                     </div>
-
                     <div class="gallery-item" data-category="concerts">
                         <img src="https://images.pexels.com/photos/7520964/pexels-photo-7520964.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Concert Performance" loading="lazy">
-                        <div class="gallery-overlay">
-                            <p class="text-sm font-semibold">Concert Performance</p>
-                        </div>
-                    </div>
-
-                    <div class="gallery-item" data-category="lessons">
-                        <img src="https://images.pexels.com/photos/8087862/pexels-photo-8087862.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Violin Lesson" loading="lazy">
-                        <div class="gallery-overlay">
-                            <p class="text-sm font-semibold">Violin Lesson</p>
-                        </div>
-                    </div>
-
-                    <div class="gallery-item" data-category="events">
-                        <img src="https://images.pexels.com/photos/7520984/pexels-photo-7520984.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Music Event" loading="lazy">
-                        <div class="gallery-overlay">
-                            <p class="text-sm font-semibold">Music Event</p>
-                        </div>
-                    </div>
-
-                    <div class="gallery-item" data-category="recitals">
-                        <img src="https://images.pexels.com/photos/7521038/pexels-photo-7521038.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Student Performance" loading="lazy">
-                        <div class="gallery-overlay">
-                            <p class="text-sm font-semibold">Student Performance</p>
-                        </div>
-                    </div>
-
-                    <div class="gallery-item" data-category="concerts">
-                        <img src="https://images.pexels.com/photos/7521035/pexels-photo-7521035.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Orchestra Concert" loading="lazy">
-                        <div class="gallery-overlay">
-                            <p class="text-sm font-semibold">Orchestra Concert</p>
-                        </div>
-                    </div>
-
-                    <div class="gallery-item" data-category="lessons">
-                        <img src="https://images.pexels.com/photos/7521047/pexels-photo-7521047.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Guitar Lesson" loading="lazy">
-                        <div class="gallery-overlay">
-                            <p class="text-sm font-semibold">Guitar Lesson</p>
-                        </div>
-                    </div>
-
-                    <div class="gallery-item" data-category="events">
-                        <img src="https://images.pexels.com/photos/7520983/pexels-photo-7520983.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Workshop Event" loading="lazy">
-                        <div class="gallery-overlay">
-                            <p class="text-sm font-semibold">Workshop Event</p>
-                        </div>
-                    </div>
-
-                    <div class="gallery-item" data-category="recitals">
-                        <img src="https://images.pexels.com/photos/8087860/pexels-photo-8087860.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Spring Recital" loading="lazy">
-                        <div class="gallery-overlay">
-                            <p class="text-sm font-semibold">Spring Recital</p>
-                        </div>
-                    </div>
-
-                    <div class="gallery-item" data-category="concerts">
-                        <img src="https://images.pexels.com/photos/7520992/pexels-photo-7520992.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Chamber Concert" loading="lazy">
-                        <div class="gallery-overlay">
-                            <p class="text-sm font-semibold">Chamber Concert</p>
-                        </div>
-                    </div>
-
-                    <div class="gallery-item" data-category="events">
-                        <img src="https://images.pexels.com/photos/7521056/pexels-photo-7521056.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Holiday Event" loading="lazy">
-                        <div class="gallery-overlay">
-                            <p class="text-sm font-semibold">Holiday Event</p>
-                        </div>
+                        <div class="gallery-overlay"><p>Concert Performance</p></div>
                     </div>
                 </div>
-
                 <div id="no-results" class="hidden text-center py-16">
-                    <p class="text-2xl text-gray-400">No photos found in this category</p>
+                    <p class="text-2xl text-gray-400">No photos found</p>
                 </div>
             </div>
         </section>
@@ -167,12 +97,11 @@
 
     <!-- Lightbox Modal -->
     <div id="lightbox-modal" class="modal-overlay fixed inset-0 bg-black bg-opacity-95 flex items-center justify-center z-50 p-4">
-        <button id="lightbox-close" class="absolute top-6 right-6 text-white text-4xl font-light hover:text-brand-tan transition-colors z-10">&times;</button>
-        <button id="lightbox-prev" class="absolute left-6 top-1/2 transform -translate-y-1/2 text-white text-5xl font-light hover:text-brand-tan transition-colors z-10">&lsaquo;</button>
-        <button id="lightbox-next" class="absolute right-6 top-1/2 transform -translate-y-1/2 text-white text-5xl font-light hover:text-brand-tan transition-colors z-10">&rsaquo;</button>
-
+        <button id="lightbox-close" class="absolute top-6 right-6 text-white text-4xl">&times;</button>
+        <button id="lightbox-prev" class="absolute left-6 top-1/2 text-white text-5xl">&lsaquo;</button>
+        <button id="lightbox-next" class="absolute right-6 top-1/2 text-white text-5xl">&rsaquo;</button>
         <div class="modal-content max-w-6xl w-full">
-            <img id="lightbox-img" src="" alt="Gallery image" class="w-full h-auto rounded-lg shadow-2xl">
+            <img id="lightbox-img" src="" alt="Gallery image" class="w-full h-auto rounded-lg">
             <p id="lightbox-caption" class="text-center text-white text-lg mt-4"></p>
         </div>
     </div>
@@ -182,7 +111,7 @@
         <div class="container mx-auto px-6 text-center text-gray-400">
             <p>&copy; 2024 Band & Music School. All Rights Reserved.</p>
             <div class="mt-4 flex justify-center space-x-4">
-                 <a href="#" class="hover:text-brand-tan transition">MyMusicStaff Portal</a>
+                 <a href="https://bandm.mymusicstaff.com/Login" target="_blank" rel="noopener noreferrer" class="hover:text-brand-tan transition">Student Portal</a>
             </div>
         </div>
     </footer>
