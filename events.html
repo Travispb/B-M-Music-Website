@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +8,62 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Basic styles to complement Tailwind */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1a1a1a;
+            color: #f5f5f5;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .nav-link {
+            position: relative;
+            color: #e5e7eb;
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover {
+            color: #d2b48c; /* brand-tan */
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 50%;
+            background-color: #d2b48c; /* brand-tan */
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        #events-page .nav-link[href="events.html"] {
+             color: #d2b48c;
+        }
+        .mobile-nav-link {
+            font-size: 1.1rem;
+            padding: 0.75rem 0;
+            border-radius: 0.375rem;
+        }
+        .mobile-nav-link:hover {
+            background-color: rgba(210, 180, 140, 0.1);
+        }
+    </style>
+     <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-dark': '#1a1a1a',
+                        'brand-tan': '#d2b48c',
+                    }
+                }
+            }
+        }
+    </script>
 </head>
 <body id="events-page" class="antialiased">
 
@@ -53,16 +108,132 @@
     <main>
         <section class="py-20 bg-[#222]">
             <div class="container mx-auto px-6">
-                <h1 class="text-4xl font-bold text-brand-tan text-center mb-12">Upcoming Events</h1>
-                <div class="space-y-8 max-w-3xl mx-auto">
-                    <div class="bg-brand-dark p-6 rounded-md flex items-center space-x-6 shadow-md transition-transform hover:scale-105 duration-300">
-                        <div class="text-center border-r-2 border-brand-tan pr-6">
-                            <p class="text-brand-tan text-xl font-bold">OCT</p>
-                            <p class="text-4xl font-extrabold">28</p>
+                <div class="text-center mb-16">
+                    <h1 class="text-5xl font-extrabold text-white">Upcoming Events</h1>
+                    <p class="text-xl mt-4 text-gray-300 max-w-2xl mx-auto">Join us for our upcoming recitals and showcases. All events are open to the public.</p>
+                </div>
+
+                <h2 class="text-4xl font-bold text-brand-tan text-center mb-12">Winter Recital Schedule 2025</h2>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    <!-- Event Card -->
+                    <div class="event-card bg-brand-dark p-6 rounded-lg shadow-lg border border-gray-700 flex space-x-5 transition-transform hover:scale-105 duration-300" data-date="2025-11-21">
+                        <div class="text-center">
+                            <p class="text-brand-tan text-xl font-bold">NOV</p>
+                            <p class="text-5xl font-extrabold">21</p>
                         </div>
-                        <div>
-                            <h3 class="text-2xl font-bold">Annual Student Showcase Recital</h3>
-                            <p class="mt-2 text-gray-400">Join us for a wonderful evening of performances by our talented students. Open to the public.</p>
+                        <div class="border-l-2 border-gray-700 pl-5 flex-1">
+                            <h3 class="text-2xl font-bold">Winter Recital</h3>
+                            <p class="mt-2 text-gray-300">Friday</p>
+                            <p class="mt-1 text-lg text-white">7:30 PM - 9:00 PM</p>
+                        </div>
+                    </div>
+                    <!-- Event Card -->
+                    <div class="event-card bg-brand-dark p-6 rounded-lg shadow-lg border border-gray-700 flex space-x-5 transition-transform hover:scale-105 duration-300" data-date="2025-11-22">
+                        <div class="text-center">
+                            <p class="text-brand-tan text-xl font-bold">NOV</p>
+                            <p class="text-5xl font-extrabold">22</p>
+                        </div>
+                        <div class="border-l-2 border-gray-700 pl-5 flex-1">
+                            <h3 class="text-2xl font-bold">Winter Recital</h3>
+                            <p class="mt-2 text-gray-300">Saturday</p>
+                            <p class="mt-1 text-lg text-white">7:00 PM - 9:00 PM</p>
+                        </div>
+                    </div>
+                    <!-- Event Card -->
+                    <div class="event-card bg-brand-dark p-6 rounded-lg shadow-lg border border-gray-700 flex space-x-5 transition-transform hover:scale-105 duration-300" data-date="2025-11-28">
+                        <div class="text-center">
+                            <p class="text-brand-tan text-xl font-bold">NOV</p>
+                            <p class="text-5xl font-extrabold">28</p>
+                        </div>
+                        <div class="border-l-2 border-gray-700 pl-5 flex-1">
+                            <h3 class="text-2xl font-bold">Winter Recital</h3>
+                            <p class="mt-2 text-gray-300">Friday</p>
+                            <p class="mt-1 text-lg text-white">7:30 PM - 9:00 PM</p>
+                        </div>
+                    </div>
+                    <!-- Event Card -->
+                    <div class="event-card bg-brand-dark p-6 rounded-lg shadow-lg border border-gray-700 flex space-x-5 transition-transform hover:scale-105 duration-300" data-date="2025-11-29">
+                        <div class="text-center">
+                            <p class="text-brand-tan text-xl font-bold">NOV</p>
+                            <p class="text-5xl font-extrabold">29</p>
+                        </div>
+                        <div class="border-l-2 border-gray-700 pl-5 flex-1">
+                            <h3 class="text-2xl font-bold">Winter Recital</h3>
+                            <p class="mt-2 text-gray-300">Saturday</p>
+                            <p class="mt-1 text-lg text-white">5:30 PM - 8:30 PM</p>
+                        </div>
+                    </div>
+                    <!-- Event Card -->
+                    <div class="event-card bg-brand-dark p-6 rounded-lg shadow-lg border border-gray-700 flex space-x-5 transition-transform hover:scale-105 duration-300" data-date="2025-11-30">
+                        <div class="text-center">
+                            <p class="text-brand-tan text-xl font-bold">NOV</p>
+                            <p class="text-5xl font-extrabold">30</p>
+                        </div>
+                        <div class="border-l-2 border-gray-700 pl-5 flex-1">
+                            <h3 class="text-2xl font-bold">Winter Recital</h3>
+                            <p class="mt-2 text-gray-300">Sunday</p>
+                            <p class="mt-1 text-lg text-white">7:30 PM - 9:00 PM</p>
+                        </div>
+                    </div>
+                    <!-- Event Card -->
+                    <div class="event-card bg-brand-dark p-6 rounded-lg shadow-lg border border-gray-700 flex space-x-5 transition-transform hover:scale-105 duration-300" data-date="2025-12-06">
+                        <div class="text-center">
+                            <p class="text-brand-tan text-xl font-bold">DEC</p>
+                            <p class="text-5xl font-extrabold">6</p>
+                        </div>
+                        <div class="border-l-2 border-gray-700 pl-5 flex-1">
+                            <h3 class="text-2xl font-bold">Winter Recital</h3>
+                            <p class="mt-2 text-gray-300">Saturday</p>
+                            <p class="mt-1 text-lg text-white">Details to be announced</p>
+                        </div>
+                    </div>
+                    <!-- Event Card -->
+                    <div class="event-card bg-brand-dark p-6 rounded-lg shadow-lg border border-gray-700 flex space-x-5 transition-transform hover:scale-105 duration-300" data-date="2025-12-07">
+                        <div class="text-center">
+                            <p class="text-brand-tan text-xl font-bold">DEC</p>
+                            <p class="text-5xl font-extrabold">7</p>
+                        </div>
+                        <div class="border-l-2 border-gray-700 pl-5 flex-1">
+                            <h3 class="text-2xl font-bold">Winter Recital</h3>
+                            <p class="mt-2 text-gray-300">Sunday</p>
+                            <p class="mt-1 text-lg text-white">7:30 PM - 9:00 PM</p>
+                        </div>
+                    </div>
+                    <!-- Event Card -->
+                    <div class="event-card bg-brand-dark p-6 rounded-lg shadow-lg border border-gray-700 flex space-x-5 transition-transform hover:scale-105 duration-300" data-date="2025-12-12">
+                        <div class="text-center">
+                            <p class="text-brand-tan text-xl font-bold">DEC</p>
+                            <p class="text-5xl font-extrabold">12</p>
+                        </div>
+                        <div class="border-l-2 border-gray-700 pl-5 flex-1">
+                            <h3 class="text-2xl font-bold">Winter Recital</h3>
+                            <p class="mt-2 text-gray-300">Friday</p>
+                            <p class="mt-1 text-lg text-white">7:30 PM - 9:00 PM</p>
+                        </div>
+                    </div>
+                    <!-- Event Card -->
+                    <div class="event-card bg-brand-dark p-6 rounded-lg shadow-lg border border-gray-700 flex space-x-5 transition-transform hover:scale-105 duration-300" data-date="2025-12-13">
+                        <div class="text-center">
+                            <p class="text-brand-tan text-xl font-bold">DEC</p>
+                            <p class="text-5xl font-extrabold">13</p>
+                        </div>
+                        <div class="border-l-2 border-gray-700 pl-5 flex-1">
+                            <h3 class="text-2xl font-bold">Winter Recital</h3>
+                            <p class="mt-2 text-gray-300">Saturday</p>
+                            <p class="mt-1 text-lg text-white">5:00 PM - 9:00 PM</p>
+                        </div>
+                    </div>
+                    <!-- Event Card -->
+                    <div class="event-card bg-brand-dark p-6 rounded-lg shadow-lg border border-gray-700 flex space-x-5 transition-transform hover:scale-105 duration-300" data-date="2025-12-14">
+                        <div class="text-center">
+                            <p class="text-brand-tan text-xl font-bold">DEC</p>
+                            <p class="text-5xl font-extrabold">14</p>
+                        </div>
+                        <div class="border-l-2 border-gray-700 pl-5 flex-1">
+                            <h3 class="text-2xl font-bold">Winter Recital</h3>
+                            <p class="mt-2 text-gray-300">Sunday</p>
+                            <p class="mt-1 text-lg text-white">7:30 PM - 9:00 PM</p>
                         </div>
                     </div>
                 </div>
@@ -71,16 +242,52 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-black py-8">
-        <div class="container mx-auto px-6 text-center text-gray-400">
-            <p>&copy; 2024 Band & Music School. All Rights Reserved.</p>
-            <div class="mt-4 flex justify-center space-x-4">
-                 <a href="https://bandm.mymusicstaff.com/Login" target="_blank" rel="noopener noreferrer" class="hover:text-brand-tan transition">Student Portal</a>
+    <footer class="bg-black text-gray-400">
+        <div class="container mx-auto px-6 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+                <!-- Column 1: Logo & Info -->
+                <div class="flex flex-col items-center md:items-start">
+                    <img src="images/B&M_Logo.JPG" alt="B&M Music School Logo" class="h-24 mb-4">
+                    <p>Where Excellence Meets Passion.</p>
+                </div>
+                
+                <!-- Column 2: Contact Info -->
+                <div>
+                    <h4 class="font-bold text-white text-lg mb-4">Contact Information</h4>
+                    <p>
+                        <a href="mailto:bandmstudiollc@gmail.com" class="hover:text-brand-tan transition">bandmstudiollc@gmail.com</a>
+                    </p>
+                    <p class="mt-2">
+                        <a href="tel:469-796-6412" class="hover:text-brand-tan transition">469-796-6412</a>
+                    </p>
+                </div>
+
+                <!-- Column 3: Address -->
+                <div>
+                    <h4 class="font-bold text-white text-lg mb-4">Our Location</h4>
+                    <p>8760 Collin McKinney Pkwy</p>
+                    <p>Suite 150</p>
+                    <p>McKinney, TX 75070</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-6 text-center">
+                 <p>&copy; 2024 B&M Music School. All Rights Reserved.</p>
+                 <div class="mt-4">
+                    <a href="https://bandm.mymusicstaff.com/Login" target="_blank" rel="noopener noreferrer" class="hover:text-brand-tan transition">Student Portal</a>
+                 </div>
             </div>
         </div>
     </footer>
     
-    <script src="script.js"></script>
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
 </body>
 </html>
 
