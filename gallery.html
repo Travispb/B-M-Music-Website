@@ -9,6 +9,18 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-dark': '#1a1a1a',
+                        'brand-tan': '#d2b48c',
+                    }
+                }
+            }
+        }
+    </script>
 </head>
 <body id="gallery-page" class="antialiased">
 
@@ -24,7 +36,7 @@
                 <a href="team.html" class="nav-link text-lg">Our Team</a>
                 <a href="lessons.html" class="nav-link text-lg">Lessons & Pricing</a>
                 <a href="events.html" class="nav-link text-lg">Events</a>
-                <a href="gallery.html" class="nav-link text-lg">Gallery</a>
+                <a href="gallery.html" class="nav-link text-lg active">Gallery</a>
                 <a href="contact.html" class="nav-link text-lg">Contact</a>
             </div>
             <div class="hidden md:flex items-center space-x-6">
@@ -43,7 +55,7 @@
             <a href="team.html" class="block text-center py-2 nav-link mobile-nav-link">Our Team</a>
             <a href="lessons.html" class="block text-center py-2 nav-link mobile-nav-link">Lessons & Pricing</a>
             <a href="events.html" class="block text-center py-2 nav-link mobile-nav-link">Events</a>
-            <a href="gallery.html" class="block text-center py-2 nav-link mobile-nav-link">Gallery</a>
+            <a href="gallery.html" class="block text-center py-2 nav-link mobile-nav-link active">Gallery</a>
             <a href="contact.html" class="block text-center py-2 nav-link mobile-nav-link">Contact</a>
             <a href="https://bandm.mymusicstaff.com/Login" target="_blank" rel="noopener noreferrer" class="block text-center py-2 nav-link mobile-nav-link">Student Portal</a>
             <a href="contact.html#book-trial" class="block text-center bg-brand-tan text-gray-900 font-bold mt-2 py-2 px-5 rounded-md hover:bg-opacity-90 transition duration-300">Book a Trial</a>
@@ -52,15 +64,15 @@
 
     <main>
         <!-- Page Header -->
-        <section class="py-16 bg-gradient-to-b from-black to-brand-dark">
+        <section class="py-20 bg-gradient-to-b from-black to-brand-dark">
             <div class="container mx-auto px-6 text-center">
                 <h1 class="text-5xl md:text-6xl font-extrabold text-brand-tan mb-4">Our Gallery</h1>
-                <p class="text-xl text-gray-300 max-w-2xl mx-auto">Moments of musical excellence, captured through student performances, recitals, and memorable events</p>
+                <p class="text-xl text-gray-300 max-w-2xl mx-auto">Moments of musical excellence, captured through student performances, recitals, and memorable events.</p>
             </div>
         </section>
 
         <!-- Filter Navigation -->
-        <section class="py-8 bg-[#222] border-b border-gray-800 sticky top-[72px] z-40">
+        <section class="py-6 bg-[#222] border-b border-gray-800 sticky top-[104px] z-40">
             <div class="container mx-auto px-6">
                 <div class="flex flex-wrap justify-center gap-3">
                     <button class="gallery-filter active" data-filter="all">All Photos</button>
@@ -76,10 +88,10 @@
         <section class="py-16 bg-brand-dark">
             <div class="container mx-auto px-6">
                 <div id="gallery-grid" class="gallery-grid">
-                    <!-- Images -->
+                    <!-- Images will be dynamically inserted here by script.js -->
                 </div>
                 <div id="no-results" class="hidden text-center py-16">
-                    <p class="text-2xl text-gray-400">No photos found</p>
+                    <p class="text-2xl text-gray-400">No photos found in this category.</p>
                 </div>
             </div>
         </section>
@@ -87,12 +99,12 @@
 
     <!-- Lightbox Modal -->
     <div id="lightbox-modal" class="modal-overlay fixed inset-0 bg-black bg-opacity-95 flex items-center justify-center z-50 p-4">
-        <button id="lightbox-close" class="absolute top-6 right-6 text-white text-4xl">&times;</button>
-        <button id="lightbox-prev" class="absolute left-6 top-1/2 text-white text-5xl">&lsaquo;</button>
-        <button id="lightbox-next" class="absolute right-6 top-1/2 text-white text-5xl">&rsaquo;</button>
-        <div class="modal-content max-w-6xl w-full">
-            <img id="lightbox-img" src="" alt="Gallery image" class="w-full h-auto rounded-lg">
-            <p id="lightbox-caption" class="text-center text-white text-lg mt-4"></p>
+        <button id="lightbox-close" class="absolute top-6 right-6 text-white text-4xl leading-none">&times;</button>
+        <button id="lightbox-prev" class="absolute left-4 top-1/2 -translate-y-1/2 text-white text-5xl bg-black bg-opacity-30 rounded-full p-2 hover:bg-opacity-50 transition-colors">&lsaquo;</button>
+        <button id="lightbox-next" class="absolute right-4 top-1/2 -translate-y-1/2 text-white text-5xl bg-black bg-opacity-30 rounded-full p-2 hover:bg-opacity-50 transition-colors">&rsaquo;</button>
+        <div class="modal-content max-w-6xl w-full text-center">
+            <img id="lightbox-img" src="" alt="Gallery image" class="max-h-[80vh] w-auto inline-block rounded-lg shadow-2xl">
+            <p id="lightbox-caption" class="text-white text-lg mt-4 opacity-0 transition-opacity duration-300"></p>
         </div>
     </div>
 
@@ -109,4 +121,3 @@
     <script src="script.js"></script>
 </body>
 </html>
-

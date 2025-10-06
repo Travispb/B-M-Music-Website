@@ -9,6 +9,18 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-dark': '#1a1a1a',
+                        'brand-tan': '#d2b48c',
+                    }
+                }
+            }
+        }
+    </script>
 </head>
 <body id="about-page" class="antialiased">
 
@@ -20,7 +32,7 @@
             </a>
             <div class="hidden md:flex items-center space-x-8">
                 <a href="home.html" class="nav-link text-lg">Home</a>
-                <a href="about.html" class="nav-link text-lg">About Us</a>
+                <a href="about.html" class="nav-link text-lg active">About Us</a>
                 <a href="team.html" class="nav-link text-lg">Our Team</a>
                 <a href="lessons.html" class="nav-link text-lg">Lessons & Pricing</a>
                 <a href="events.html" class="nav-link text-lg">Events</a>
@@ -39,7 +51,7 @@
         </nav>
         <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2">
             <a href="home.html" class="block text-center py-2 nav-link mobile-nav-link">Home</a>
-            <a href="about.html" class="block text-center py-2 nav-link mobile-nav-link">About Us</a>
+            <a href="about.html" class="block text-center py-2 nav-link mobile-nav-link active">About Us</a>
             <a href="team.html" class="block text-center py-2 nav-link mobile-nav-link">Our Team</a>
             <a href="lessons.html" class="block text-center py-2 nav-link mobile-nav-link">Lessons & Pricing</a>
             <a href="events.html" class="block text-center py-2 nav-link mobile-nav-link">Events</a>
@@ -51,27 +63,142 @@
     </header>
 
     <main>
-        <section class="py-20">
-            <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-                <div class="text-left">
-                    <h1 class="text-4xl font-bold text-brand-tan">Our Mission</h1>
-                    <p class="mt-6 text-lg leading-relaxed">
-                        Here you can write the mission statement of the school. This section is dedicated to your philosophy, your history, and what makes Band & Music School a unique place to learn. We believe in fostering a deep love for music through personalized instruction and a supportive community. Our goal is to train not just skilled musicians, but well-rounded individuals.
-                    </p>
+        <!-- Hero Section -->
+        <section class="relative py-28 bg-brand-dark flex items-center">
+             <div class="absolute inset-0 bg-black opacity-50 z-10"></div>
+             <img src="https://placehold.co/1920x600/2a2a2a/f5f5f5?text=B%26M+Music+School" alt="B&M Music School Interior" class="absolute inset-0 w-full h-full object-cover">
+            <div class="container mx-auto px-6 text-center relative z-20">
+                <h1 class="text-5xl md:text-6xl font-extrabold text-white mb-4 drop-shadow-lg">Cultivating Lifelong Passion Through Musical Excellence</h1>
+                <p class="text-xl text-gray-200 max-w-3xl mx-auto drop-shadow-md">Since 2016, we have been a premier destination for aspiring musicians, fostering a community where talent is nurtured, and potential is unlocked.</p>
+            </div>
+        </section>
+
+        <!-- Our Philosophy Section -->
+        <section class="py-20 bg-[#222]">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-4xl font-bold text-brand-tan">Our Philosophy</h2>
+                    <p class="mt-4 text-lg text-gray-300">We believe in building more than just skilled musicians; we build confident individuals. Our approach is rooted in providing a strong technical foundation while empowering students with the tools to become independent, lifelong learners.</p>
                 </div>
-                <div>
-                    <img src="https://placehold.co/600x400/333/f5f5f5?text=Music+School+Interior" alt="Inside the music school" class="rounded-md shadow-lg">
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+                    <!-- Feature 1 -->
+                    <div class="bg-brand-dark p-8 rounded-lg border border-gray-800">
+                         <h3 class="text-2xl font-bold text-brand-tan mb-3">Proven Excellence</h3>
+                         <p class="text-gray-400">Our students consistently excel in prestigious competitions, examinations, and auditions, guided by our world-class faculty.</p>
+                    </div>
+                     <!-- Feature 2 -->
+                    <div class="bg-brand-dark p-8 rounded-lg border border-gray-800">
+                         <h3 class="text-2xl font-bold text-brand-tan mb-3">Engaging Motivation</h3>
+                         <p class="text-gray-400">Our unique star-collecting system transforms practice into an exciting journey with tangible rewards, keeping students inspired.</p>
+                    </div>
+                     <!-- Feature 3 -->
+                    <div class="bg-brand-dark p-8 rounded-lg border border-gray-800">
+                         <h3 class="text-2xl font-bold text-brand-tan mb-3">Performance-Driven</h3>
+                         <p class="text-gray-400">With dozens of performance opportunities yearly, we build stage presence and confidence from the very first lesson.</p>
+                    </div>
+                     <!-- Feature 4 -->
+                    <div class="bg-brand-dark p-8 rounded-lg border border-gray-800">
+                         <h3 class="text-2xl font-bold text-brand-tan mb-3">Supportive Community</h3>
+                         <p class="text-gray-400">Join a vibrant and passionate community of students, parents, and instructors dedicated to mutual growth and success.</p>
+                    </div>
                 </div>
             </div>
         </section>
+        
+        <!-- By The Numbers Section -->
+        <section class="bg-brand-dark py-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold">By The Numbers</h2>
+                    <p class="mt-2 text-lg text-gray-400">Our commitment to excellence is reflected in our results.</p>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center max-w-5xl mx-auto">
+                    <div>
+                        <p class="text-5xl font-extrabold text-brand-tan">400+</p>
+                        <p class="mt-2 text-xl">Active Students</p>
+                    </div>
+                    <div>
+                        <p class="text-5xl font-extrabold text-brand-tan">100%</p>
+                        <p class="mt-2 text-xl">Exam Pass Rates</p>
+                    </div>
+                    <div>
+                        <p class="text-5xl font-extrabold text-brand-tan">200+</p>
+                        <p class="mt-2 text-xl">Public Performances</p>
+                    </div>
+                    <div>
+                        <p class="text-5xl font-extrabold text-brand-tan">8+</p>
+                        <p class="mt-2 text-xl">Years of Experience</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Performance Opportunities Section -->
+        <section class="py-20 bg-[#222]">
+            <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+                 <div>
+                    <img src="https://placehold.co/600x450/1a1a1a/e0be9a?text=Student+Recital" alt="Student performing at a recital" class="rounded-lg shadow-2xl">
+                </div>
+                <div class="text-left">
+                    <h2 class="text-4xl font-bold text-brand-tan">Performance is Key</h2>
+                    <p class="mt-6 text-lg leading-relaxed text-gray-300">
+                        We believe that performing is an essential part of musical education. At B&M, students have a wealth of opportunities to share their talent and build confidence on stage.
+                    </p>
+                    <ul class="mt-6 space-y-3 text-lg text-gray-300 list-disc list-inside">
+                        <li>Biannual school-wide concerts</li>
+                        <li>Multiple gala and public showcases</li>
+                        <li>Competitions and Examinatoins</li>
+                        <li>Collaborative ensemble and team performances</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA -->
+        <section class="bg-brand-dark py-20">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-4xl font-bold mb-4">Begin Your Musical Journey</h2>
+                <p class="text-gray-300 max-w-3xl mx-auto mb-8 text-lg">Experience the joy of music in a vibrant, supportive community dedicated to your success. Your talent deserves to shine!</p>
+                <a href="contact.html#book-trial" class="inline-block bg-brand-tan text-gray-900 font-bold py-3 px-8 rounded-md text-lg hover:bg-opacity-90 transition duration-300 transform hover:scale-105">Book a Trial Lesson</a>
+            </div>
+        </section>
+
     </main>
 
     <!-- Footer -->
-    <footer class="bg-black py-8">
-        <div class="container mx-auto px-6 text-center text-gray-400">
-            <p>&copy; 2024 Band & Music School. All Rights Reserved.</p>
-            <div class="mt-4 flex justify-center space-x-4">
-                 <a href="https://bandm.mymusicstaff.com/Login" target="_blank" rel="noopener noreferrer" class="hover:text-brand-tan transition">Student Portal</a>
+    <footer class="bg-black text-gray-400">
+        <div class="container mx-auto px-6 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+                <!-- Column 1: Logo & Info -->
+                <div class="flex flex-col items-center md:items-start">
+                    <img src="images/B&M_Logo.JPG" alt="B&M Music School Logo" class="h-24 mb-4">
+                    <p>Where Excellence Meets Passion.</p>
+                </div>
+                
+                <!-- Column 2: Contact Info -->
+                <div>
+                    <h4 class="font-bold text-white text-lg mb-4">Contact Information</h4>
+                    <p>
+                        <a href="mailto:bandmstudiollc@gmail.com" class="hover:text-brand-tan transition">bandmstudiollc@gmail.com</a>
+                    </p>
+                    <p class="mt-2">
+                        <a href="tel:469-796-6412" class="hover:text-brand-tan transition">469-796-6412</a>
+                    </p>
+                </div>
+
+                <!-- Column 3: Address -->
+                <div>
+                    <h4 class="font-bold text-white text-lg mb-4">Our Location</h4>
+                    <p>8760 Collin McKinney Pkwy</p>
+                    <p>Suite 150</p>
+                    <p>McKinney, TX 75070</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-6 text-center">
+                 <p>&copy; 2024 B&M Music School. All Rights Reserved.</p>
+                 <div class="mt-4">
+                    <a href="https://bandm.mymusicstaff.com/Login" target="_blank" rel="noopener noreferrer" class="hover:text-brand-tan transition">Student Portal</a>
+                 </div>
             </div>
         </div>
     </footer>
@@ -79,4 +206,3 @@
     <script src="script.js"></script>
 </body>
 </html>
-

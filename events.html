@@ -8,50 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
-    <style>
-        /* Basic styles to complement Tailwind */
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #1a1a1a;
-            color: #f5f5f5;
-        }
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Montserrat', sans-serif;
-        }
-        .nav-link {
-            position: relative;
-            color: #e5e7eb;
-            transition: color 0.3s ease;
-        }
-        .nav-link:hover {
-            color: #d2b48c; /* brand-tan */
-        }
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -4px;
-            left: 50%;
-            background-color: #d2b48c; /* brand-tan */
-            transition: all 0.3s ease;
-            transform: translateX(-50%);
-        }
-        .nav-link:hover::after {
-            width: 100%;
-        }
-        #events-page .nav-link[href="events.html"] {
-             color: #d2b48c;
-        }
-        .mobile-nav-link {
-            font-size: 1.1rem;
-            padding: 0.75rem 0;
-            border-radius: 0.375rem;
-        }
-        .mobile-nav-link:hover {
-            background-color: rgba(210, 180, 140, 0.1);
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
      <script>
         tailwind.config = {
             theme: {
@@ -78,7 +35,7 @@
                 <a href="about.html" class="nav-link text-lg">About Us</a>
                 <a href="team.html" class="nav-link text-lg">Our Team</a>
                 <a href="lessons.html" class="nav-link text-lg">Lessons & Pricing</a>
-                <a href="events.html" class="nav-link text-lg">Events</a>
+                <a href="events.html" class="nav-link text-lg active">Events</a>
                 <a href="gallery.html" class="nav-link text-lg">Gallery</a>
                 <a href="contact.html" class="nav-link text-lg">Contact</a>
             </div>
@@ -97,7 +54,7 @@
             <a href="about.html" class="block text-center py-2 nav-link mobile-nav-link">About Us</a>
             <a href="team.html" class="block text-center py-2 nav-link mobile-nav-link">Our Team</a>
             <a href="lessons.html" class="block text-center py-2 nav-link mobile-nav-link">Lessons & Pricing</a>
-            <a href="events.html" class="block text-center py-2 nav-link mobile-nav-link">Events</a>
+            <a href="events.html" class="block text-center py-2 nav-link mobile-nav-link active">Events</a>
             <a href="gallery.html" class="block text-center py-2 nav-link mobile-nav-link">Gallery</a>
             <a href="contact.html" class="block text-center py-2 nav-link mobile-nav-link">Contact</a>
             <a href="https://bandm.mymusicstaff.com/Login" target="_blank" rel="noopener noreferrer" class="block text-center py-2 nav-link mobile-nav-link">Student Portal</a>
@@ -116,8 +73,8 @@
                 <h2 class="text-4xl font-bold text-brand-tan text-center mb-12">Winter Recital Schedule 2025</h2>
                 
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                    <!-- Event Card -->
-                    <div class="event-card bg-brand-dark p-6 rounded-lg shadow-lg border border-gray-700 flex space-x-5 transition-transform hover:scale-105 duration-300" data-date="2025-11-21">
+                    <!-- Event Cards with detailed data attributes -->
+                    <div class="event-card" data-date="2025-11-21" data-title="Winter Recital (Piano & Strings)" data-day="Friday" data-time="7:30 PM - 9:00 PM" data-start-iso="20251121T193000" data-end-iso="20251121T210000" data-location="B&M Music School, 8760 Collin McKinney Pkwy Suite 150, McKinney, TX 75070" data-description="An evening of classical and contemporary pieces performed by our talented piano and string students. A perfect start to the holiday season. Family and friends are welcome!">
                         <div class="text-center">
                             <p class="text-brand-tan text-xl font-bold">NOV</p>
                             <p class="text-5xl font-extrabold">21</p>
@@ -128,8 +85,8 @@
                             <p class="mt-1 text-lg text-white">7:30 PM - 9:00 PM</p>
                         </div>
                     </div>
-                    <!-- Event Card -->
-                    <div class="event-card bg-brand-dark p-6 rounded-lg shadow-lg border border-gray-700 flex space-x-5 transition-transform hover:scale-105 duration-300" data-date="2025-11-22">
+
+                    <div class="event-card" data-date="2025-11-22" data-title="Winter Recital (Winds & Percussion)" data-day="Saturday" data-time="7:00 PM - 9:00 PM" data-start-iso="20251122T190000" data-end-iso="20251122T210000" data-location="McKinney Performing Arts Center, 111 N Tennessee St, McKinney, TX 75069" data-description="Feel the rhythm and soaring melodies! This recital features our wind and percussion ensembles, showcasing a dynamic range of musical styles. Please note the special location for this event.">
                         <div class="text-center">
                             <p class="text-brand-tan text-xl font-bold">NOV</p>
                             <p class="text-5xl font-extrabold">22</p>
@@ -140,8 +97,8 @@
                             <p class="mt-1 text-lg text-white">7:00 PM - 9:00 PM</p>
                         </div>
                     </div>
-                    <!-- Event Card -->
-                    <div class="event-card bg-brand-dark p-6 rounded-lg shadow-lg border border-gray-700 flex space-x-5 transition-transform hover:scale-105 duration-300" data-date="2025-11-28">
+
+                    <div class="event-card" data-date="2025-11-28" data-title="Winter Recital (Voice)" data-day="Friday" data-time="7:30 PM - 9:00 PM" data-start-iso="20251128T193000" data-end-iso="20251128T210000" data-location="B&M Music School, 8760 Collin McKinney Pkwy Suite 150, McKinney, TX 75070" data-description="Listen to the incredible voices of our vocal students as they perform a variety of genres, from classical arias to modern pop. A truly inspiring evening for all.">
                         <div class="text-center">
                             <p class="text-brand-tan text-xl font-bold">NOV</p>
                             <p class="text-5xl font-extrabold">28</p>
@@ -152,8 +109,8 @@
                             <p class="mt-1 text-lg text-white">7:30 PM - 9:00 PM</p>
                         </div>
                     </div>
-                    <!-- Event Card -->
-                    <div class="event-card bg-brand-dark p-6 rounded-lg shadow-lg border border-gray-700 flex space-x-5 transition-transform hover:scale-105 duration-300" data-date="2025-11-29">
+
+                    <div class="event-card" data-date="2025-11-29" data-title="Winter Recital (Guitar & Ensembles)" data-day="Saturday" data-time="5:30 PM - 8:30 PM" data-start-iso="20251129T173000" data-end-iso="20251129T203000" data-location="B&M Music School, 8760 Collin McKinney Pkwy Suite 150, McKinney, TX 75070" data-description="A showcase of our guitar students and various student ensembles. Enjoy a diverse program featuring solo performances, duets, and small group collaborations.">
                         <div class="text-center">
                             <p class="text-brand-tan text-xl font-bold">NOV</p>
                             <p class="text-5xl font-extrabold">29</p>
@@ -164,8 +121,8 @@
                             <p class="mt-1 text-lg text-white">5:30 PM - 8:30 PM</p>
                         </div>
                     </div>
-                    <!-- Event Card -->
-                    <div class="event-card bg-brand-dark p-6 rounded-lg shadow-lg border border-gray-700 flex space-x-5 transition-transform hover:scale-105 duration-300" data-date="2025-11-30">
+
+                    <div class="event-card" data-date="2025-11-30" data-title="Winter Recital" data-day="Sunday" data-time="7:30 PM - 9:00 PM" data-start-iso="20251130T193000" data-end-iso="20251130T210000" data-location="B&M Music School, 8760 Collin McKinney Pkwy Suite 150, McKinney, TX 75070" data-description="The final weekend of November recitals. Come support our students as they demonstrate their musical progress and passion.">
                         <div class="text-center">
                             <p class="text-brand-tan text-xl font-bold">NOV</p>
                             <p class="text-5xl font-extrabold">30</p>
@@ -176,8 +133,8 @@
                             <p class="mt-1 text-lg text-white">7:30 PM - 9:00 PM</p>
                         </div>
                     </div>
-                    <!-- Event Card -->
-                    <div class="event-card bg-brand-dark p-6 rounded-lg shadow-lg border border-gray-700 flex space-x-5 transition-transform hover:scale-105 duration-300" data-date="2025-12-06">
+
+                    <div class="event-card" data-date="2025-12-06" data-title="Winter Recital" data-day="Saturday" data-time="TBA" data-start-iso="" data-end-iso="" data-location="TBA" data-description="Details for this recital will be announced soon. Please check back for more information on performers and timing.">
                         <div class="text-center">
                             <p class="text-brand-tan text-xl font-bold">DEC</p>
                             <p class="text-5xl font-extrabold">6</p>
@@ -188,8 +145,8 @@
                             <p class="mt-1 text-lg text-white">Details to be announced</p>
                         </div>
                     </div>
-                    <!-- Event Card -->
-                    <div class="event-card bg-brand-dark p-6 rounded-lg shadow-lg border border-gray-700 flex space-x-5 transition-transform hover:scale-105 duration-300" data-date="2025-12-07">
+
+                    <div class="event-card" data-date="2025-12-07" data-title="Winter Recital" data-day="Sunday" data-time="7:30 PM - 9:00 PM" data-start-iso="20251207T193000" data-end-iso="20251207T210000" data-location="B&M Music School, 8760 Collin McKinney Pkwy Suite 150, McKinney, TX 75070" data-description="Join us for another wonderful evening of music performed by our dedicated students. Open to the public.">
                         <div class="text-center">
                             <p class="text-brand-tan text-xl font-bold">DEC</p>
                             <p class="text-5xl font-extrabold">7</p>
@@ -200,8 +157,8 @@
                             <p class="mt-1 text-lg text-white">7:30 PM - 9:00 PM</p>
                         </div>
                     </div>
-                    <!-- Event Card -->
-                    <div class="event-card bg-brand-dark p-6 rounded-lg shadow-lg border border-gray-700 flex space-x-5 transition-transform hover:scale-105 duration-300" data-date="2025-12-12">
+
+                    <div class="event-card" data-date="2025-12-12" data-title="Winter Recital" data-day="Friday" data-time="7:30 PM - 9:00 PM" data-start-iso="20251212T193000" data-end-iso="20251212T210000" data-location="B&M Music School, 8760 Collin McKinney Pkwy Suite 150, McKinney, TX 75070" data-description="The recital series continues! Enjoy performances from a new group of talented students.">
                         <div class="text-center">
                             <p class="text-brand-tan text-xl font-bold">DEC</p>
                             <p class="text-5xl font-extrabold">12</p>
@@ -212,8 +169,8 @@
                             <p class="mt-1 text-lg text-white">7:30 PM - 9:00 PM</p>
                         </div>
                     </div>
-                    <!-- Event Card -->
-                    <div class="event-card bg-brand-dark p-6 rounded-lg shadow-lg border border-gray-700 flex space-x-5 transition-transform hover:scale-105 duration-300" data-date="2025-12-13">
+
+                    <div class="event-card" data-date="2025-12-13" data-title="Winter Recital Marathon" data-day="Saturday" data-time="5:00 PM - 9:00 PM" data-start-iso="20251213T170000" data-end-iso="20251213T210000" data-location="B&M Music School, 8760 Collin McKinney Pkwy Suite 150, McKinney, TX 75070" data-description="Our grand Saturday recital marathon! Drop in anytime between 5 PM and 9 PM to see a wide array of performances from students of all ages and instruments.">
                         <div class="text-center">
                             <p class="text-brand-tan text-xl font-bold">DEC</p>
                             <p class="text-5xl font-extrabold">13</p>
@@ -224,8 +181,8 @@
                             <p class="mt-1 text-lg text-white">5:00 PM - 9:00 PM</p>
                         </div>
                     </div>
-                    <!-- Event Card -->
-                    <div class="event-card bg-brand-dark p-6 rounded-lg shadow-lg border border-gray-700 flex space-x-5 transition-transform hover:scale-105 duration-300" data-date="2025-12-14">
+
+                    <div class="event-card" data-date="2025-12-14" data-title="Final Winter Recital" data-day="Sunday" data-time="7:30 PM - 9:00 PM" data-start-iso="20251214T193000" data-end-iso="20251214T210000" data-location="B&M Music School, 8760 Collin McKinney Pkwy Suite 150, McKinney, TX 75070" data-description="Join us for the grand finale of our 2025 Winter Recital series. A wonderful conclusion to a season of hard work and beautiful music.">
                         <div class="text-center">
                             <p class="text-brand-tan text-xl font-bold">DEC</p>
                             <p class="text-5xl font-extrabold">14</p>
@@ -278,16 +235,34 @@
             </div>
         </div>
     </footer>
-    
-    <script>
-        // Mobile menu toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
 
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-    </script>
+    <!-- Event Detail Modal -->
+    <div id="event-modal" class="modal-overlay fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center p-4 z-50">
+        <div class="modal-content bg-[#222] rounded-md shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto relative border border-gray-700">
+            <button id="event-modal-close-button" class="absolute top-4 right-4 text-gray-400 hover:text-white text-4xl leading-none">&times;</button>
+            <div class="p-8">
+                <h2 id="event-modal-title" class="text-3xl font-bold text-brand-tan mb-2"></h2>
+                <div class="flex items-center text-gray-400 mb-6 space-x-4">
+                     <p id="event-modal-date"></p>
+                     <span class="text-gray-600">&bull;</span>
+                     <p id="event-modal-time"></p>
+                </div>
+                
+                <p id="event-modal-description" class="text-gray-300 leading-relaxed mb-6"></p>
+
+                <div class="border-t border-gray-700 pt-4">
+                     <p class="text-sm font-semibold text-gray-400 mb-2">LOCATION</p>
+                     <p id="event-modal-location" class="text-lg"></p>
+                </div>
+                
+                <div class="text-center mt-8">
+                    <a id="event-modal-calendar-button" href="#" target="_blank" rel="noopener noreferrer" class="bg-brand-tan text-gray-900 font-bold py-3 px-8 rounded-md text-lg hover:bg-opacity-90 transition duration-300">Add to Google Calendar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+
 </body>
 </html>
-
