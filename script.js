@@ -24,6 +24,116 @@ document.addEventListener('DOMContentLoaded', function() {
     // --- Page-Specific Logic ---
     const bodyId = document.body.id;
 
+    // --- Logic for Home Page ---
+    if (bodyId === 'home-page') {
+        // Scroll-in animation
+        const sections = document.querySelectorAll('.fade-in-section');
+        if (sections.length > 0) {
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        }
+
+        // Testimonial Carousel
+        const testimonialContainer = document.querySelector('#testimonial-carousel');
+        if (testimonialContainer) {
+            const slides = testimonialContainer.querySelectorAll('.testimonial-slide');
+            const dots = document.querySelectorAll('.testimonial-dot');
+            let currentSlide = 0;
+            let slideInterval;
+
+            const showSlide = (index) => {
+                slides.forEach((slide, i) => {
+                    slide.classList.toggle('hidden', i !== index);
+                });
+                dots.forEach((dot, i) => {
+                    dot.classList.toggle('bg-white', i === index);
+                    dot.classList.toggle('bg-gray-500', i !== index);
+                });
+                currentSlide = index;
+            };
+
+            const nextSlide = () => {
+                showSlide((currentSlide + 1) % slides.length);
+            };
+
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    showSlide(index);
+                    clearInterval(slideInterval);
+                    slideInterval = setInterval(nextSlide, 5000); // Restart interval
+                });
+            });
+
+            if (slides.length > 0) {
+                showSlide(0);
+                slideInterval = setInterval(nextSlide, 5000);
+            }
+        }
+        
+        // Fetch and display upcoming events
+        const eventsContainer = document.getElementById('upcoming-events-container');
+        const seeAllEventsLink = document.getElementById('see-all-events-link');
+        if (eventsContainer) {
+            fetch('events.html')
+                .then(response => {
+                    if (!response.ok) throw new Error('Network response was not ok');
+                    return response.text();
+                })
+                .then(html => {
+                    const parser = new DOMParser();
+                    const eventsDoc = parser.parseFromString(html, 'text/html');
+                    const eventCards = eventsDoc.querySelectorAll('.event-card');
+                    const today = new Date();
+                    today.setHours(0, 0, 0, 0);
+
+                    const upcomingEvents = Array.from(eventCards)
+                        .map(card => {
+                            const dateStr = card.dataset.date;
+                            if (!dateStr) return null;
+                            const eventDate = new Date(dateStr + 'T00:00:00');
+                            return { element: card, date: eventDate, id: dateStr };
+                        })
+                        .filter(event => event && event.date >= today)
+                        .sort((a, b) => a.date - b.date);
+                    
+                    eventsContainer.innerHTML = ''; // Clear loading message
+
+                    if (upcomingEvents.length > 0) {
+                        const nextThreeEvents = upcomingEvents.slice(0, 3);
+                        nextThreeEvents.forEach(event => {
+                            const link = document.createElement('a');
+                            link.href = `events.html#event-${event.id}`;
+                            const clonedCard = event.element.cloneNode(true);
+                            clonedCard.classList.remove('hover:scale-105');
+                            link.appendChild(clonedCard);
+                            eventsContainer.appendChild(link);
+                        });
+                    } else {
+                        eventsContainer.innerHTML = `
+                            <div class="bg-[#2a2a2a] p-8 rounded-lg shadow-lg border border-gray-700 lg:col-span-3">
+                                <p class="text-xl text-gray-300">No upcoming events. Check back soon!</p>
+                            </div>`;
+                        if (seeAllEventsLink) seeAllEventsLink.style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching events:', error);
+                    eventsContainer.innerHTML = `
+                        <div class="bg-[#2a2a2a] p-8 rounded-lg shadow-lg border border-gray-700 lg:col-span-3">
+                            <p class="text-xl text-red-500">Could not load events.</p>
+                        </div>`;
+                });
+        }
+    }
+
     // --- Logic for Team Page ---
     if (bodyId === 'team-page') {
         const facultyModal = document.getElementById('faculty-modal');
@@ -136,6 +246,65 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+    // --- Logic for Events Page ---
+    if (bodyId === 'events-page') {
+        const eventModal = document.getElementById('event-modal');
+        const eventModalCloseButton = document.getElementById('event-modal-close-button');
+        const allEventCards = document.querySelectorAll('.event-card');
+
+        if (eventModal && eventModalCloseButton && allEventCards.length > 0) {
+            const openEventModal = (card) => {
+                const ds = card.dataset;
+                document.getElementById('event-modal-title').textContent = ds.title;
+                document.getElementById('event-modal-date').textContent = `${ds.day}, ${new Date(ds.date + 'T00:00:00').toLocaleDateString(undefined, { month: 'long', day: 'numeric', year: 'numeric' })}`;
+                document.getElementById('event-modal-time').textContent = ds.time;
+                document.getElementById('event-modal-description').textContent = ds.description;
+                document.getElementById('event-modal-location').textContent = ds.location;
+                
+                const calendarBtn = document.getElementById('event-modal-calendar-button');
+                if (ds.startIso && ds.endIso) {
+                    const url = new URL('https://www.google.com/calendar/render');
+                    url.searchParams.set('action', 'TEMPLATE');
+                    url.searchParams.set('text', ds.title);
+                    url.searchParams.set('dates', `${ds.startIso}/${ds.endIso}`);
+                    url.searchParams.set('details', ds.description);
+                    url.searchParams.set('location', ds.location);
+                    url.searchParams.set('ctz', 'America/Chicago');
+                    calendarBtn.href = url.toString();
+                    calendarBtn.style.display = 'inline-block';
+                } else {
+                    calendarBtn.style.display = 'none';
+                }
+                eventModal.classList.add('active');
+            };
+
+            const closeEventModal = () => {
+                eventModal.classList.remove('active');
+            };
+
+            allEventCards.forEach(card => {
+                card.addEventListener('click', () => openEventModal(card));
+            });
+
+            eventModalCloseButton.addEventListener('click', closeEventModal);
+            eventModal.addEventListener('click', e => {
+                if (e.target === eventModal) closeEventModal();
+            });
+
+            // Check for URL hash to auto-open a modal
+            const checkHash = () => {
+                if (window.location.hash && window.location.hash.startsWith('#event-')) {
+                    const eventId = window.location.hash.substring(7); // remove '#event-'
+                    const cardToOpen = document.querySelector(`.event-card[data-date="${eventId}"]`);
+                    if (cardToOpen) {
+                        openEventModal(cardToOpen);
+                    }
+                }
+            };
+            checkHash();
+        }
+    }
+
     // --- Logic for Contact Page ---
     if (bodyId === 'contact-page') {
         const preferredTeacher = localStorage.getItem('preferredTeacher');
@@ -150,66 +319,119 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // --- Gallery Filter & Lightbox Logic ---
     if (bodyId === 'gallery-page') {
-        // ... (existing gallery logic remains unchanged)
-    }
+        const galleryImages = [
+            { src: 'https://placehold.co/600x400/333/d2b48c?text=Recital+1', category: 'Recitals', caption: 'Winter Recital Performance' },
+            { src: 'https://placehold.co/600x400/444/d2b48c?text=Lesson+1', category: 'Lessons', caption: 'Piano Lesson with Yibing' },
+            { src: 'https://placehold.co/600x400/555/d2b48c?text=Concert+1', category: 'Concerts', caption: 'Orchestra Concert' },
+            { src: 'https://placehold.co/600x400/333/d2b48c?text=Event+1', category: 'Events', caption: 'Community Outreach Event' },
+            { src: 'https://placehold.co/600x400/444/d2b48c?text=Recital+2', category: 'Recitals', caption: 'Spring Recital' },
+            { src: 'https://placehold.co/600x400/555/d2b48c?text=Lesson+2', category: 'Lessons', caption: 'Cello Masterclass' },
+            { src: 'https://placehold.co/600x400/333/d2b48c?text=Recital+3', category: 'Recitals', caption: 'Student Showcase' },
+            { src: 'https://placehold.co/600x400/444/d2b48c?text=Event+2', category: 'Events', caption: 'Music Festival' },
+            { src: 'https://placehold.co/600x400/555/d2b48c?text=Concert+2', category: 'Concerts', caption: 'Chamber Music Night' },
+            { src: 'https://placehold.co/600x400/333/d2b48c?text=Lesson+3', category: 'Lessons', caption: 'Violin Practice' },
+            { src: 'https://placehold.co/600x400/444/d2b48c?text=Recital+4', category: 'Recitals', caption: 'Holiday Performance' },
+            { src: 'https://placehold.co/600x400/555/d2b48c?text=Event+3', category: 'Events', caption: 'Workshop with Guest Artist' },
+        ];
 
-    // --- NEW LOGIC for Events Page ---
-    if (bodyId === 'events-page') {
-        const eventModal = document.getElementById('event-modal');
-        const eventModalCloseButton = document.getElementById('event-modal-close-button');
-        const allEventCards = document.querySelectorAll('.event-card');
+        const galleryGrid = document.getElementById('gallery-grid');
+        const filtersContainer = document.getElementById('gallery-filters');
+        const noResultsEl = document.getElementById('no-results');
+        const lightboxModal = document.getElementById('lightbox-modal');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxCaption = document.getElementById('lightbox-caption');
+        const lightboxClose = document.getElementById('lightbox-close');
+        const lightboxPrev = document.getElementById('lightbox-prev');
+        const lightboxNext = document.getElementById('lightbox-next');
 
-        const openEventModal = (card) => {
-            const ds = card.dataset;
-            document.getElementById('event-modal-title').textContent = ds.title;
-            document.getElementById('event-modal-date').textContent = `${ds.day}, ${new Date(ds.date + 'T00:00:00').toLocaleDateString(undefined, { month: 'long', day: 'numeric', year: 'numeric' })}`;
-            document.getElementById('event-modal-time').textContent = ds.time;
-            document.getElementById('event-modal-description').textContent = ds.description;
-            document.getElementById('event-modal-location').textContent = ds.location;
-            
-            const calendarBtn = document.getElementById('event-modal-calendar-button');
-            if (ds.startIso && ds.endIso) {
-                const url = new URL('https://www.google.com/calendar/render');
-                url.searchParams.set('action', 'TEMPLATE');
-                url.searchParams.set('text', ds.title);
-                url.searchParams.set('dates', `${ds.startIso}/${ds.endIso}`);
-                url.searchParams.set('details', ds.description);
-                url.searchParams.set('location', ds.location);
-                url.searchParams.set('ctz', 'America/Chicago');
-                calendarBtn.href = url.toString();
-                calendarBtn.style.display = 'inline-block';
-            } else {
-                calendarBtn.style.display = 'none';
+        if (galleryGrid && filtersContainer && lightboxModal) {
+            const categories = ['All Photos', ...new Set(galleryImages.map(img => img.category))];
+
+            filtersContainer.innerHTML = categories.map(cat => `
+                <button class="gallery-filter ${cat === 'All Photos' ? 'active' : ''}" data-filter="${cat}">${cat}</button>
+            `).join('');
+
+            galleryGrid.innerHTML = galleryImages.map((img, index) => `
+                <div class="gallery-item" data-category="${img.category}" data-index="${index}" style="display: block;">
+                    <img src="${img.src}" alt="${img.caption}" class="w-full h-full object-cover">
+                    <div class="gallery-overlay">
+                        <p class="font-semibold">${img.caption}</p>
+                    </div>
+                </div>
+            `).join('');
+
+            const filterButtons = filtersContainer.querySelectorAll('.gallery-filter');
+            const galleryItems = galleryGrid.querySelectorAll('.gallery-item');
+            let currentImageIndex = 0;
+            let visibleItems = [...galleryItems];
+
+            function filterGallery(category) {
+                visibleItems = [];
+                let hasVisibleItems = false;
+                galleryItems.forEach(item => {
+                    const itemCategory = item.dataset.category;
+                    const shouldShow = (category === 'All Photos' || itemCategory === category);
+                    item.style.display = shouldShow ? 'block' : 'none';
+                    if (shouldShow) {
+                        visibleItems.push(item);
+                        hasVisibleItems = true;
+                    }
+                });
+                noResultsEl.style.display = hasVisibleItems ? 'none' : 'block';
             }
 
-            eventModal.classList.add('active');
-        };
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    const filter = this.dataset.filter;
+                    filterGallery(filter);
+                });
+            });
 
-        const closeEventModal = () => {
-            eventModal.classList.remove('active');
-        };
+            function showImage(index) {
+                if (index < 0) index = visibleItems.length - 1;
+                if (index >= visibleItems.length) index = 0;
+                currentImageIndex = index;
+                
+                const item = visibleItems[currentImageIndex];
+                const originalIndex = item.dataset.index;
+                const imgData = galleryImages[originalIndex];
 
-        allEventCards.forEach(card => {
-            card.addEventListener('click', () => openEventModal(card));
-        });
-
-        eventModalCloseButton.addEventListener('click', closeEventModal);
-        eventModal.addEventListener('click', e => {
-            if (e.target === eventModal) closeEventModal();
-        });
-
-        // Check for URL hash to auto-open a modal
-        const checkHash = () => {
-            if (window.location.hash && window.location.hash.startsWith('#event-')) {
-                const eventId = window.location.hash.substring(7); // remove '#event-'
-                const cardToOpen = document.querySelector(`.event-card[data-date="${eventId}"]`);
-                if (cardToOpen) {
-                    openEventModal(cardToOpen);
+                lightboxImg.src = imgData.src;
+                lightboxCaption.textContent = imgData.caption;
+            }
+            
+            function openLightbox(clickedItem) {
+                const itemIndexInVisible = visibleItems.indexOf(clickedItem);
+                if(itemIndexInVisible !== -1) {
+                    lightboxModal.classList.add('active');
+                    showImage(itemIndexInVisible);
                 }
             }
-        };
 
-        // Run on initial load
-        checkHash();
+            galleryItems.forEach(item => {
+                item.addEventListener('click', () => openLightbox(item));
+            });
+
+            function closeLightbox() {
+                lightboxModal.classList.remove('active');
+            }
+
+            lightboxClose.addEventListener('click', closeLightbox);
+            lightboxModal.addEventListener('click', e => {
+                if (e.target === lightboxModal) closeLightbox();
+            });
+            lightboxPrev.addEventListener('click', () => showImage(currentImageIndex - 1));
+            lightboxNext.addEventListener('click', () => showImage(currentImageIndex + 1));
+
+            document.addEventListener('keydown', e => {
+                if (!lightboxModal.classList.contains('active')) return;
+                if (e.key === 'Escape') closeLightbox();
+                if (e.key === 'ArrowLeft') showImage(currentImageIndex - 1);
+                if (e.key === 'ArrowRight') showImage(currentImageIndex + 1);
+            });
+        }
     }
 });
+

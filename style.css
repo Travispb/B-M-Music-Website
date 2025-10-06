@@ -89,12 +89,13 @@ FACULTY CARDS (Team Page)
 .faculty-card-img-container {
     width: 100%;
     overflow: hidden;
-    aspect-ratio: 1/1;
+    /* aspect-ratio removed to allow natural image dimensions */
 }
 .faculty-card-img {
     width: 100%;
-    height: 100%;
+    height: auto; /* Let height adjust to maintain original aspect ratio */
     object-fit: cover;
+    display: block; /* Prevents extra space below image */
 }
 .faculty-card-info {
     padding: 1rem;
@@ -208,12 +209,6 @@ TIMELINE (Team Page Modal)
     border-radius: 50%;
     border: 2px solid #222;
 }
-
-
-/* ================================================
-GALLERY STYLES
-================================================ */
-/* ... (existing gallery styles remain unchanged) ... */
 
 
 /* ================================================
