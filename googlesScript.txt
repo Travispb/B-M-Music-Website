@@ -1,0 +1,125 @@
+// The email address that should receive the form submissions.
+const RECIPIENT_EMAIL = "travisbirkhoff@gmail.com";
+
+// *** IMPORTANT ***
+// This name MUST EXACTLY MATCH the name of the tab in your Google Sheet.
+const SHEET_NAME = "Sheet1";
+
+// --- NEW CONFIGURATION FOR SUMMARY REPORT ---
+// Set to 'true' if you want the sheet to be cleared after the summary is sent.
+// Set to 'false' if you want to keep a running log of all submissions.
+const CLEAR_SHEET_AFTER_SENDING = false;
+
+
+// This function handles the real-time form submission from your website.
+function doPost(e) {
+  try {
+    const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(SHEET_NAME);
+    if (!sheet) {
+      throw new Error("Sheet '" + SHEET_NAME + "' not found. Please check the SHEET_NAME variable in the script.");
+    }
+    const data = e.parameter;
+    const timestamp = new Date();
+
+    const newRow = [
+      timestamp, data['first-name'] || '', data['last-name'] || '', data.phone || '',
+      data.email || '', data.instrument || '', data.experience || '', data['preferred-day'] || '',
+      data['preferred-teacher'] || '', data.location || '', data['hear-about-us'] || '', data.message || ''
+    ];
+
+    sheet.appendRow(newRow);
+    sendEmailNotification(data);
+
+    return ContentService
+      .createTextOutput(JSON.stringify({ "result": "success" }))
+      .setMimeType(ContentService.MimeType.JSON);
+
+  } catch (error) {
+    Logger.log(error.toString());
+    return ContentService
+      .createTextOutput(JSON.stringify({ "result": "error", "error": error.toString() }))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+}
+
+// This function sends the instant email notification for a single submission.
+function sendEmailNotification(formData) {
+  let subject = "New Trial Lesson Request from " + formData['first-name'] + " " + formData['last-name'];
+  let body = "A new trial lesson request has been submitted through the website.\n\n--- Details ---\n\n";
+  body += "First Name: " + (formData['first-name'] || 'N/A') + "\n";
+  body += "Last Name: " + (formData['last-name'] || 'N/A') + "\n";
+  // ... (rest of the body is the same)
+  body += "Phone: " + (formData.phone || 'N/A') + "\n";
+  body += "Email: " + (formData.email || 'N/A') + "\n\n";
+  body += "Instrument: " + (formData.instrument || 'N/A') + "\n";
+  body += "Musical Background: " + (formData.experience || 'N/A') + "\n";
+  body += "Preferred Day: " + (formData['preferred-day'] || 'N/A') + "\n";
+  body += "Preferred Teacher: " + (formData['preferred-teacher'] || 'N/A') + "\n";
+  body += "Location: " + (formData.location || 'N/A') + "\n\n";
+  body += "How they heard about us: " + (formData['hear-about-us'] || 'N/A') + "\n";
+  body += "Message:\n" + (formData.message || 'N/A') + "\n";
+
+  MailApp.sendEmail(RECIPIENT_EMAIL, subject, body);
+}
+
+
+// --- NEW FUNCTION TO SEND THE PERIODIC SUMMARY ---
+function sendSummaryReport() {
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(SHEET_NAME);
+  const data = sheet.getDataRange().getValues();
+
+  // Don't send an email if there are no submissions (only a header row)
+  if (data.length <= 1) {
+    Logger.log("No new submissions to report. Email not sent.");
+    return;
+  }
+
+  const headers = data.shift(); // Remove header row and store it
+  const subject = "Website Submissions Summary - " + new Date().toLocaleDateString();
+  
+  // Build an HTML table for the email body
+  let htmlBody = `
+    <html>
+      <head>
+        <style>
+          body { font-family: sans-serif; }
+          table { border-collapse: collapse; width: 100%; }
+          th, td { border: 1px solid #dddddd; text-align: left; padding: 8px; }
+          th { background-color: #f2f2f2; }
+          tr:nth-child(even) { background-color: #f9f9f9; }
+        </style>
+      </head>
+      <body>
+        <h2>Here is the summary of website submissions:</h2>
+        <table>
+          <thead>
+            <tr><th>${headers.join('</th><th>')}</th></tr>
+          </thead>
+          <tbody>
+  `;
+
+  data.forEach(row => {
+    htmlBody += `<tr><td>${row.join('</td><td>')}</td></tr>`;
+  });
+
+  htmlBody += `
+          </tbody>
+        </table>
+      </body>
+    </html>
+  `;
+
+  // Send the email with the HTML table
+  MailApp.sendEmail({
+    to: RECIPIENT_EMAIL,
+    subject: subject,
+    htmlBody: htmlBody
+  });
+  
+  // Optionally, clear the sheet for the next period
+  if (CLEAR_SHEET_AFTER_SENDING) {
+    // This clears all data but leaves the header row
+    sheet.getRange(2, 1, sheet.getLastRow() - 1, sheet.getLastColumn()).clearContent();
+  }
+}
+
