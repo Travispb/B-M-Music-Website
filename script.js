@@ -315,7 +315,54 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             localStorage.removeItem('preferredTeacher');
         }
+
+        const form = document.getElementById('contact-form');
+        const successMessage = document.getElementById('success-message');
+        const errorMessage = document.getElementById('error-message');
+        
+        if (form) {
+            const submitButton = form.querySelector('button[type="submit"]');
+
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+                
+                if (submitButton) {
+                    submitButton.disabled = true;
+                    submitButton.textContent = 'Submitting...';
+                }
+
+                const formData = new FormData(form);
+                
+                fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.result === 'success') {
+                        form.classList.add('hidden');
+                        if (successMessage) { // Check if the element exists
+                            successMessage.classList.remove('hidden');
+                        }
+                    } else {
+                        form.classList.add('hidden');
+                        if (errorMessage) { // Check if the element exists
+                            errorMessage.classList.remove('hidden');
+                        }
+                        console.error('Google Apps Script Error:', data.error);
+                    }
+                })
+                .catch(error => {
+                    form.classList.add('hidden');
+                    if (errorMessage) { // Check if the element exists
+                        errorMessage.classList.remove('hidden');
+                    }
+                    console.error('Network Error:', error);
+                });
+            });
+        }
     }
+
 
     // --- Gallery Filter & Lightbox Logic ---
     if (bodyId === 'gallery-page') {

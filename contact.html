@@ -25,7 +25,7 @@
                 <a href="lessons.html" class="nav-link text-lg">Lessons & Pricing</a>
                 <a href="events.html" class="nav-link text-lg">Events</a>
                 <a href="gallery.html" class="nav-link text-lg">Gallery</a>
-                <a href="contact.html" class="nav-link text-lg">Contact</a>
+                <a href="contact.html" class="nav-link text-lg active">Contact</a>
             </div>
             <div class="hidden md:flex items-center space-x-6">
                 <a href="https://bandm.mymusicstaff.com/Login" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-brand-tan font-medium transition duration-300 text-lg">Student Portal</a>
@@ -44,7 +44,7 @@
             <a href="lessons.html" class="block text-center py-2 nav-link mobile-nav-link">Lessons & Pricing</a>
             <a href="events.html" class="block text-center py-2 nav-link mobile-nav-link">Events</a>
             <a href="gallery.html" class="block text-center py-2 nav-link mobile-nav-link">Gallery</a>
-            <a href="contact.html" class="block text-center py-2 nav-link mobile-nav-link">Contact</a>
+            <a href="contact.html" class="block text-center py-2 nav-link mobile-nav-link active">Contact</a>
             <a href="https://bandm.mymusicstaff.com/Login" target="_blank" rel="noopener noreferrer" class="block text-center py-2 nav-link mobile-nav-link">Student Portal</a>
             <a href="#book-trial" class="block text-center bg-brand-tan text-gray-900 font-bold mt-2 py-2 px-5 rounded-md hover:bg-opacity-90 transition duration-300">Book a Trial</a>
         </div>
@@ -77,30 +77,31 @@
         <section id="book-trial" class="py-20 bg-brand-dark">
             <div class="container mx-auto px-6">
                 <h2 class="text-4xl font-bold text-brand-tan text-center mb-12">Schedule Your Trial Lesson</h2>
-                <form class="max-w-3xl mx-auto space-y-6">
+                
+                <form id="contact-form" action="https://script.google.com/macros/s/AKfycby5-8qLoc1qXZG49iB76ieZ6qcCyXxNuHVEtgEc3MHU_iLa4Hp_02SlMPedrPEdTcTwLw/exec" method="POST" class="max-w-3xl mx-auto space-y-6">
                     <div class="grid md:grid-cols-2 gap-6">
                         <div>
                             <label for="first-name" class="block mb-2 font-semibold">First Name*</label>
-                            <input type="text" id="first-name" required class="w-full bg-[#222] border border-gray-600 rounded-md p-3">
+                            <input type="text" id="first-name" name="first-name" required class="w-full bg-[#222] border border-gray-600 rounded-md p-3">
                         </div>
                         <div>
                             <label for="last-name" class="block mb-2 font-semibold">Last Name*</label>
-                            <input type="text" id="last-name" required class="w-full bg-[#222] border border-gray-600 rounded-md p-3">
+                            <input type="text" id="last-name" name="last-name" required class="w-full bg-[#222] border border-gray-600 rounded-md p-3">
                         </div>
                     </div>
                      <div class="grid md:grid-cols-2 gap-6">
                         <div>
                             <label for="phone" class="block mb-2 font-semibold">Phone*</label>
-                            <input type="tel" id="phone" required class="w-full bg-[#222] border border-gray-600 rounded-md p-3">
+                            <input type="tel" id="phone" name="phone" required class="w-full bg-[#222] border border-gray-600 rounded-md p-3">
                         </div>
                         <div>
                             <label for="email" class="block mb-2 font-semibold">Email*</label>
-                            <input type="email" id="email" required class="w-full bg-[#222] border border-gray-600 rounded-md p-3">
+                            <input type="email" id="email" name="email" required class="w-full bg-[#222] border border-gray-600 rounded-md p-3">
                         </div>
                     </div>
                     <div>
                         <label for="instrument" class="block mb-2 font-semibold">Instrument</label>
-                        <select id="instrument" class="w-full bg-[#222] border border-gray-600 rounded-md p-3">
+                        <select id="instrument" name="instrument" class="w-full bg-[#222] border border-gray-600 rounded-md p-3">
                             <option selected disabled>Choose an option</option>
                             <option>Piano</option>
                             <option>Violin</option>
@@ -114,21 +115,21 @@
                     </div>
                     <div>
                         <label for="experience" class="block mb-2 font-semibold">Musical Background/Learning Experience</label>
-                        <textarea id="experience" rows="4" class="w-full bg-[#222] border border-gray-600 rounded-md p-3" placeholder="e.g., Beginner, 2 years of piano, etc."></textarea>
+                        <textarea id="experience" name="experience" rows="4" class="w-full bg-[#222] border border-gray-600 rounded-md p-3" placeholder="e.g., Beginner, 2 years of piano, etc."></textarea>
                     </div>
                      <div class="grid md:grid-cols-2 gap-6">
                         <div>
                             <label for="preferred-day" class="block mb-2 font-semibold">Preferred Lesson Day</label>
-                            <input type="text" id="preferred-day" class="w-full bg-[#222] border border-gray-600 rounded-md p-3" placeholder="e.g., Weekday afternoons">
+                            <input type="text" id="preferred-day" name="preferred-day" class="w-full bg-[#222] border border-gray-600 rounded-md p-3" placeholder="e.g., Weekday afternoons">
                         </div>
                          <div>
                             <label for="preferred-teacher" class="block mb-2 font-semibold">Preferred Teacher</label>
-                            <input type="text" id="preferred-teacher" class="w-full bg-[#222] border border-gray-600 rounded-md p-3">
+                            <input type="text" id="preferred-teacher" name="preferred-teacher" class="w-full bg-[#222] border border-gray-600 rounded-md p-3">
                         </div>
                     </div>
                     <div>
                         <label for="location" class="block mb-2 font-semibold">Location</label>
-                        <select id="location" class="w-full bg-[#222] border border-gray-600 rounded-md p-3">
+                        <select id="location" name="location" class="w-full bg-[#222] border border-gray-600 rounded-md p-3">
                             <option selected disabled>Choose an option</option>
                             <option>McKinney Location</option>
                             <option>Virtual</option>
@@ -136,7 +137,7 @@
                     </div>
                     <div>
                         <label for="hear-about-us" class="block mb-2 font-semibold">How Did You Hear About Us</label>
-                        <select id="hear-about-us" class="w-full bg-[#222] border border-gray-600 rounded-md p-3">
+                        <select id="hear-about-us" name="hear-about-us" class="w-full bg-[#222] border border-gray-600 rounded-md p-3">
                             <option selected disabled>Choose an option</option>
                             <option>Google Search</option>
                             <option>Social Media</option>
@@ -146,12 +147,23 @@
                     </div>
                     <div>
                         <label for="message" class="block mb-2 font-semibold">Leave us a message...</label>
-                        <textarea id="message" rows="4" class="w-full bg-[#222] border border-gray-600 rounded-md p-3"></textarea>
+                        <textarea id="message" name="message" rows="4" class="w-full bg-[#222] border border-gray-600 rounded-md p-3"></textarea>
                     </div>
                     <div class="text-center pt-4">
                         <button type="submit" class="bg-brand-tan text-gray-900 font-bold py-3 px-12 rounded-md text-lg hover:bg-opacity-90 transition duration-300">Submit Request</button>
                     </div>
                 </form>
+
+                <!-- SUCCESS AND ERROR MESSAGES GO HERE -->
+                <div id="success-message" class="hidden text-center max-w-3xl mx-auto bg-[#222] border border-green-500 rounded-md p-8 mt-6">
+                    <h3 class="text-3xl font-bold text-green-400">Submitted Successfully!</h3>
+                    <p class="text-lg text-gray-300 mt-4">Thank you for your interest. We will be in touch with you shortly.</p>
+                </div>
+                <div id="error-message" class="hidden text-center max-w-3xl mx-auto bg-[#222] border border-red-500 rounded-md p-8 mt-6">
+                    <h3 class="text-3xl font-bold text-red-400">Oops! Something went wrong.</h3>
+                    <p class="text-lg text-gray-300 mt-4">Could not submit the form. Please try again later or email us directly.</p>
+                </div>
+
             </div>
         </section>
     </main>
@@ -169,3 +181,4 @@
     <script src="script.js"></script>
 </body>
 </html>
+
