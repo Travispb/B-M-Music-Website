@@ -1,17 +1,15 @@
-// The email address that should receive the form submissions.
+// The email address that should receive the form submissions and reports.
+// To add more recipients, separate emails with a comma.
 const RECIPIENT_EMAIL = "travisbirkhoff@gmail.com";
 
-// *** IMPORTANT ***
 // This name MUST EXACTLY MATCH the name of the tab in your Google Sheet.
 const SHEET_NAME = "Sheet1";
 
-// --- NEW CONFIGURATION FOR SUMMARY REPORT ---
-// Set to 'true' if you want the sheet to be cleared after the summary is sent.
-// Set to 'false' if you want to keep a running log of all submissions.
+// Set to 'true' if you want the sheet to be cleared after the analytics report is sent.
 const CLEAR_SHEET_AFTER_SENDING = false;
 
 
-// This function handles the real-time form submission from your website.
+// Handles the real-time form submission from your website.
 function doPost(e) {
   try {
     const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(SHEET_NAME);
@@ -42,13 +40,12 @@ function doPost(e) {
   }
 }
 
-// This function sends the instant email notification for a single submission.
+// Sends the instant email notification for a single submission.
 function sendEmailNotification(formData) {
   let subject = "New Trial Lesson Request from " + formData['first-name'] + " " + formData['last-name'];
   let body = "A new trial lesson request has been submitted through the website.\n\n--- Details ---\n\n";
   body += "First Name: " + (formData['first-name'] || 'N/A') + "\n";
   body += "Last Name: " + (formData['last-name'] || 'N/A') + "\n";
-  // ... (rest of the body is the same)
   body += "Phone: " + (formData.phone || 'N/A') + "\n";
   body += "Email: " + (formData.email || 'N/A') + "\n\n";
   body += "Instrument: " + (formData.instrument || 'N/A') + "\n";
@@ -63,62 +60,88 @@ function sendEmailNotification(formData) {
 }
 
 
-// --- NEW FUNCTION TO SEND THE PERIODIC SUMMARY ---
-function sendSummaryReport() {
+// --- NEW ANALYTICS SUMMARY FUNCTION ---
+function sendAnalyticsReport() {
   const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(SHEET_NAME);
   const data = sheet.getDataRange().getValues();
 
-  // Don't send an email if there are no submissions (only a header row)
   if (data.length <= 1) {
-    Logger.log("No new submissions to report. Email not sent.");
+    Logger.log("No new submissions to report.");
     return;
   }
 
-  const headers = data.shift(); // Remove header row and store it
-  const subject = "Website Submissions Summary - " + new Date().toLocaleDateString();
-  
-  // Build an HTML table for the email body
+  const headers = data.shift(); // Remove header row
+
+  // Find column indexes to make the script robust
+  const instrumentColIndex = headers.indexOf('instrument');
+  const referralColIndex = headers.indexOf('hear-about-us');
+
+  const totalSubmissions = data.length;
+  const instrumentCounts = {};
+  const referralCounts = {};
+
+  // Loop through the data to calculate stats
+  data.forEach(row => {
+    const instrument = row[instrumentColIndex] || "Not Specified";
+    instrumentCounts[instrument] = (instrumentCounts[instrument] || 0) + 1;
+
+    const referral = row[referralColIndex] || "Not Specified";
+    referralCounts[referral] = (referralCounts[referral] || 0) + 1;
+  });
+
+  // Build the HTML for the email
   let htmlBody = `
     <html>
       <head>
         <style>
-          body { font-family: sans-serif; }
-          table { border-collapse: collapse; width: 100%; }
-          th, td { border: 1px solid #dddddd; text-align: left; padding: 8px; }
-          th { background-color: #f2f2f2; }
-          tr:nth-child(even) { background-color: #f9f9f9; }
+          body { font-family: sans-serif; margin: 20px; color: #333; }
+          h2 { color: #1a1a1a; }
+          .card { border: 1px solid #ddd; border-radius: 8px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+          .stat { font-size: 2.5em; font-weight: bold; color: #d2b48c; }
+          table { border-collapse: collapse; width: 100%; margin-top: 15px; }
+          th, td { text-align: left; padding: 12px; border-bottom: 1px solid #ddd; }
+          th { background-color: #f7f7f7; }
         </style>
       </head>
       <body>
-        <h2>Here is the summary of website submissions:</h2>
-        <table>
-          <thead>
-            <tr><th>${headers.join('</th><th>')}</th></tr>
-          </thead>
-          <tbody>
-  `;
+        <h2>B&M Website Analytics Summary</h2>
+        
+        <div class="card">
+          <h3>Total New Inquiries</h3>
+          <p class="stat">${totalSubmissions}</p>
+        </div>
 
-  data.forEach(row => {
-    htmlBody += `<tr><td>${row.join('</td><td>')}</td></tr>`;
-  });
+        <div class="card">
+          <h3>Instrument Interest</h3>
+          <table>
+            <tr><th>Instrument</th><th>Inquiries</th></tr>
+            ${Object.entries(instrumentCounts).map(([instrument, count]) => `<tr><td>${instrument}</td><td>${count}</td></tr>`).join('')}
+          </table>
+        </div>
 
-  htmlBody += `
-          </tbody>
-        </table>
+        <div class="card">
+          <h3>Referral Sources</h3>
+          <table>
+            <tr><th>Source</th><th>Count</th><th>Percentage</th></tr>
+            ${Object.entries(referralCounts).map(([source, count]) => {
+              const percentage = ((count / totalSubmissions) * 100).toFixed(1);
+              return `<tr><td>${source}</td><td>${count}</td><td>${percentage}%</td></tr>`;
+            }).join('')}
+          </table>
+        </div>
       </body>
     </html>
   `;
 
-  // Send the email with the HTML table
+  const subject = "Website Analytics Report - " + new Date().toLocaleDateString();
+
   MailApp.sendEmail({
     to: RECIPIENT_EMAIL,
     subject: subject,
     htmlBody: htmlBody
   });
-  
-  // Optionally, clear the sheet for the next period
+
   if (CLEAR_SHEET_AFTER_SENDING) {
-    // This clears all data but leaves the header row
     sheet.getRange(2, 1, sheet.getLastRow() - 1, sheet.getLastColumn()).clearContent();
   }
 }
