@@ -206,7 +206,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const calculator = document.getElementById('price-calculator');
         if (calculator) {
             const PRICE_CONFIG = {
-                basePrices: { 30: 40, 45: 55, 60: 70 },
+                basePrices: { 30: 40, 45: 67, 60: 76},
                 monthlyDiscount: 0.95,
                 multiStudentDiscount: 0.95 
             };
