@@ -139,7 +139,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const facultyModal = document.getElementById('faculty-modal');
         const modalCloseButton = document.getElementById('modal-close-button');
         const modalImg = document.getElementById('modal-img');
-        const modalVideoContainer = document.getElementById('modal-video-container');
+        const modalVideoSection = document.getElementById('modal-video-section');
         const modalVideoIframe = document.getElementById('modal-video-iframe');
         const achievementsContainer = document.getElementById('modal-achievements');
 
@@ -150,15 +150,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 const imgSrc = this.dataset.imgSrc;
                 const imgPos = this.dataset.imgPos || '50% 50%';
 
+                // Always show the image first
+                modalImg.src = imgSrc;
+                modalImg.style.objectPosition = imgPos;
+
+                // Show video section only if a URL exists
                 if (videoUrl) {
-                    modalImg.classList.add('hidden');
-                    modalVideoContainer.classList.remove('hidden');
+                    modalVideoSection.classList.remove('hidden');
                     modalVideoIframe.src = videoUrl;
                 } else {
-                    modalVideoContainer.classList.add('hidden');
-                    modalImg.classList.remove('hidden');
-                    modalImg.src = imgSrc;
-                    modalImg.style.objectPosition = imgPos;
+                    modalVideoSection.classList.add('hidden');
+                    modalVideoIframe.src = ''; 
                 }
 
                 document.getElementById('modal-name').textContent = name;
@@ -206,37 +208,62 @@ document.addEventListener('DOMContentLoaded', function() {
         const calculator = document.getElementById('price-calculator');
         if (calculator) {
             const PRICE_CONFIG = {
-                basePrices: { 30: 40, 45: 67, 60: 76},
-                monthlyDiscount: 0.95,
-                multiStudentDiscount: 0.95 
+                monthly: { // Per-lesson rate when paying monthly
+                    C: { 30: 40, 45: 67, 60: 76 },
+                    B: { 30: 45, 45: 74, 60: 88 },
+                    A: { 30: 50, 45: 83, 60: 98 }
+                },
+                per_lesson: { // Rate when paying for a single lesson
+                    C: { 30: 52, 45: 85, 60: 95 },
+                    B: { 30: 58, 45: 93, 60: 109 },
+                    A: { 30: 64, 45: 105, 60: 120 }
+                },
+                siblingDiscount: 0.90, // 10% discount
+                schoolWeeks: 47
             };
             
-            const inputs = calculator.querySelectorAll('input, select');
+            const inputs = calculator.querySelectorAll('input');
             const priceResultEl = document.getElementById('price-result');
             const pricePerEl = document.getElementById('price-per');
+            const priceBreakdownEl = document.getElementById('price-breakdown');
 
             function calculatePrice() {
+                const tier = document.querySelector('input[name="tier"]:checked').value;
                 const duration = document.querySelector('input[name="duration"]:checked').value;
                 const payment = document.querySelector('input[name="payment"]:checked').value;
                 const students = parseInt(document.getElementById('students').value) || 1;
 
-                let price = PRICE_CONFIG.basePrices[duration];
-                let perText = "Per Lesson";
+                const perLessonRate = PRICE_CONFIG[payment][tier][duration];
+                let totalPrice;
+                let perText = "";
+                let breakdownText = "";
 
-                if (payment === 'weekly') {
-                    perText = "Per Week";
-                } else if (payment === 'monthly') {
-                    price = price * 4 * PRICE_CONFIG.monthlyDiscount;
-                    perText = "Per Month";
-                }
-                
-                price *= students;
-                if (students > 1) {
-                    price *= PRICE_CONFIG.multiStudentDiscount;
+                if (payment === 'monthly') {
+                    const monthlyBasePrice = (perLessonRate * PRICE_CONFIG.schoolWeeks) / 12;
+
+                    if (students > 1) {
+                        totalPrice = monthlyBasePrice + (monthlyBasePrice * (students - 1) * PRICE_CONFIG.siblingDiscount);
+                    } else {
+                        totalPrice = monthlyBasePrice;
+                    }
+
+                    perText = "/ month";
+                    breakdownText = `Based on 47 lessons/year at $${perLessonRate}/lesson`;
+
+                } else if (payment === 'per_lesson') {
+                    if (students > 1) {
+                        totalPrice = perLessonRate + (perLessonRate * (students - 1) * PRICE_CONFIG.siblingDiscount);
+                    } else {
+                        totalPrice = perLessonRate;
+                    }
+                    
+                    perText = "/ lesson";
+                    breakdownText = "Flexible scheduling, no annual commitment.";
                 }
 
-                priceResultEl.textContent = `$${Math.round(price)}`;
+                priceResultEl.textContent = `$${Math.round(totalPrice)}`;
                 pricePerEl.textContent = perText;
+                priceBreakdownEl.textContent = breakdownText;
             }
             inputs.forEach(input => {
                 input.addEventListener('input', calculatePrice);
@@ -481,4 +508,3 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 });
-
