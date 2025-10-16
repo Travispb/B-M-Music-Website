@@ -150,11 +150,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 const imgSrc = this.dataset.imgSrc;
                 const imgPos = this.dataset.imgPos || '50% 50%';
 
-                // Always show the image first
                 modalImg.src = imgSrc;
                 modalImg.style.objectPosition = imgPos;
 
-                // Show video section only if a URL exists
                 if (videoUrl) {
                     modalVideoSection.classList.remove('hidden');
                     modalVideoIframe.src = videoUrl;
@@ -318,10 +316,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (e.target === eventModal) closeEventModal();
             });
 
-            // Check for URL hash to auto-open a modal
             const checkHash = () => {
                 if (window.location.hash && window.location.hash.startsWith('#event-')) {
-                    const eventId = window.location.hash.substring(7); // remove '#event-'
+                    const eventId = window.location.hash.substring(7);
                     const cardToOpen = document.querySelector(`.event-card[data-date="${eventId}"]`);
                     if (cardToOpen) {
                         openEventModal(cardToOpen);
@@ -332,8 +329,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // --- Logic for Contact Page ---
-    if (bodyId === 'contact-page') {
+    // --- Logic for Contact and Lessons Page Forms ---
+    if (bodyId === 'contact-page' || bodyId === 'lessons-page') {
         const preferredTeacher = localStorage.getItem('preferredTeacher');
         if (preferredTeacher) {
             const teacherInput = document.getElementById('preferred-teacher');
@@ -368,12 +365,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 .then(data => {
                     if (data.result === 'success') {
                         form.classList.add('hidden');
-                        if (successMessage) { // Check if the element exists
+                        if (successMessage) {
                             successMessage.classList.remove('hidden');
                         }
                     } else {
                         form.classList.add('hidden');
-                        if (errorMessage) { // Check if the element exists
+                        if (errorMessage) {
                             errorMessage.classList.remove('hidden');
                         }
                         console.error('Google Apps Script Error:', data.error);
@@ -381,7 +378,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 })
                 .catch(error => {
                     form.classList.add('hidden');
-                    if (errorMessage) { // Check if the element exists
+                    if (errorMessage) {
                         errorMessage.classList.remove('hidden');
                     }
                     console.error('Network Error:', error);
@@ -389,7 +386,6 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
     }
-
 
     // --- Gallery Filter & Lightbox Logic ---
     if (bodyId === 'gallery-page') {
