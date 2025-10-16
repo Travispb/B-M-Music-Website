@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // --- Active Navigation Link Logic ---
     const navLinks = document.querySelectorAll('header .nav-link'); // Scoped to header
-    const currentPath = window.location.pathname.split('/').pop() || 'home.html';
+    const currentPath = window.location.pathname.split('/').pop() || 'index.html';
     
     navLinks.forEach(link => {
         const linkPath = link.getAttribute('href').split('/').pop();
